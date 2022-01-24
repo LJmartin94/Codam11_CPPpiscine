@@ -6,7 +6,7 @@
 #    By: limartin <limartin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/01/24 15:47:54 by limartin      #+#    #+#                  #
-#    Updated: 2022/01/24 17:31:31 by limartin      ########   odam.nl          #
+#    Updated: 2022/01/24 17:38:37 by limartin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,9 +33,8 @@ $(NAME): $(OBJ)
 	$(CC) -o $(NAME) $(OBJ) $(CFLAGS)
 	@echo "$(NAME) compiled"
 
-# %.o: %.cpp $(HEADER_FILES)
 %.o: %.cpp
-	$(CC) -o $@ -c $< $(CFLAGS) -I $(INCL_PATH)
+	$(CC) -o $@ -c $< $(CFLAGS) -I $(HEADER_FILES)
 
 clean:
 	rm -f $(OBJ) 
