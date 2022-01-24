@@ -6,7 +6,7 @@
 #    By: limartin <limartin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/01/24 15:47:54 by limartin      #+#    #+#                  #
-#    Updated: 2022/01/24 17:17:41 by limartin      ########   odam.nl          #
+#    Updated: 2022/01/24 17:31:31 by limartin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 SRC = $(SRC_PATH)megaphone.cpp \
 
-# OBJ := ${SRC:%.cpp=%.o}
-OBJ = $(SRC:.cpp=.o)
+OBJ := $(SRC:%.cpp=%.o)
 
 all: $(NAME)
 
@@ -35,7 +34,7 @@ $(NAME): $(OBJ)
 	@echo "$(NAME) compiled"
 
 # %.o: %.cpp $(HEADER_FILES)
-.cpp.o:
+%.o: %.cpp
 	$(CC) -o $@ -c $< $(CFLAGS) -I $(INCL_PATH)
 
 clean:
