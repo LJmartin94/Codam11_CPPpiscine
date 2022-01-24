@@ -6,7 +6,7 @@
 #    By: limartin <limartin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/01/24 15:47:54 by limartin      #+#    #+#                  #
-#    Updated: 2022/01/24 20:57:13 by limartin      ########   odam.nl          #
+#    Updated: 2022/01/24 21:07:48 by limartin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
-SRC = $(SRC_PATH)phonebook.cpp \
+SRC = $(SRC_PATH)main.cpp \
 
 OBJ := $(SRC:%.cpp=%.o)
 
