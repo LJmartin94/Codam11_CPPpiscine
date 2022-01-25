@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:03:00 by limartin      #+#    #+#                 */
-/*   Updated: 2022/01/24 21:51:02 by limartin      ########   odam.nl         */
+/*   Updated: 2022/01/25 14:06:24 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,36 @@
 
 int main()
 {
+	enum CommandType { ADD, SEARCH, EXIT, ERROR};
+	CommandType inputMatch;
+
 	while(true)
 	{
 		std::string buf;
 		std::cin >> buf;
-		switch (buf)
+		inputMatch = ERROR;
+		if (buf.compare("ADD") == 0)
+			inputMatch = ADD;
+		else if (buf.compare("SEARCH") == 0)
+			inputMatch = SEARCH;
+		else if (buf.compare("EXIT") == 0)
+			inputMatch = EXIT;
+		switch(inputMatch)
 		{
-			case "ADD":
+			case ADD:
 				std::cout << "Contact added." << std::endl;
-			case "SEARCH":
+				break;
+			case SEARCH:
 				std::cout << "Looking up contact." << std::endl;
-			case "EXIT":
+				break;
+			case EXIT:
 				std::cout << "Exiting program" << std::endl;
+				return (0);
+			case ERROR:
+				std::cout << "ERROR" << std::endl;
 				break;
 		}
-		std::cout << buf << std::endl;
+		std::cout << std::endl;
 	}
+	return (0);
 }
