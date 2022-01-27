@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:08:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/01/25 17:57:03 by limartin      ########   odam.nl         */
+/*   Updated: 2022/01/27 20:28:24 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 // PUBLIC
 Phonebook::Phonebook(void)
 {
+	this->commands[ADD] = &Phonebook::ft_add;
+	this->commands[SEARCH] = &Phonebook::ft_search;
+	this->commands[EXIT] = &Phonebook::ft_exit;
+	this->commands[ERROR] = &Phonebook::ft_error;
 	std::cout << "Phonebook created." << std::endl;
 	return;
 }
@@ -39,6 +43,7 @@ int Phonebook::doCommand(std::string buf)
 		inputMatch = EXIT;
 	
 	(this->*commands[inputMatch])();
+	return(0);
 }
 
 // PRIVATE

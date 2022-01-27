@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:08:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/01/25 17:59:47 by limartin      ########   odam.nl         */
+/*   Updated: 2022/01/27 20:23:25 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ class Phonebook
 	int ft_search();
 	int ft_exit();
 	int ft_error();
-	int (Phonebook::*commands[4])() = {ft_add, ft_search, ft_exit, ft_error};
+	int (Phonebook::*commands[4])();
+
 	enum _CommandType { ADD, SEARCH, EXIT, ERROR};
 };
 
