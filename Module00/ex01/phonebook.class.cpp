@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:08:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/01/27 20:28:24 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/01 19:44:45 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ Phonebook::Phonebook(void)
 	this->commands[SEARCH] = &Phonebook::ft_search;
 	this->commands[EXIT] = &Phonebook::ft_exit;
 	this->commands[ERROR] = &Phonebook::ft_error;
+
+	this->_contactsSaved = 0;
 	std::cout << "Phonebook created." << std::endl;
 	return;
 }

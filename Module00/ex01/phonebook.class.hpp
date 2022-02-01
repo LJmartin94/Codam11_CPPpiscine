@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:08:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/01 17:58:37 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/01 19:44:34 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Phonebook
 	
 	private:
 	Contact contents[8];
+	int _contactsSaved;
 
 	int ft_add();
 	int ft_search();
