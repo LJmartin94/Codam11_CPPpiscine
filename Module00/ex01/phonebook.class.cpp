@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:08:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/01 19:44:45 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/01 20:07:16 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,12 @@ int Phonebook::doCommand(std::string buf)
 // PRIVATE
 int Phonebook::ft_add()
 {
-	std::cout << "Contact added." << std::endl;
+	int i;
+
+	i = this->_contactsSaved % 8;
+	this->_contactArray[i].set_firstName("Pete");
+	std::cout << i << " Contact added." << std::endl;
+	this->_contactsSaved++;
 	return (0);
 }
 

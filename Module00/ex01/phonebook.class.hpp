@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:08:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/01 19:44:34 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/01 20:06:58 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Phonebook
 	int doCommand(std::string buf);
 	
 	private:
-	Contact contents[8];
+	Contact _contactArray[8];
 	int _contactsSaved;
 
 	int ft_add();
