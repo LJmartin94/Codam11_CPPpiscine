@@ -6,12 +6,14 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:08:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/01/27 20:23:25 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/01 17:58:37 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_CLASS_H
 # define PHONEBOOK_CLASS_H
+
+#include "contact.class.hpp"
 
 class Phonebook
 {
@@ -21,12 +23,13 @@ class Phonebook
 	int doCommand(std::string buf);
 	
 	private:
+	Contact contents[8];
+
 	int ft_add();
 	int ft_search();
 	int ft_exit();
 	int ft_error();
 	int (Phonebook::*commands[4])();
-
 	enum _CommandType { ADD, SEARCH, EXIT, ERROR};
 };
 
