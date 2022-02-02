@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:08:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/01 20:07:16 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/02 14:06:41 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,43 @@ int Phonebook::doCommand(std::string buf)
 int Phonebook::ft_add()
 {
 	int i;
+	std::string buf;
 
 	i = this->_contactsSaved % 8;
-	this->_contactArray[i].set_firstName("Pete");
-	std::cout << i << " Contact added." << std::endl;
+
+	std::cout << "Please enter FIRST NAME:" << std::endl;
+	std::cin >> buf;
+	this->_contactArray[i].set_firstName(buf);
+
+	std::cout << "Please enter LAST NAME:" << std::endl;
+	std::cin >> buf;
+	this->_contactArray[i].set_lastName(buf);
+
+	std::cout << "Please enter NICKNAME:" << std::endl;
+	std::cin >> buf;
+	this->_contactArray[i].set_nickname(buf);
+
+	std::cout << "Please enter PHONE NUMBER:" << std::endl;
+	std::cin >> buf;
+	this->_contactArray[i].set_phoneNumber(buf);
+
+	std::cout << "Please enter DARKEST SECRET:" << std::endl;
+	std::cin >> buf;
+	this->_contactArray[i].set_secret(buf);
+
+	std::cout << "Contact has been added." << std::endl;
 	this->_contactsSaved++;
 	return (0);
 }
 
 int Phonebook::ft_search()
 {
-	std::cout << "Looking up contact." << std::endl;
+	if (this->_contactsSaved <= 0)
+		std::cout << "There are no contacts stored." << std::endl;
+	for (int i = 0; i < _contactsSaved; i++)
+	{
+		std::cout << i << "|" << std::endl;
+	}
 	return (0);
 }
 
