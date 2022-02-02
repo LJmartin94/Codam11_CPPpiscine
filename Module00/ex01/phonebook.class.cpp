@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:08:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/02 17:18:43 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/02 20:59:39 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int Phonebook::ft_search()
 	for (int i = 0; i < _contactsSaved && i < 8; i++)
 	{
 		std::cout << "|" << std::setw(10) << i;
-		std::cout << "|" << std::setw(10) << (this->_contactArray[i].get_firstName()).;
+		std::cout << "|" << std::setw(10) << util_truncate(this->_contactArray[i].get_firstName());
 		std::cout << "|" << std::setw(10) << this->_contactArray[i].get_lastName();
 		std::cout << "|" << std::setw(10) << this->_contactArray[i].get_nickname();
 		std::cout << "|" << std::endl;
@@ -118,4 +118,14 @@ int Phonebook::ft_error()
 {
 	std::cout << "BAD INPUT, TRY: ADD || SEARCH || EXIT" << std::endl;
 	return (0);
+}
+
+std::string		Phonebook::util_truncate(std::string str)
+{
+	if (str.size() > 10)	
+	{
+		str.resize(9);
+		str.append(".");
+	}
+	return (str);
 }
