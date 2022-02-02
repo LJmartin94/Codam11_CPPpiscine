@@ -6,12 +6,13 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:08:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/02 14:06:41 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/02 17:18:43 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string> 
 #include <iostream>
+#include <iomanip>
 #include "phonebook.class.hpp"
 
 // PUBLIC
@@ -84,10 +85,24 @@ int Phonebook::ft_add()
 int Phonebook::ft_search()
 {
 	if (this->_contactsSaved <= 0)
-		std::cout << "There are no contacts stored." << std::endl;
-	for (int i = 0; i < _contactsSaved; i++)
 	{
-		std::cout << i << "|" << std::endl;
+		std::cout << "There are no contacts stored." << std::endl;
+		return (0);
+	}
+	
+	std::cout << "|" << std::setw(10) << "INDEX";
+	std::cout << "|" << std::setw(10) << "FIRST NAME";
+	std::cout << "|" << std::setw(10) << "LAST NAME";
+	std::cout << "|" << std::setw(10) << "NICKNAME";
+	std::cout << "|" << std::endl;
+
+	for (int i = 0; i < _contactsSaved && i < 8; i++)
+	{
+		std::cout << "|" << std::setw(10) << i;
+		std::cout << "|" << std::setw(10) << (this->_contactArray[i].get_firstName()).;
+		std::cout << "|" << std::setw(10) << this->_contactArray[i].get_lastName();
+		std::cout << "|" << std::setw(10) << this->_contactArray[i].get_nickname();
+		std::cout << "|" << std::endl;
 	}
 	return (0);
 }
