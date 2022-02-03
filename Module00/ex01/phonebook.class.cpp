@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:08:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/02 20:59:39 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/03 16:43:22 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,8 @@ int Phonebook::ft_search()
 	{
 		std::cout << "|" << std::setw(10) << i;
 		std::cout << "|" << std::setw(10) << util_truncate(this->_contactArray[i].get_firstName());
-		std::cout << "|" << std::setw(10) << this->_contactArray[i].get_lastName();
-		std::cout << "|" << std::setw(10) << this->_contactArray[i].get_nickname();
+		std::cout << "|" << std::setw(10) << util_truncate(this->_contactArray[i].get_lastName());
+		std::cout << "|" << std::setw(10) << util_truncate(this->_contactArray[i].get_nickname());
 		std::cout << "|" << std::endl;
 	}
 	return (0);
