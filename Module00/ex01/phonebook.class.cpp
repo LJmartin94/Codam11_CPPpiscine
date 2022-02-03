@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:08:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/03 17:38:50 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/03 19:38:40 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,15 @@ int Phonebook::ft_search()
 		std::cout << "|" << std::setw(10) << util_truncate(this->_contactArray[i].get_nickname());
 		std::cout << "|" << std::endl;
 	}
+
+	std::string buf;
+
+	std::cout << "Which index would you like to view?" << std::endl;
+	std::cin >> buf;
+
+	int i = int(buf); //Can't do this because str isnt one of the basic datatypes, look into casting with stringstream instead
+	std::cout << "|" << std::setw(10) << util_truncate(this->_contactArray[i].get_firstName());
+	
 	return (0);
 }
 
