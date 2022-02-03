@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:08:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/03 16:43:22 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/03 17:38:50 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,7 @@ int Phonebook::doCommand(std::string buf)
 	else if (buf.compare("EXIT") == 0)
 		inputMatch = EXIT;
 	
-	(this->*commands[inputMatch])();
-	return(0);
+	return ( (this->*commands[inputMatch])() );
 }
 
 // PRIVATE
@@ -110,8 +109,7 @@ int Phonebook::ft_search()
 int Phonebook::ft_exit()
 {
 	std::cout << "Exiting program" << std::endl;
-	exit(EXIT_SUCCESS);
-	return (0);
+	return (1);
 }
 
 int Phonebook::ft_error()
