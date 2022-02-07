@@ -6,14 +6,15 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:15:55 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/01 19:43:03 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/07 14:17:04 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_CLASS_H
 # define CONTACT_CLASS_H
 
-#include <string>
+#include <string> //string datatype
+#include <iostream> //stream operators
 
 class Contact
 {

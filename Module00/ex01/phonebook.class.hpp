@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:08:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/02 20:57:52 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/07 14:15:44 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define PHONEBOOK_CLASS_H
 
 #include "contact.class.hpp"
+#include <iostream> //stream operators
+#include <iomanip> //setting width modifiers
+#include <string> //string datatype
+#include <sstream> //string stream for string to int conversion
 
 class Phonebook
 {

@@ -6,11 +6,10 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/01 17:40:37 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/07 12:14:46 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/07 14:16:13 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream> //stream operators
 #include "contact.class.hpp"
 
 // PUBLIC

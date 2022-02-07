@@ -6,14 +6,10 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:08:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/07 13:51:21 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/07 14:15:55 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream> //stream operators
-#include <iomanip> //setting width modifiers
-#include <string> //string datatype
-#include <sstream> //string stream for string to int conversion
 #include "phonebook.class.hpp"
 
 // PUBLIC
