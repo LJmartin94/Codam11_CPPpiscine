@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:08:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/07 12:13:50 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/07 12:36:24 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,12 +106,19 @@ int Phonebook::ft_search()
 	}
 
 	std::string buf;
+	std::stringstream stringHolder;
+	int i = 0;
 
 	std::cout << "Which index would you like to view?" << std::endl;
 	std::cin >> buf;
+	stringHolder.str(buf);
+	stringHolder >> i;
 
-	int i = int(buf); //Can't do this because str isnt one of the basic datatypes, look into casting with stringstream instead
-	std::cout << "|" << std::setw(10) << util_truncate(this->_contactArray[i].get_firstName());
+	std::cout << "FIRST NAME    :" << std::setw(10) << util_truncate(this->_contactArray[i].get_firstName()) << std::endl;
+	std::cout << "LAST NAME     :" << std::setw(10) << util_truncate(this->_contactArray[i].get_lastName()) << std::endl;
+	std::cout << "NICKNAME      :" << std::setw(10) << util_truncate(this->_contactArray[i].get_nickname()) << std::endl;
+	std::cout << "PHONE NUMBER  :" << std::setw(10) << util_truncate(this->_contactArray[i].get_phoneNumber()) << std::endl;
+	std::cout << "DARKEST SECRET:" << std::setw(10) << util_truncate(this->_contactArray[i].get_secret()) << std::endl;
 	
 	return (0);
 }
