@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/01 17:40:37 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/07 14:16:13 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/07 14:20:28 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 // PUBLIC
 Contact::Contact(void)
 {
-	std::cout << "Contact created." << std::endl;
+	// std::cout << "Contact created." << std::endl;
 	return;
 }
 
 Contact::~Contact(void)
 {
-	std::cout << "Contact destroyed." << std::endl;
+	// std::cout << "Contact destroyed." << std::endl;
 	return;
 }
 

@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:08:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/07 14:15:55 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/07 14:20:40 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ Phonebook::Phonebook(void)
 	this->commands[ERROR] = &Phonebook::ft_error;
 
 	this->_contactsSaved = 0;
-	std::cout << "Phonebook created." << std::endl;
+	// std::cout << "Phonebook created." << std::endl;
 	return;
 }
 
 Phonebook::~Phonebook(void)
 {
-	std::cout << "Phonebook destroyed." << std::endl;
+	// std::cout << "Phonebook destroyed." << std::endl;
 	return;
 }
 
