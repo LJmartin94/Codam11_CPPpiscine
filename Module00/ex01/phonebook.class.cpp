@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:08:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/07 12:36:24 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/07 13:51:21 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,12 +114,18 @@ int Phonebook::ft_search()
 	stringHolder.str(buf);
 	stringHolder >> i;
 
-	std::cout << "FIRST NAME    :" << std::setw(10) << util_truncate(this->_contactArray[i].get_firstName()) << std::endl;
-	std::cout << "LAST NAME     :" << std::setw(10) << util_truncate(this->_contactArray[i].get_lastName()) << std::endl;
-	std::cout << "NICKNAME      :" << std::setw(10) << util_truncate(this->_contactArray[i].get_nickname()) << std::endl;
-	std::cout << "PHONE NUMBER  :" << std::setw(10) << util_truncate(this->_contactArray[i].get_phoneNumber()) << std::endl;
-	std::cout << "DARKEST SECRET:" << std::setw(10) << util_truncate(this->_contactArray[i].get_secret()) << std::endl;
-	
+	if(!(buf.find_first_not_of("0123456789") == std::string::npos))
+		std::cout << "ERROR: NOT A VALID NUMBER" << std::endl;
+	else if (i >= 0 && i <= 7 && i < this->_contactsSaved)
+	{
+		std::cout << "FIRST NAME    :" << std::setw(10) << util_truncate(this->_contactArray[i].get_firstName()) << std::endl;
+		std::cout << "LAST NAME     :" << std::setw(10) << util_truncate(this->_contactArray[i].get_lastName()) << std::endl;
+		std::cout << "NICKNAME      :" << std::setw(10) << util_truncate(this->_contactArray[i].get_nickname()) << std::endl;
+		std::cout << "PHONE NUMBER  :" << std::setw(10) << util_truncate(this->_contactArray[i].get_phoneNumber()) << std::endl;
+		std::cout << "DARKEST SECRET:" << std::setw(10) << util_truncate(this->_contactArray[i].get_secret()) << std::endl;
+	}
+	else
+		std::cout << "ERROR: NO SUCH CONTACT" << std::endl;
 	return (0);
 }
 
