@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/07 14:30:40 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/07 16:20:50 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/07 16:41:23 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,36 +18,43 @@
 Account::Account( int initial_deposit )
 {
 	(void) initial_deposit;
+	
+	this->_displayTimestamp();
+	std::cout << "created" << std::endl;
 	return ;
 }
 
 Account::~Account( void )
 {
+	this->_displayTimestamp();
+	std::cout << "closed" << std::endl;
 	return ;
 }
 
 int	Account::getNbAccounts( void )
 {
-	return (0);
+	return (this->_nbAccounts);
 }
 
 int	Account::getTotalAmount( void )
 {
-	return (0);
+	return (this->_);
 }
 
 int	Account::getNbDeposits( void )
 {
-	return (0);
+	return (this->_);
 }
 
 int	Account::getNbWithdrawals( void )
 {
-	return (0);
+	return (this->_);
 }
 
 void	Account::displayAccountsInfos( void )
 {
+	Account::_displayTimestamp();
+	std::cout << "INFOS" << std::endl;
 	return ;
 }
 
@@ -70,6 +77,8 @@ int		Account::checkAmount( void ) const
 
 void	Account::displayStatus( void ) const
 {
+	this->_displayTimestamp();
+	std::cout << "STATUS" << std::endl;
 	return ;
 }
 
@@ -89,6 +98,6 @@ void	Account::displayStatus( void ) const
 
 void	Account::_displayTimestamp( void )
 {
-	std::cout << "[TIME_STAMP]";
+	std::cout << "[TIME_STAMP] ";
 	return ;
 }
