@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/07 14:30:40 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/07 16:41:23 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/07 18:48:47 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,22 @@ Account::~Account( void )
 
 int	Account::getNbAccounts( void )
 {
-	return (this->_nbAccounts);
+	return (Account::_nbAccounts);
 }
 
 int	Account::getTotalAmount( void )
 {
-	return (this->_);
+	return (Account::_totalAmount);
 }
 
 int	Account::getNbDeposits( void )
 {
-	return (this->_);
+	return (Account::_totalNbDeposits);
 }
 
 int	Account::getNbWithdrawals( void )
 {
-	return (this->_);
+	return (Account::_totalNbWithdrawals);
 }
 
 void	Account::displayAccountsInfos( void )
