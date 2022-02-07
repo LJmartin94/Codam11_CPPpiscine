@@ -6,16 +6,18 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/07 14:30:40 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/07 16:10:18 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/07 16:20:50 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
+#include <iostream>
 
 // PUBLIC
 
 Account::Account( int initial_deposit )
 {
+	(void) initial_deposit;
 	return ;
 }
 
@@ -26,22 +28,22 @@ Account::~Account( void )
 
 int	Account::getNbAccounts( void )
 {
-	return ;
+	return (0);
 }
 
 int	Account::getTotalAmount( void )
 {
-	return ;
+	return (0);
 }
 
 int	Account::getNbDeposits( void )
 {
-	return ;
+	return (0);
 }
 
 int	Account::getNbWithdrawals( void )
 {
-	return ;
+	return (0);
 }
 
 void	Account::displayAccountsInfos( void )
@@ -51,17 +53,19 @@ void	Account::displayAccountsInfos( void )
 
 void	Account::makeDeposit( int deposit )
 {
+	(void) deposit;
 	return ;
 }
 
 bool	Account::makeWithdrawal( int withdrawal )
 {
-	return ;
+	(void) withdrawal;
+	return (true);
 }
 
 int		Account::checkAmount( void ) const
 {
-	return ;
+	return (0);
 }
 
 void	Account::displayStatus( void ) const
@@ -85,5 +89,6 @@ void	Account::displayStatus( void ) const
 
 void	Account::_displayTimestamp( void )
 {
+	std::cout << "[TIME_STAMP]";
 	return ;
 }
