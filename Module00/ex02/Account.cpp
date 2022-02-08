@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/07 14:30:40 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/07 18:48:47 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/08 17:23:24 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,26 @@ Account::~Account( void )
 
 int	Account::getNbAccounts( void )
 {
-	return (Account::_nbAccounts);
+	// return (Account::_nbAccounts);
+	return (0);
 }
 
 int	Account::getTotalAmount( void )
 {
-	return (Account::_totalAmount);
+	// return (Account::_totalAmount);
+	return (0);
 }
 
 int	Account::getNbDeposits( void )
 {
-	return (Account::_totalNbDeposits);
+	// return (Account::_totalNbDeposits);
+	return (0);
 }
 
 int	Account::getNbWithdrawals( void )
 {
-	return (Account::_totalNbWithdrawals);
+	// return (Account::_totalNbWithdrawals);
+	return (0);
 }
 
 void	Account::displayAccountsInfos( void )
@@ -61,17 +65,20 @@ void	Account::displayAccountsInfos( void )
 void	Account::makeDeposit( int deposit )
 {
 	(void) deposit;
+	std::cout << "depos" << std::endl;
 	return ;
 }
 
 bool	Account::makeWithdrawal( int withdrawal )
 {
 	(void) withdrawal;
+	std::cout << "withdrw" << std::endl;
 	return (true);
 }
 
 int		Account::checkAmount( void ) const
 {
+	std::cout << "check" << std::endl;
 	return (0);
 }
 
