@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/07 14:30:40 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/09 21:14:20 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/11 17:31:08 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,10 @@ int	Account::_totalNbWithdrawals = 0;
 
 
 // PUBLIC
-Account::Account( int initial_deposit )
+Account::Account( int initial_deposit ) 
+: _accountIndex(_nbAccounts), _amount(initial_deposit), _nbDeposits(0), _nbWithdrawals(0)
 {	
-	this-> _accountIndex = _nbAccounts;
 	Account::_nbAccounts++;
-	this->_amount = initial_deposit;
-	this->_nbDeposits = 0;
-	this->_nbWithdrawals = 0;
-	
 	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";";
 	std::cout << "amount:" << this->_amount << ";";
