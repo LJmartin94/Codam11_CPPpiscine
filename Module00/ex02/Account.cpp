@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/07 14:30:40 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/11 18:27:26 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/11 18:34:18 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,11 @@ int		Account::checkAmount( void ) const
 void	Account::displayStatus( void ) const
 {
 	this->_displayTimestamp();
-	std::cout << "STATUS" << std::endl;
+	std::cout << "index:" << this->_accountIndex << ";";
+	std::cout << "amount:" << this->_amount << ";";
+	std::cout << "deposits:" << this->_nbDeposits << ";";
+	std::cout << "withdrawals:" << this->_nbWithdrawals;
+	std::cout << std::endl;
 	return ;
 }
 
