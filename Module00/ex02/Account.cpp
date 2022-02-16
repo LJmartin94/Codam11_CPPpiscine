@@ -6,13 +6,12 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/07 14:30:40 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/16 17:36:13 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/16 18:02:25 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
-#include <ctime>
 #include <iomanip>
 
 int	Account::_nbAccounts = 0;
