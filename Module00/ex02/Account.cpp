@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/07 14:30:40 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/16 17:23:41 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/16 17:36:13 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	Account::displayAccountsInfos( void )
 {
 	Account::_displayTimestamp();
 	std::cout << "accounts:" << getNbAccounts() << ";";
-	std::cout << "ammount:" << getTotalAmount() << ";";
+	std::cout << "total:" << getTotalAmount() << ";";
 	std::cout << "deposits:" << getNbDeposits() << ";";
 	std::cout << "withdrawals:" << getNbWithdrawals();
 	std::cout << std::endl;
@@ -142,5 +142,6 @@ void	Account::_displayTimestamp( void )
 	std::tm local_time;
 	local_time = *std::localtime(&fetched_time);
 	std::cout << "[" << std::put_time(&local_time, "%Y%m%d_%H%M%S") << "] ";
+	// std::cout << "[" << "19920104_091532" << "] ";
 	return ;
 }
