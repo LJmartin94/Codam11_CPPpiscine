@@ -6,12 +6,14 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/07 14:30:40 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/11 19:16:33 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/16 17:23:41 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
+#include <ctime>
+#include <iomanip>
 
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
@@ -135,6 +137,10 @@ void	Account::displayStatus( void ) const
 // PRIVATE
 void	Account::_displayTimestamp( void )
 {
-	std::cout << "[TIME_STAMP] ";
+	std::time_t fetched_time;
+	fetched_time = std::time(&fetched_time);
+	std::tm local_time;
+	local_time = *std::localtime(&fetched_time);
+	std::cout << "[" << std::put_time(&local_time, "%Y%m%d_%H%M%S") << "] ";
 	return ;
 }
