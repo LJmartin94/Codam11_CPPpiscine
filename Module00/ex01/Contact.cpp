@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   contact.class.cpp                                  :+:    :+:            */
+/*   Contact.cpp                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/01 17:40:37 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/07 14:20:28 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/25 14:23:32 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "contact.class.hpp"
+#include "Contact.hpp"
 
 // PUBLIC
 Contact::Contact(void)

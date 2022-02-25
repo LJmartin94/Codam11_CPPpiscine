@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   phonebook.class.cpp                                :+:    :+:            */
+/*   Phonebook.cpp                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:08:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/07 14:20:40 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/25 14:22:52 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.class.hpp"
+#include "Phonebook.hpp"
 
 // PUBLIC
 Phonebook::Phonebook(void)

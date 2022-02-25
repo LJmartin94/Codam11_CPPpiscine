@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   phonebook.class.hpp                                :+:    :+:            */
+/*   Phonebook.hpp                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/24 21:08:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/02/07 14:15:44 by limartin      ########   odam.nl         */
+/*   Updated: 2022/02/25 14:23:01 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_CLASS_H
 # define PHONEBOOK_CLASS_H
 
-#include "contact.class.hpp"
+#include "Contact.hpp"
 #include <iostream> //stream operators
 #include <iomanip> //setting width modifiers
 #include <string> //string datatype
