@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/22 16:06:12 by limartin      #+#    #+#                 */
-/*   Updated: 2022/03/22 17:47:54 by limartin      ########   odam.nl         */
+/*   Updated: 2022/03/22 18:02:06 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ Zombie::~Zombie()
 	return;
 }
 
-//PRIVATE
 void Zombie::announce( void )
 {
-	std::cout << this->name << ": BraiiiiiiinnnzzzZ...";
+	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 	return;
 }
+
+//PRIVATE
