@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/22 16:06:38 by limartin      #+#    #+#                 */
-/*   Updated: 2022/03/22 17:10:27 by limartin      ########   odam.nl         */
+/*   Updated: 2022/03/22 17:47:43 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 class Zombie
 {
 	public:
-	Zombie();
+	Zombie( std::string name );
 	~Zombie();
 
 	private:
-	std::string name;
-	void	announce(void);
+	std::string name; // should be _name but subject says "name"
+	void	announce( void );
 };
 
 #endif
