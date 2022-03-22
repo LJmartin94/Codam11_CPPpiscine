@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/22 19:59:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/03/22 21:10:12 by limartin      ########   odam.nl         */
+/*   Updated: 2022/03/22 21:14:16 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Zombie*	zombieHorde( int N, std::string name )
 
 	//This gives two error messages, one relating to 'new' and one relating to '[N]'
 	Zombie* horde = NULL;
-	horde = new (Zombie(name)[N]);
+	horde = new Zombie(name)[N];
 
 	//Look at this tomorrow:
 	// https://en.cppreference.com/w/cpp/language/new
