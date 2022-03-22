@@ -6,7 +6,7 @@
 #    By: limartin <limartin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/03/22 17:07:55 by limartin      #+#    #+#                  #
-#    Updated: 2022/03/22 19:56:14 by limartin      ########   odam.nl          #
+#    Updated: 2022/03/22 20:18:03 by limartin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 SRC = $(SRC_PATH)main.cpp \
 	Zombie.cpp \
+	zombieHorde.cpp \
 
 
 OBJ := $(SRC:%.cpp=%.o)
