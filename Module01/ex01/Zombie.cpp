@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/22 16:06:12 by limartin      #+#    #+#                 */
-/*   Updated: 2022/03/23 18:13:12 by limartin      ########   odam.nl         */
+/*   Updated: 2022/03/23 18:30:33 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ void Zombie::announce( void )
 
 void Zombie::setName( std::string name )
 {
-	this->name = name;
+	if (this->name.empty())
+		this->name = name;
 	return;
 }
 
