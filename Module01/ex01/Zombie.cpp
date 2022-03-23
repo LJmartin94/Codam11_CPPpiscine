@@ -6,13 +6,19 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/22 16:06:12 by limartin      #+#    #+#                 */
-/*   Updated: 2022/03/22 19:39:05 by limartin      ########   odam.nl         */
+/*   Updated: 2022/03/23 18:13:12 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 //PUBLIC
+Zombie::Zombie()
+{
+	std::cout << "Nameless zombie created." << std::endl;
+	return;
+}
+
 Zombie::Zombie( std::string name )
 : name(name)
 {
@@ -29,6 +35,12 @@ Zombie::~Zombie()
 void Zombie::announce( void )
 {
 	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	return;
+}
+
+void Zombie::setName( std::string name )
+{
+	this->name = name;
 	return;
 }
 
