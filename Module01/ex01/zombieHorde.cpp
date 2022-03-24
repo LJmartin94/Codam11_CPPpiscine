@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/22 19:59:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/03/24 18:43:34 by limartin      ########   odam.nl         */
+/*   Updated: 2022/03/24 19:40:27 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,8 @@ Zombie*	zombieHorde( int N, std::string name )
 	return (horde);
 }
 
-void	slayZombieHorde( int N, Zombie* horde )
+void	slayZombieHorde( Zombie* horde )
 {
-	// for (int i = 0; i < N; i++)
-	// {
-	// 	delete &(horde[i]);
-	// }
-	(void)N;
 	delete[] horde;
 	return;
 }

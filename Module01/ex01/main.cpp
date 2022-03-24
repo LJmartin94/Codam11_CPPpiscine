@@ -6,14 +6,14 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/22 16:15:24 by limartin      #+#    #+#                 */
-/*   Updated: 2022/03/24 18:36:39 by limartin      ########   odam.nl         */
+/*   Updated: 2022/03/24 19:40:42 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 Zombie*	zombieHorde( int N, std::string name );
-void	slayZombieHorde( int N, Zombie* horde );
+void	slayZombieHorde( Zombie* horde );
 
 int		main(void)
 {
@@ -21,6 +21,6 @@ int		main(void)
 	horde[0].announce();
 	horde[1].announce();
 	horde[2].announce();
-	slayZombieHorde(3, horde);
+	slayZombieHorde(horde);
 	return (0);
 }
