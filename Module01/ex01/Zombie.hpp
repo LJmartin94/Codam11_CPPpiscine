@@ -6,12 +6,12 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/22 16:06:38 by limartin      #+#    #+#                 */
-/*   Updated: 2022/03/23 18:13:46 by limartin      ########   odam.nl         */
+/*   Updated: 2022/03/26 15:39:36 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-# define ZOMBIE_H
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
 #include <string> //string datatype
 #include <iostream> //stream operators
