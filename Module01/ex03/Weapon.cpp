@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/26 15:46:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/03/26 16:41:15 by limartin      ########   odam.nl         */
+/*   Updated: 2022/03/28 15:17:21 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Weapon::~Weapon()
 
 const std::string&	Weapon::getType()
 {
-	std::string& ref = this->type;
+	const std::string& ref = this->type;
 	return(ref);
 }
 
