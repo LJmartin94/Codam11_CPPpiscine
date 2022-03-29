@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/28 12:31:06 by limartin      #+#    #+#                 */
-/*   Updated: 2022/03/28 15:16:42 by limartin      ########   odam.nl         */
+/*   Updated: 2022/03/29 21:32:13 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ HumanA::~HumanA()
 	return;
 }
 	
-const Weapon&	HumanA::getWeapon()
+const Weapon&	HumanA::getWeapon() const
 {
 	const Weapon::Weapon& toGet = this->Weapon;
 	return(toGet);
+	// return(*this->Weapon);
 }
 
 void	HumanA::setWeapon( Weapon::Weapon toSet )
