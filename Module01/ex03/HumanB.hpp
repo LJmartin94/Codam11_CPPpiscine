@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/26 17:28:33 by limartin      #+#    #+#                 */
-/*   Updated: 2022/03/30 13:32:06 by limartin      ########   odam.nl         */
+/*   Updated: 2022/03/30 17:59:44 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ class HumanB
 	HumanB( std::string name);
 	~HumanB();
 	
-	const Weapon	getWeapon() const;
+	const Weapon*	getWeapon() const;
 	void			setWeapon( Weapon& toSet );
 	void			attack();
 	
 	private:
 	std::string	_name;
-	Weapon		_weapon;
+	Weapon*		_weapon;
 };
 
 #endif
