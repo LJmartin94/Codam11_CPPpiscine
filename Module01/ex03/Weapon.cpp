@@ -6,11 +6,16 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/26 15:46:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/03/29 21:35:31 by limartin      ########   odam.nl         */
+/*   Updated: 2022/03/30 13:46:37 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
+
+Weapon::Weapon()
+{
+	return;
+}
 
 Weapon::Weapon( std::string toSet )
 : type(toSet)
