@@ -6,7 +6,7 @@
 #    By: limartin <limartin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/03/25 18:49:44 by limartin      #+#    #+#                  #
-#    Updated: 2022/03/26 15:35:27 by limartin      ########   odam.nl          #
+#    Updated: 2022/03/30 12:12:27 by limartin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,9 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 SRC = $(SRC_PATH)main.cpp \
-	$(SRC_PATH) HumanA.cpp \
-	$(SRC_PATH) HumanB.cpp \
-	$(SRC_PATH) Weapon.cpp \
+	$(SRC_PATH)HumanA.cpp \
+	$(SRC_PATH)HumanB.cpp \
+	$(SRC_PATH)Weapon.cpp \
 
 
 OBJ := $(SRC:%.cpp=%.o)
