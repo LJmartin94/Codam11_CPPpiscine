@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/30 13:29:06 by limartin      #+#    #+#                 */
-/*   Updated: 2022/03/30 18:00:37 by limartin      ########   odam.nl         */
+/*   Updated: 2022/03/31 11:51:54 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ void	HumanB::setWeapon( Weapon& toSet )
 
 void	HumanB::attack()
 {
+	if (this->_weapon == NULL)
+	{
+		std::cout << this->_name << " attacks with their bare hands and sharp wit" << std::endl;
+		return;
+	}
 	std::cout << this->_name << " attacks with their " << this->getWeapon()->getType() << std::endl;
 	return;
 }
