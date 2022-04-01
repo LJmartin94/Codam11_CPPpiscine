@@ -6,7 +6,7 @@
 #    By: limartin <limartin@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/03/31 14:38:03 by limartin      #+#    #+#                  #
-#    Updated: 2022/03/31 14:39:14 by limartin      ########   odam.nl          #
+#    Updated: 2022/04/01 13:32:14 by limartin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,8 @@ $(NAME): $(OBJ)
 	$(CC) -o $@ -c $< $(CFLAGS) -I $(HEADER_FILES)
 
 clean:
-	rm -f $(OBJ) 
+	rm -f $(OBJ)
+	rm -f TestFile.txt.replace
 	@echo "$(NAME) object files cleaned"
 
 fclean: clean
