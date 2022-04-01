@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/31 14:37:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/03/31 18:02:38 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/01 13:36:57 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ int main(int argc, char ** argv)
 		return (1);
 	}
 	std::ofstream output(filename.append(".replace"));
-	// std::cout << filename << std::endl;
+	//should do output error checking too
+	while (!input.eof())
+	{
+		std::string buf;
+		std::getline(input, buf);
+		output << buf;
+		if (!input.eof())
+			output << std::endl;
+	}
 	return (0);
 }
