@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/31 14:37:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/01 15:44:03 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/01 15:59:05 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int error_iofiles(std::ifstream& input, std::ofstream& output, std::string filen
 
 void replace_in_buf(std::string& buf, const std::string& s1, const std::string& s2)
 {
-	size_t pos = 0;
-	size_t match = buf.find(s1, pos);
+	size_t pos = 0; // the rest of the string to search
+	size_t match = buf.find(s1, pos); // where/whether a match was found
 	size_t s1_len = s1.length();
 	size_t s2_len = s2.length();
 
