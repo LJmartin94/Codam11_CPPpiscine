@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/31 14:37:36 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/01 15:02:42 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/01 15:44:03 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,23 @@ int error_iofiles(std::ifstream& input, std::ofstream& output, std::string filen
 	return (0);
 }
 
+void replace_in_buf(std::string& buf, const std::string& s1, const std::string& s2)
+{
+	size_t pos = 0;
+	size_t match = buf.find(s1, pos);
+	size_t s1_len = s1.length();
+	size_t s2_len = s2.length();
+
+	while(match != std::string::npos)
+	{
+		buf.erase(match, s1_len);
+		buf.insert(match, s2);
+		pos = match + s2_len;
+		match = buf.find(s1, pos);
+	}
+	return;
+}
+
 int main(int argc, char **argv)
 {
 	std::string filename;
@@ -63,6 +80,7 @@ int main(int argc, char **argv)
 	{
 		std::string buf;
 		std::getline(input, buf);
+		replace_in_buf(buf, s1, s2);
 		output << buf;
 		if (!input.eof())
 			output << std::endl;
