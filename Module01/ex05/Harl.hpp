@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/01 16:46:31 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/01 17:00:12 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/01 18:34:21 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define HARL_HPP
 
 #include <string>  //string datatype
+#include <iostream> //stream operators
 
 class Harl
 {
