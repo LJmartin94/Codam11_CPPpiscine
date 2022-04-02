@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/01 16:46:33 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/01 19:08:45 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/02 12:46:48 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,16 @@ Harl::~Harl()
 
 void	Harl::complain ( std::string level )
 {
-	(void)level;
+	ComplaintType type = NA;
+	for (int i = 0; i < SIZE; i++)
+	{
+		std::cout << _lookupTable[i].identifier << std::endl; 
+		if (!(level.compare(_lookupTable[i].identifier)))
+		{
+			type = _lookupTable[i].index;
+			// std::cout << _lookupTable[i].index << " " << _lookupTable[i].identifier << std::endl;
+		}
+	}
 	return;
 }
 
