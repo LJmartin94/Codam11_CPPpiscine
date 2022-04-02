@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/01 16:46:31 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/02 12:44:16 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/02 23:19:09 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,13 @@ class Harl
 	enum	ComplaintType { NA = -1, DEBUG, INFO, WARNING, ERROR, SIZE };
 	// void	(Harl::*complaints[SIZE])( void );
 
-	struct Lookup
-	{
-		ComplaintType	index;
-		std::string		identifier;
-	};
+	// struct Lookup
+	// {
+	// 	ComplaintType	index;
+	// 	std::string		identifier;
+	// };
 
-	Lookup _lookupTable[SIZE] =
-	{
-		{DEBUG, "DEBUG"},
-		{INFO, "INFO"},
-		{WARNING, "WARNING"},
-		{ERROR, "ERROR"}
-	};
+	std::string _lookupTable[SIZE];
 };
 
 #endif
