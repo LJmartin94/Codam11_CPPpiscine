@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/01 16:46:31 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/02 23:19:09 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/02 23:50:08 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Harl
 	void	error( void );
 	
 	enum	ComplaintType { NA = -1, DEBUG, INFO, WARNING, ERROR, SIZE };
-	// void	(Harl::*complaints[SIZE])( void );
+	void	(Harl::*complaints[SIZE])( void );
 
 	// struct Lookup
 	// {
