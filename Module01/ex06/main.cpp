@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/01 16:46:28 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/03 17:04:51 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/03 17:23:13 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,14 @@ void complaintStrToEnum( const Harl& karl,\
 	return;
 }
 
-// void complaintWrapper( Harl::ComplaintType& type, const Harl& karl )
+void complaintWrapper( Harl::ComplaintType& type, Harl& karl )
+{
+	std::cout << "[ " << karl.lookupTable[type] << " ]" << std::endl;
+	karl.complain(karl.lookupTable[type]);
+	std::cout << std::endl;
+	type = static_cast<Harl::ComplaintType>((int)(type + 1));
+	return;
+}
 
 int main(int argc, char **argv)
 {
@@ -50,22 +57,13 @@ int main(int argc, char **argv)
 		case Harl::NA:
 			return(error_badInput());
 		case Harl::DEBUG:
-			karl.complain("DEBUG");
-			karl.complain("INFO");
-			karl.complain("WARNING");
-			karl.complain("ERROR");
-			break;
+			complaintWrapper(type, karl);
 		case Harl::INFO:
-			karl.complain("INFO");
-			karl.complain("WARNING");
-			karl.complain("ERROR");
-			break;
+			complaintWrapper(type, karl);
 		case Harl::WARNING:
-			karl.complain("WARNING");
-			karl.complain("ERROR");
-			break;
+			complaintWrapper(type, karl);
 		case Harl::ERROR:
-			karl.complain("ERROR");
+			complaintWrapper(type, karl);
 			break;
 		default:
 			return(error_badInput());
