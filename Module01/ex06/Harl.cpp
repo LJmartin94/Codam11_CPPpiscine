@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/01 16:46:33 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/03 15:44:19 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/03 17:01:34 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@
 
 Harl::Harl()
 {
-	_lookupTable[DEBUG] = "DEBUG";
+	lookupTable[DEBUG] = "DEBUG";
 	complaints[DEBUG] = &Harl::debug;
 
-	_lookupTable[INFO] = "INFO";
+	lookupTable[INFO] = "INFO";
 	complaints[INFO] = &Harl::info;
 
-	_lookupTable[WARNING] = "WARNING";
+	lookupTable[WARNING] = "WARNING";
 	complaints[WARNING] = &Harl::warning;
 	
-	_lookupTable[ERROR] = "ERROR";
+	lookupTable[ERROR] = "ERROR";
 	complaints[ERROR] = &Harl::error;
 	return;
 }
@@ -40,7 +40,7 @@ void	Harl::complain ( std::string level )
 	ComplaintType type = NA;
 	for (int i = 0; i < SIZE; i++)
 	{
-		if (!(level.compare(_lookupTable[i])))
+		if (!(level.compare(lookupTable[i])))
 		{
 			type = static_cast<ComplaintType>(i);
 			break;

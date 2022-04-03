@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/01 16:46:31 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/03 16:02:35 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/03 17:00:47 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ class Harl
 	~Harl();
 
 	void	complain ( std::string level );
+	enum	ComplaintType { NA = -1, DEBUG, INFO, WARNING, ERROR, SIZE };
+	std::string lookupTable[SIZE];
 	
 	private:
 	void	debug( void );
@@ -30,9 +32,7 @@ class Harl
 	void	warning( void );
 	void	error( void );
 	
-	enum	ComplaintType { NA = -1, DEBUG, INFO, WARNING, ERROR, SIZE };
 	void	(Harl::*complaints[SIZE])( void );
-	std::string _lookupTable[SIZE];
 };
 
 #endif
