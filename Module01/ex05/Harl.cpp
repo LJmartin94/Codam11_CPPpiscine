@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/01 16:46:33 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/03 15:44:19 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/03 17:30:26 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@
 Harl::Harl()
 {
 	_lookupTable[DEBUG] = "DEBUG";
-	complaints[DEBUG] = &Harl::debug;
+	_complaints[DEBUG] = &Harl::debug;
 
 	_lookupTable[INFO] = "INFO";
-	complaints[INFO] = &Harl::info;
+	_complaints[INFO] = &Harl::info;
 
 	_lookupTable[WARNING] = "WARNING";
-	complaints[WARNING] = &Harl::warning;
+	_complaints[WARNING] = &Harl::warning;
 	
 	_lookupTable[ERROR] = "ERROR";
-	complaints[ERROR] = &Harl::error;
+	_complaints[ERROR] = &Harl::error;
 	return;
 }
 
@@ -47,7 +47,7 @@ void	Harl::complain ( std::string level )
 		}
 	}
 	if (type!= NA)
-		(this->*complaints[type])();
+		(this->*_complaints[type])();
 	return;
 }
 
