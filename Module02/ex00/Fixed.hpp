@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 13:56:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/10 14:22:07 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/10 22:42:04 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,10 @@
 class Fixed
 {
 	public:
-	//default constructor that initialises the fixed-point number value to 0
-	Fixed();
-	//copy constructor
-	Fixed(const Fixed &copy);
-	//copy assignment operator overload
-	Fixed & operator = (const Fixed &assignment);
-	//destructor
-	~Fixed();
+	Fixed(int n = 0 );								//Default Constructor
+	Fixed(const Fixed& copy);						//Copy Constructor
+	Fixed& operator= ( const Fixed& assignment );	//Assignment Operator Overload
+	~Fixed();										//Destructor
 	
 	int getRawBits( void ) const; //returns the raw value of the fixed-point value
 	void setRawBits( int const raw); //sets the raw value of the fixed-point number
@@ -31,6 +27,6 @@ class Fixed
 	private:
 	int 				_value;
 	static const int	_fractionalBits;
-}
+};
 
 #endif
