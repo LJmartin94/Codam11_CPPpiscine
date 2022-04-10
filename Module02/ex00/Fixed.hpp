@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 13:56:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/10 22:42:04 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/10 22:55:42 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 class Fixed
 {
 	public:
-	Fixed(int n = 0 );								//Default Constructor
-	Fixed(const Fixed& copy);						//Copy Constructor
+	Fixed( int n = 0 );								//Default Constructor
+	Fixed( const Fixed& copy );						//Copy Constructor
 	Fixed& operator= ( const Fixed& assignment );	//Assignment Operator Overload
 	~Fixed();										//Destructor
 	
