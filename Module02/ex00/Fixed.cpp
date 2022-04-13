@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/13 11:31:38 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/13 14:14:00 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,17 @@ Fixed::Fixed( int n )
 //Copy Constructor
 Fixed::Fixed(const Fixed& copy)
 {
-	(void)copy;
+	*this = copy;
 	return;
 }
 
-//Assignment Operator Overload
+//Assignment Operator Overload (to create deep copy)
 Fixed& Fixed::operator= ( const Fixed& assignment )
 {
-	(void)assignment;
+	if (this != &assignment)
+	{
+		this->_value = assignment.getRawBits();
+	}
 	return(*this);
 }
 
