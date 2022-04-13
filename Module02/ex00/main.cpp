@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 19:14:51 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/13 14:18:42 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/13 14:39:28 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 
 int		main(void)
 {
-	Fixed inst;
-	Fixed inst2(2);
-	Fixed instCopy(inst2);
-	std::cout << inst.getRawBits() << std::endl;
-	std::cout << inst2.getRawBits() << std::endl;
-	inst2.setRawBits(42);
-	std::cout << inst2.getRawBits() << std::endl;
-	std::cout << instCopy.getRawBits() << std::endl;
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
+
+	c = b;
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	
 	return (0);
 }
