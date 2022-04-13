@@ -6,12 +6,14 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 13:56:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/13 13:59:11 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/13 14:42:24 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 # define FIXED_HPP
+
+#include <iostream> //stream operators
 
 class Fixed
 {
