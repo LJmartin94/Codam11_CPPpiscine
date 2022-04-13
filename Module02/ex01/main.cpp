@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 19:14:51 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/13 14:39:28 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/13 15:44:55 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int		main(void)
 	Fixed a;
 	Fixed b( a );
 	Fixed c;
+	Fixed d( 0 );
+	Fixed e( 42 );
 
 	c = b;
 	std::cout << a.getRawBits() << std::endl;

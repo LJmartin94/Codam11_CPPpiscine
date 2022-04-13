@@ -6,17 +6,20 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/13 14:51:35 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/13 15:29:59 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-//Default Constructor
+//Default and Int Constructor
 Fixed::Fixed( int n )
 : _value(n)
 {
-	std::cout << "Default constructor called (with value " << n << ")" << std::endl;
+	if (n)
+		std::cout << "Int constructor called (with value " << n << ")" << std::endl;
+	else
+		std::cout << "Default constructor called (with value " << n << ")" << std::endl;
 	return;
 }
 
