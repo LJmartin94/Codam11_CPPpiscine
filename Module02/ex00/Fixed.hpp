@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 13:56:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/10 22:55:42 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/13 11:31:05 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Fixed
 	
 	private:
 	int 				_value;
-	static const int	_fractionalBits;
+	static const int	_fractionalBits = 8;
 };
 
 #endif
