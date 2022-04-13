@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 13:56:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/13 16:32:38 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/13 19:02:51 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FIXED_HPP
 
 #include <iostream> //stream operators
+#include <cmath> //roundf function
 
 class Fixed
 {

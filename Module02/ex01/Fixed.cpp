@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/13 16:37:01 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/13 19:33:18 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 //Default and Int Constructor
 Fixed::Fixed( int n )
-: _value(n)
+: _value(n << _fractionalBits)
 {
 	if (n)
 		std::cout << "Int constructor called (with value " << n << ")" << std::endl;
 	else
 		std::cout << "Default constructor called (with value " << n << ")" << std::endl;
+	std::cout << std::bitset<32>(n) << std::endl;
+	std::cout << std::bitset<32>(_value) << std::endl;
 	return;
 }
 
@@ -28,6 +30,11 @@ Fixed::Fixed( float n )
 : _value(n)
 {
 	std::cout << "Float constructor called (with value " << n << ")" << std::endl;
+	// std::cout << std::bitset<32>(n) << std::endl;
+	// std::cout << std::bitset<32>(_value) << std::endl;
+	float leftover = n - roundf(n);
+	std::cout << "Float:" << n << std::endl;
+	std::cout << "Float leftover:" << leftover << std::endl;
 	return;
 }
 
