@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/13 15:29:59 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/13 16:37:01 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,14 @@ Fixed::Fixed( int n )
 		std::cout << "Int constructor called (with value " << n << ")" << std::endl;
 	else
 		std::cout << "Default constructor called (with value " << n << ")" << std::endl;
+	return;
+}
+
+//Float Constructor
+Fixed::Fixed( float n )
+: _value(n)
+{
+	std::cout << "Float constructor called (with value " << n << ")" << std::endl;
 	return;
 }
 
@@ -52,7 +60,7 @@ Fixed::~Fixed()
 //returns the raw value of the fixed-point value
 int		Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	//std::cout << "getRawBits member function called" << std::endl;
 	return(this->_value);
 }
 
@@ -62,4 +70,20 @@ void	Fixed::setRawBits( int const raw)
 	std::cout << "setRawBits member function called" << std::endl;
 	this->_value = raw;
 	return;
+}
+
+float	Fixed::toFloat( void ) const
+{
+	return((float)this->getRawBits());
+}
+
+int		Fixed::toInt( void ) const
+{
+	return(this->getRawBits());
+}
+
+std::ostream& operator<< ( std::ostream& o, Fixed const & i)
+{
+	o << i.getRawBits();
+	return (o);
 }
