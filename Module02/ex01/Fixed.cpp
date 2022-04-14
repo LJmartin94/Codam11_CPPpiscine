@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/13 19:33:18 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/14 14:35:43 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,18 @@ Fixed::Fixed( int n )
 		std::cout << "Int constructor called (with value " << n << ")" << std::endl;
 	else
 		std::cout << "Default constructor called (with value " << n << ")" << std::endl;
-	std::cout << std::bitset<32>(n) << std::endl;
-	std::cout << std::bitset<32>(_value) << std::endl;
+	// std::cout << std::bitset<32>(n) << std::endl;
+	// std::cout << std::bitset<32>(_value) << std::endl;
 	return;
 }
 
 //Float Constructor
 Fixed::Fixed( float n )
-: _value(n)
+: _value(n * (1 << _fractionalBits))
 {
 	std::cout << "Float constructor called (with value " << n << ")" << std::endl;
 	// std::cout << std::bitset<32>(n) << std::endl;
 	// std::cout << std::bitset<32>(_value) << std::endl;
-	float leftover = n - roundf(n);
-	std::cout << "Float:" << n << std::endl;
-	std::cout << "Float leftover:" << leftover << std::endl;
 	return;
 }
 
@@ -67,30 +64,28 @@ Fixed::~Fixed()
 //returns the raw value of the fixed-point value
 int		Fixed::getRawBits( void ) const
 {
-	//std::cout << "getRawBits member function called" << std::endl;
 	return(this->_value);
 }
 
 //sets the raw value of the fixed-point number
 void	Fixed::setRawBits( int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
 	this->_value = raw;
 	return;
 }
 
 float	Fixed::toFloat( void ) const
 {
-	return((float)this->getRawBits());
+	return( (float)(this->getRawBits()) / (1 << _fractionalBits) );
 }
 
 int		Fixed::toInt( void ) const
 {
-	return(this->getRawBits());
+	return(this->getRawBits() >> this->_fractionalBits);
 }
 
 std::ostream& operator<< ( std::ostream& o, Fixed const & i)
 {
-	o << i.getRawBits();
+	o << i.toFloat();
 	return (o);
 }
