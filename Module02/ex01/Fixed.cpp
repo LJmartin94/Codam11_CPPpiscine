@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/14 14:35:43 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/15 18:37:32 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	Fixed::setRawBits( int const raw)
 
 float	Fixed::toFloat( void ) const
 {
+	// std::cout << std::bitset<32>(this->getRawBits()) << std::endl;
 	return( (float)(this->getRawBits()) / (1 << _fractionalBits) );
 }
 
