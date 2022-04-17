@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/15 18:37:32 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/17 17:12:40 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ Fixed::Fixed( int n )
 		std::cout << "Int constructor called (with value " << n << ")" << std::endl;
 	else
 		std::cout << "Default constructor called (with value " << n << ")" << std::endl;
-	// std::cout << std::bitset<32>(n) << std::endl;
-	// std::cout << std::bitset<32>(_value) << std::endl;
 	return;
 }
 
@@ -30,8 +28,6 @@ Fixed::Fixed( float n )
 : _value(n * (1 << _fractionalBits))
 {
 	std::cout << "Float constructor called (with value " << n << ")" << std::endl;
-	// std::cout << std::bitset<32>(n) << std::endl;
-	// std::cout << std::bitset<32>(_value) << std::endl;
 	return;
 }
 
@@ -76,7 +72,6 @@ void	Fixed::setRawBits( int const raw)
 
 float	Fixed::toFloat( void ) const
 {
-	// std::cout << std::bitset<32>(this->getRawBits()) << std::endl;
 	return( (float)(this->getRawBits()) / (1 << _fractionalBits) );
 }
 
@@ -84,6 +79,128 @@ int		Fixed::toInt( void ) const
 {
 	return(this->getRawBits() >> this->_fractionalBits);
 }
+
+//ex02
+
+// comparison ops
+
+Fixed	Fixed::operator> ( const Fixed greaterThan )
+{
+	(void)greaterThan;
+	return (*this);
+}
+
+Fixed	Fixed::operator< ( const Fixed lesserThan )
+{
+	(void)lesserThan;
+	return (*this);
+}
+
+Fixed	Fixed::operator>= ( const Fixed greaterOrEqual )
+{
+	(void)greaterOrEqual;
+	return (*this);
+}
+
+Fixed	Fixed::operator<= ( const Fixed lesserOrEqual )
+{
+	(void)lesserOrEqual;
+	return (*this);
+}
+
+Fixed	Fixed::operator== ( const Fixed isEqual )
+{
+	(void)isEqual;
+	return (*this);
+}
+
+Fixed	Fixed::operator!= ( const Fixed isNotEqual )
+{
+	(void)isNotEqual;
+	return (*this);
+}
+
+
+// arithmetic ops
+
+Fixed	Fixed::operator+ ( const Fixed addendum )
+{
+	(void)addendum;
+	return (*this);
+}
+
+Fixed	Fixed::operator- ( const Fixed subtrahendum )
+{
+	(void)subtrahendum;
+	return (*this);
+}
+
+Fixed	Fixed::operator* ( const Fixed multiplicandum )
+{
+	(void)multiplicandum;
+	return (*this);
+}
+
+Fixed	Fixed::operator/ ( const Fixed dividendum )
+{
+	(void)dividendum;
+	return (*this);
+}
+
+
+// increment and decrement ops
+
+// postfix	i++
+Fixed	Fixed::operator++ ( int )
+{
+	return (*this);
+}
+
+// prefix	++i
+Fixed	Fixed::operator++ ()		
+{
+	return (*this);
+}
+
+// postfix	i--
+Fixed	Fixed::operator-- ( int )	
+{
+	return (*this);
+}
+
+// prefix	--i
+Fixed	Fixed::operator-- ()		
+{
+	return (*this);
+}
+
+
+// min max functions
+
+Fixed& Fixed::min(Fixed& a, Fixed& b)
+{
+	(void)b;
+	return (a);
+}
+
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
+{
+	(void)b;
+	return (a);
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+	(void)b;
+	return (a);
+}
+
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+{
+	(void)b;
+	return (a);
+}
+
 
 std::ostream& operator<< ( std::ostream& o, Fixed const & i)
 {

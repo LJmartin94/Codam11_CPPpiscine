@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 13:56:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/17 15:17:35 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/17 17:12:55 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ class Fixed
 
 	// min max functions
 	static Fixed& min(Fixed& a, Fixed& b);
-	static Fixed& min(const Fixed& a, const Fixed& b);
+	static const Fixed& min(const Fixed& a, const Fixed& b);
 	static Fixed& max(Fixed& a, Fixed& b);
-	static Fixed& max(const Fixed& a, const Fixed& b);
+	static const Fixed& max(const Fixed& a, const Fixed& b);
 	
 	
 	private:
