@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 13:56:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/17 17:12:55 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/18 16:08:45 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ class Fixed
 	//ex02
 	
 	// comparison ops
-	Fixed	operator> ( const Fixed greaterThan );
-	Fixed	operator< ( const Fixed lesserThan );
-	Fixed	operator>= ( const Fixed greaterOrEqual );
-	Fixed	operator<= ( const Fixed lesserOrEqual );
-	Fixed	operator== ( const Fixed isEqual );
-	Fixed	operator!= ( const Fixed isNotEqual );
+	bool	operator> ( const Fixed greaterThan );
+	bool	operator< ( const Fixed lesserThan );
+	bool	operator>= ( const Fixed greaterOrEqual );
+	bool	operator<= ( const Fixed lesserOrEqual );
+	bool	operator== ( const Fixed isEqual );
+	bool	operator!= ( const Fixed isNotEqual );
 
 	// arithmetic ops
 	Fixed	operator+ ( const Fixed addendum );

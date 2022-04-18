@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/17 17:12:40 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/18 16:12:19 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,40 +84,34 @@ int		Fixed::toInt( void ) const
 
 // comparison ops
 
-Fixed	Fixed::operator> ( const Fixed greaterThan )
+bool	Fixed::operator> ( const Fixed greaterThan )
 {
-	(void)greaterThan;
-	return (*this);
+	return ((*this).getRawBits() > greaterThan.getRawBits());
 }
 
-Fixed	Fixed::operator< ( const Fixed lesserThan )
+bool	Fixed::operator< ( const Fixed lesserThan )
 {
-	(void)lesserThan;
-	return (*this);
+	return ((*this).getRawBits() < lesserThan.getRawBits());
 }
 
-Fixed	Fixed::operator>= ( const Fixed greaterOrEqual )
+bool	Fixed::operator>= ( const Fixed greaterOrEqual )
 {
-	(void)greaterOrEqual;
-	return (*this);
+	return ((*this).getRawBits() >= greaterOrEqual.getRawBits());
 }
 
-Fixed	Fixed::operator<= ( const Fixed lesserOrEqual )
+bool	Fixed::operator<= ( const Fixed lesserOrEqual )
 {
-	(void)lesserOrEqual;
-	return (*this);
+	return ((*this).getRawBits() <= lesserOrEqual.getRawBits());
 }
 
-Fixed	Fixed::operator== ( const Fixed isEqual )
+bool	Fixed::operator== ( const Fixed isEqual )
 {
-	(void)isEqual;
-	return (*this);
+	return ((*this).getRawBits() == isEqual.getRawBits());
 }
 
-Fixed	Fixed::operator!= ( const Fixed isNotEqual )
+bool	Fixed::operator!= ( const Fixed isNotEqual )
 {
-	(void)isNotEqual;
-	return (*this);
+	return ((*this).getRawBits() != isNotEqual.getRawBits());
 }
 
 
