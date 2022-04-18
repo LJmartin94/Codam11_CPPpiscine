@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 19:14:51 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/18 16:01:30 by limartin      ########   odam.nl         */
+/*   Updated: 2022/04/18 16:23:53 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,44 @@ int		main( void )
 	std::cout << b << std::endl;
 
 	std::cout << Fixed::max( a, b )<< std::endl;
+
+	Fixed		lilGuy( 1.0f );
+	Fixed		bigGuy( 2.0f );
+	Fixed		sameGuy(lilGuy);
+
+	if (bigGuy > lilGuy)
+		std::cout << "good" << std::endl;
+	if (lilGuy < bigGuy)
+		std::cout << "good" << std::endl;
+	if (bigGuy >= lilGuy)
+		std::cout << "good" << std::endl;
+	if (sameGuy >= lilGuy)
+		std::cout << "good" << std::endl;
+	if (lilGuy <= bigGuy)
+		std::cout << "good" << std::endl;
+	if (sameGuy <= lilGuy)
+		std::cout << "good" << std::endl;
+	if (sameGuy == lilGuy)
+		std::cout << "good" << std::endl;
+	if (bigGuy != lilGuy)
+		std::cout << "good" << std::endl;
+	
+	if (!(bigGuy > lilGuy))
+		std::cout << "uh oh" << std::endl;
+	if (!(lilGuy < bigGuy))
+		std::cout << "uh oh" << std::endl;
+	if (!(bigGuy >= lilGuy))
+		std::cout << "uh oh" << std::endl;
+	if (!(sameGuy >= lilGuy))
+		std::cout << "uh oh" << std::endl;
+	if (!(lilGuy <= bigGuy))
+		std::cout << "uh oh" << std::endl;
+	if (!(sameGuy <= lilGuy))
+		std::cout << "uh oh" << std::endl;
+	if (!(sameGuy == lilGuy))
+		std::cout << "uh oh" << std::endl;
+	if (!(bigGuy != lilGuy))
+		std::cout << "uh oh" << std::endl;
 
 	return (0);
 }
