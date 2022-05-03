@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 13:56:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/18 16:08:45 by limartin      ########   odam.nl         */
+/*   Updated: 2022/05/03 17:37:23 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,32 +20,32 @@ class Fixed
 {
 	public:
 	Fixed( int n = 0 );								//Default OR Int Constructor
-	Fixed( float n);								//Float Constructor
+	Fixed( float n );								//Float Constructor
 	Fixed( const Fixed& copy );						//Copy Constructor
 	Fixed& operator= ( const Fixed& assignment );	//Assignment Operator Overload
 	~Fixed();										//Destructor
 	
 	//ex01
 	int		getRawBits( void ) const; //returns the raw value of the fixed-point value
-	void	setRawBits( int const raw); //sets the raw value of the fixed-point number
+	void	setRawBits( int const raw ); //sets the raw value of the fixed-point number
 	float	toFloat( void ) const;
 	int		toInt( void ) const;
 
 	//ex02
 	
 	// comparison ops
-	bool	operator> ( const Fixed greaterThan );
-	bool	operator< ( const Fixed lesserThan );
-	bool	operator>= ( const Fixed greaterOrEqual );
-	bool	operator<= ( const Fixed lesserOrEqual );
-	bool	operator== ( const Fixed isEqual );
-	bool	operator!= ( const Fixed isNotEqual );
+	bool	operator> ( Fixed const & greaterThan );
+	bool	operator< ( Fixed const & lesserThan );
+	bool	operator>= ( Fixed const & greaterOrEqual );
+	bool	operator<= ( Fixed const & lesserOrEqual );
+	bool	operator== ( Fixed const & isEqual );
+	bool	operator!= ( Fixed const & isNotEqual );
 
 	// arithmetic ops
-	Fixed	operator+ ( const Fixed addendum );
-	Fixed	operator- ( const Fixed subtrahendum );
-	Fixed	operator* ( const Fixed multiplicandum );
-	Fixed	operator/ ( const Fixed dividendum );
+	Fixed	operator+ ( Fixed const & addendum );
+	Fixed	operator- ( Fixed const & subtrahendum );
+	Fixed	operator* ( Fixed const & multiplicandum );
+	Fixed	operator/ ( Fixed const & dividendum );
 
 	// increment and decrement ops
 	Fixed	operator++ ( int );	// postfix	i++
@@ -65,6 +65,6 @@ class Fixed
 	static const int	_fractionalBits = 8;
 };
 
-std::ostream& operator<< ( std::ostream& o, Fixed const & i);
+std::ostream& operator<< ( std::ostream& o, Fixed const & i );
 
 #endif

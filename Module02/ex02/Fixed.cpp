@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/04/18 16:12:19 by limartin      ########   odam.nl         */
+/*   Updated: 2022/05/03 17:38:18 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,32 +84,32 @@ int		Fixed::toInt( void ) const
 
 // comparison ops
 
-bool	Fixed::operator> ( const Fixed greaterThan )
+bool	Fixed::operator> ( Fixed const & greaterThan )
 {
 	return ((*this).getRawBits() > greaterThan.getRawBits());
 }
 
-bool	Fixed::operator< ( const Fixed lesserThan )
+bool	Fixed::operator< ( Fixed const & lesserThan )
 {
 	return ((*this).getRawBits() < lesserThan.getRawBits());
 }
 
-bool	Fixed::operator>= ( const Fixed greaterOrEqual )
+bool	Fixed::operator>= ( Fixed const & greaterOrEqual )
 {
 	return ((*this).getRawBits() >= greaterOrEqual.getRawBits());
 }
 
-bool	Fixed::operator<= ( const Fixed lesserOrEqual )
+bool	Fixed::operator<= ( Fixed const & lesserOrEqual )
 {
 	return ((*this).getRawBits() <= lesserOrEqual.getRawBits());
 }
 
-bool	Fixed::operator== ( const Fixed isEqual )
+bool	Fixed::operator== ( Fixed const & isEqual )
 {
 	return ((*this).getRawBits() == isEqual.getRawBits());
 }
 
-bool	Fixed::operator!= ( const Fixed isNotEqual )
+bool	Fixed::operator!= ( Fixed const & isNotEqual )
 {
 	return ((*this).getRawBits() != isNotEqual.getRawBits());
 }
@@ -117,25 +117,25 @@ bool	Fixed::operator!= ( const Fixed isNotEqual )
 
 // arithmetic ops
 
-Fixed	Fixed::operator+ ( const Fixed addendum )
+Fixed	Fixed::operator+ ( Fixed const & addendum )
 {
 	(void)addendum;
 	return (*this);
 }
 
-Fixed	Fixed::operator- ( const Fixed subtrahendum )
+Fixed	Fixed::operator- ( Fixed const & subtrahendum )
 {
 	(void)subtrahendum;
 	return (*this);
 }
 
-Fixed	Fixed::operator* ( const Fixed multiplicandum )
+Fixed	Fixed::operator* ( Fixed const & multiplicandum )
 {
 	(void)multiplicandum;
 	return (*this);
 }
 
-Fixed	Fixed::operator/ ( const Fixed dividendum )
+Fixed	Fixed::operator/ ( Fixed const & dividendum )
 {
 	(void)dividendum;
 	return (*this);
