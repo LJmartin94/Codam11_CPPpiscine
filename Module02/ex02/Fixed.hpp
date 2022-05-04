@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 13:56:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/05/03 17:37:23 by limartin      ########   odam.nl         */
+/*   Updated: 2022/05/04 18:58:13 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ class Fixed
 
 	//ex02
 	
+	// https://www.cprogramming.com/tutorial/const_correctness.html
+
 	// comparison ops
 	bool	operator> ( Fixed const & greaterThan );
 	bool	operator< ( Fixed const & lesserThan );
