@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/05/31 16:01:02 by limartin      ########   odam.nl         */
+/*   Updated: 2022/05/31 16:13:41 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //Default and Int Constructor
 Fixed::Fixed( int n )
-: _value(n << _fractionalBits)
+: _value( n << _fractionalBits )
 {
 	if (n)
 		std::cout << "Int constructor called (with value " << n << ")" << std::endl;
@@ -25,14 +25,14 @@ Fixed::Fixed( int n )
 
 //Float Constructor
 Fixed::Fixed( float n )
-: _value(n * (1 << _fractionalBits))
+: _value( n * (1 << _fractionalBits) )
 {
 	std::cout << "Float constructor called (with value " << n << ")" << std::endl;
 	return;
 }
 
 //Copy Constructor
-Fixed::Fixed(const Fixed& copy)
+Fixed::Fixed( const Fixed& copy )
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
@@ -64,7 +64,7 @@ int		Fixed::getRawBits( void ) const
 }
 
 //sets the raw value of the fixed-point number
-void	Fixed::setRawBits( int const raw)
+void	Fixed::setRawBits( int const raw )
 {
 	this->_value = raw;
 	return;
@@ -86,32 +86,32 @@ int		Fixed::toInt( void ) const
 
 bool	Fixed::operator> ( const Fixed& greaterThan )
 {
-	return ((*this).getRawBits() > greaterThan.getRawBits());
+	return ( (*this).getRawBits() > greaterThan.getRawBits() );
 }
 
 bool	Fixed::operator< ( const Fixed& lesserThan )
 {
-	return ((*this).getRawBits() < lesserThan.getRawBits());
+	return ( (*this).getRawBits() < lesserThan.getRawBits() );
 }
 
 bool	Fixed::operator>= ( const Fixed& greaterOrEqual )
 {
-	return ((*this).getRawBits() >= greaterOrEqual.getRawBits());
+	return ( (*this).getRawBits() >= greaterOrEqual.getRawBits() );
 }
 
 bool	Fixed::operator<= ( const Fixed& lesserOrEqual )
 {
-	return ((*this).getRawBits() <= lesserOrEqual.getRawBits());
+	return ( (*this).getRawBits() <= lesserOrEqual.getRawBits() );
 }
 
 bool	Fixed::operator== ( const Fixed& isEqual )
 {
-	return ((*this).getRawBits() == isEqual.getRawBits());
+	return ( (*this).getRawBits() == isEqual.getRawBits() );
 }
 
 bool	Fixed::operator!= ( const Fixed& isNotEqual )
 {
-	return ((*this).getRawBits() != isNotEqual.getRawBits());
+	return ( (*this).getRawBits() != isNotEqual.getRawBits() );
 }
 
 
@@ -177,32 +177,32 @@ Fixed&	Fixed::operator-- ()
 
 // min max functions
 
-Fixed& Fixed::min(Fixed& a, Fixed& b)
+Fixed& Fixed::min( Fixed& a, Fixed& b )
 {
 	(void)b;
 	return (a);
 }
 
-const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
+const Fixed& Fixed::min( const Fixed& a, const Fixed& b )
 {
 	(void)b;
 	return (a);
 }
 
-Fixed& Fixed::max(Fixed& a, Fixed& b)
+Fixed& Fixed::max( Fixed& a, Fixed& b )
 {
 	(void)b;
 	return (a);
 }
 
-const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+const Fixed& Fixed::max( const Fixed& a, const Fixed& b )
 {
 	(void)b;
 	return (a);
 }
 
 
-std::ostream& operator<< ( std::ostream& o, Fixed const & i)
+std::ostream& operator<< ( std::ostream& o, const Fixed& i )
 {
 	o << i.toFloat();
 	return (o);
