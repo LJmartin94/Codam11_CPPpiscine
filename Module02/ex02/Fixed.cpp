@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/05/31 14:40:03 by limartin      ########   odam.nl         */
+/*   Updated: 2022/05/31 15:34:32 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,12 +147,15 @@ Fixed	Fixed::operator/ ( const Fixed& dividendum )
 // postfix	i++
 Fixed	Fixed::operator++ ( int )
 {
-	return (*this);
+	Fixed postfixTemp = *this;
+	this->setRawBits(this->getRawBits() + 1);
+	return (postfixTemp);
 }
 
 // prefix	++i
 Fixed	Fixed::operator++ ()		
 {
+	this->setRawBits(this->getRawBits() + 1);
 	return (*this);
 }
 
