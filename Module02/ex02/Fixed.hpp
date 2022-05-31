@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 13:56:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/05/04 18:58:13 by limartin      ########   odam.nl         */
+/*   Updated: 2022/05/31 14:40:55 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,20 @@ class Fixed
 	int		toInt( void ) const;
 
 	//ex02
-	
-	// https://www.cprogramming.com/tutorial/const_correctness.html
 
 	// comparison ops
-	bool	operator> ( Fixed const & greaterThan );
-	bool	operator< ( Fixed const & lesserThan );
-	bool	operator>= ( Fixed const & greaterOrEqual );
-	bool	operator<= ( Fixed const & lesserOrEqual );
-	bool	operator== ( Fixed const & isEqual );
-	bool	operator!= ( Fixed const & isNotEqual );
+	bool	operator> ( const Fixed& greaterThan );
+	bool	operator< ( const Fixed& lesserThan );
+	bool	operator>= ( const Fixed& greaterOrEqual );
+	bool	operator<= ( const Fixed& lesserOrEqual );
+	bool	operator== ( const Fixed& isEqual );
+	bool	operator!= ( const Fixed& isNotEqual );
 
 	// arithmetic ops
-	Fixed	operator+ ( Fixed const & addendum );
-	Fixed	operator- ( Fixed const & subtrahendum );
-	Fixed	operator* ( Fixed const & multiplicandum );
-	Fixed	operator/ ( Fixed const & dividendum );
+	Fixed	operator+ ( const Fixed& addendum );
+	Fixed	operator- ( const Fixed& subtrahendum );
+	Fixed	operator* ( const Fixed& multiplicandum );
+	Fixed	operator/ ( const Fixed& dividendum );
 
 	// increment and decrement ops
 	Fixed	operator++ ( int );	// postfix	i++
