@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/05/31 16:13:41 by limartin      ########   odam.nl         */
+/*   Updated: 2022/05/31 16:20:35 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ bool	Fixed::operator!= ( const Fixed& isNotEqual )
 }
 
 
-// arithmetic ops
+// arithmetic ops // TODO NEXT
 
 Fixed	Fixed::operator+ ( const Fixed& addendum )
 {
@@ -201,6 +201,7 @@ const Fixed& Fixed::max( const Fixed& a, const Fixed& b )
 	return (a);
 }
 
+//Stream Operator Overload
 
 std::ostream& operator<< ( std::ostream& o, const Fixed& i )
 {
