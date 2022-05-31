@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/05/31 15:34:32 by limartin      ########   odam.nl         */
+/*   Updated: 2022/05/31 16:01:02 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,21 +153,24 @@ Fixed	Fixed::operator++ ( int )
 }
 
 // prefix	++i
-Fixed	Fixed::operator++ ()		
+Fixed&	Fixed::operator++ ()
 {
 	this->setRawBits(this->getRawBits() + 1);
 	return (*this);
 }
 
 // postfix	i--
-Fixed	Fixed::operator-- ( int )	
+Fixed	Fixed::operator-- ( int )
 {
-	return (*this);
+	Fixed postfixTemp = *this;
+	this->setRawBits(this->getRawBits() - 1);
+	return (postfixTemp);
 }
 
 // prefix	--i
-Fixed	Fixed::operator-- ()		
+Fixed&	Fixed::operator-- ()
 {
+	this->setRawBits(this->getRawBits() - 1);
 	return (*this);
 }
 

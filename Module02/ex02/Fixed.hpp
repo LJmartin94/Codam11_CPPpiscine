@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 13:56:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/05/31 14:40:55 by limartin      ########   odam.nl         */
+/*   Updated: 2022/05/31 15:58:02 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ class Fixed
 
 	// increment and decrement ops
 	Fixed	operator++ ( int );	// postfix	i++
-	Fixed	operator++ ();		// prefix	++i
+	Fixed&	operator++ ();		// prefix	++i
 	Fixed	operator-- ( int );	// postfix	i--
-	Fixed	operator-- ();		// prefix	--i
+	Fixed&	operator-- ();		// prefix	--i
 
 	// min max functions
 	static Fixed& min(Fixed& a, Fixed& b);

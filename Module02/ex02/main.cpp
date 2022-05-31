@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 19:14:51 by limartin      #+#    #+#                 */
-/*   Updated: 2022/05/31 15:45:14 by limartin      ########   odam.nl         */
+/*   Updated: 2022/05/31 15:53:11 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ int		main( void )
 	std::cout << b << std::endl;
 
 	std::cout << Fixed::max( a, b )<< std::endl;
+
+	Fixed		c(0);
+	std::cout << c.getRawBits() << std::endl;
+	std::cout << --c << std::endl;
+	std::cout << c.getRawBits() << std::endl;
 
 	if (testComparisonOps)
 	{
