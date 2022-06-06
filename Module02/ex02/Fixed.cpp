@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/06/06 10:27:10 by limartin      ########   odam.nl         */
+/*   Updated: 2022/06/06 12:56:08 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 Fixed::Fixed( int n )
 : _value( n << _fractionalBits )
 {
-	if (n)
-		std::cout << "Int constructor called (with value " << n << ")" << std::endl;
-	else
-		std::cout << "Default constructor called (with value " << n << ")" << std::endl;
+	// if (n)
+	// 	std::cout << "Int constructor called (with value " << n << ")" << std::endl;
+	// else
+	// 	std::cout << "Default constructor called (with value " << n << ")" << std::endl;
 	return;
 }
 
@@ -27,14 +27,14 @@ Fixed::Fixed( int n )
 Fixed::Fixed( float n )
 : _value( n * (1 << _fractionalBits) )
 {
-	std::cout << "Float constructor called (with value " << n << ")" << std::endl;
+	// std::cout << "Float constructor called (with value " << n << ")" << std::endl;
 	return;
 }
 
 //Copy Constructor
 Fixed::Fixed( const Fixed& copy )
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 	return;
 }
@@ -42,7 +42,7 @@ Fixed::Fixed( const Fixed& copy )
 //Assignment Operator Overload (to create deep copy)
 Fixed& Fixed::operator= ( const Fixed& assignment )
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &assignment)
 	{
 		this->_value = assignment.getRawBits();
@@ -53,7 +53,7 @@ Fixed& Fixed::operator= ( const Fixed& assignment )
 //Destructor
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	//std::cout << "Destructor called" << std::endl;
 	return;
 }
 
@@ -134,14 +134,18 @@ Fixed	Fixed::operator- ( const Fixed& subtrahend ) const
 Fixed	Fixed::operator* ( const Fixed& factor ) const
 {
 	Fixed product;
-	product.setRawBits( (*this).getRawBits() * factor.getRawBits() );
+	long int fidelity;
+	fidelity = (*this).getRawBits() * factor.getRawBits();
+	product.setRawBits( (int)(fidelity / (1 << this->_fractionalBits)) );
 	return (product);
 }
 
 Fixed	Fixed::operator/ ( const Fixed& divisor ) const
 {
 	Fixed quotient;
-	quotient.setRawBits( (*this).getRawBits() / divisor.getRawBits() );
+	long int fidelity;
+	fidelity = (*this).getRawBits() * (1 << this->_fractionalBits);
+	quotient.setRawBits( (int)(fidelity / divisor.getRawBits()) );
 	return (quotient);
 }
 
