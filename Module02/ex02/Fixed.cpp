@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/05/31 16:20:35 by limartin      ########   odam.nl         */
+/*   Updated: 2022/06/06 10:27:10 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,61 +84,65 @@ int		Fixed::toInt( void ) const
 
 // comparison ops
 
-bool	Fixed::operator> ( const Fixed& greaterThan )
+bool	Fixed::operator> ( const Fixed& greaterThan ) const
 {
 	return ( (*this).getRawBits() > greaterThan.getRawBits() );
 }
 
-bool	Fixed::operator< ( const Fixed& lesserThan )
+bool	Fixed::operator< ( const Fixed& lesserThan ) const
 {
 	return ( (*this).getRawBits() < lesserThan.getRawBits() );
 }
 
-bool	Fixed::operator>= ( const Fixed& greaterOrEqual )
+bool	Fixed::operator>= ( const Fixed& greaterOrEqual ) const
 {
 	return ( (*this).getRawBits() >= greaterOrEqual.getRawBits() );
 }
 
-bool	Fixed::operator<= ( const Fixed& lesserOrEqual )
+bool	Fixed::operator<= ( const Fixed& lesserOrEqual ) const
 {
 	return ( (*this).getRawBits() <= lesserOrEqual.getRawBits() );
 }
 
-bool	Fixed::operator== ( const Fixed& isEqual )
+bool	Fixed::operator== ( const Fixed& isEqual ) const
 {
 	return ( (*this).getRawBits() == isEqual.getRawBits() );
 }
 
-bool	Fixed::operator!= ( const Fixed& isNotEqual )
+bool	Fixed::operator!= ( const Fixed& isNotEqual ) const
 {
 	return ( (*this).getRawBits() != isNotEqual.getRawBits() );
 }
 
 
-// arithmetic ops // TODO NEXT
+// arithmetic ops
 
-Fixed	Fixed::operator+ ( const Fixed& addendum )
+Fixed	Fixed::operator+ ( const Fixed& addend ) const
 {
-	(void)addendum;
-	return (*this);
+	Fixed sum;
+	sum.setRawBits( (*this).getRawBits() + addend.getRawBits() );
+	return (sum);
 }
 
-Fixed	Fixed::operator- ( const Fixed& subtrahendum )
+Fixed	Fixed::operator- ( const Fixed& subtrahend ) const
 {
-	(void)subtrahendum;
-	return (*this);
+	Fixed difference;
+	difference.setRawBits( (*this).getRawBits() - subtrahend.getRawBits() );
+	return (difference);
 }
 
-Fixed	Fixed::operator* ( const Fixed& multiplicandum )
+Fixed	Fixed::operator* ( const Fixed& factor ) const
 {
-	(void)multiplicandum;
-	return (*this);
+	Fixed product;
+	product.setRawBits( (*this).getRawBits() * factor.getRawBits() );
+	return (product);
 }
 
-Fixed	Fixed::operator/ ( const Fixed& dividendum )
+Fixed	Fixed::operator/ ( const Fixed& divisor ) const
 {
-	(void)dividendum;
-	return (*this);
+	Fixed quotient;
+	quotient.setRawBits( (*this).getRawBits() / divisor.getRawBits() );
+	return (quotient);
 }
 
 

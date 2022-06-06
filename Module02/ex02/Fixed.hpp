@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 13:56:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/05/31 15:58:02 by limartin      ########   odam.nl         */
+/*   Updated: 2022/06/06 10:15:43 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,18 @@ class Fixed
 	//ex02
 
 	// comparison ops
-	bool	operator> ( const Fixed& greaterThan );
-	bool	operator< ( const Fixed& lesserThan );
-	bool	operator>= ( const Fixed& greaterOrEqual );
-	bool	operator<= ( const Fixed& lesserOrEqual );
-	bool	operator== ( const Fixed& isEqual );
-	bool	operator!= ( const Fixed& isNotEqual );
+	bool	operator> ( const Fixed& greaterThan ) const;
+	bool	operator< ( const Fixed& lesserThan ) const;
+	bool	operator>= ( const Fixed& greaterOrEqual ) const;
+	bool	operator<= ( const Fixed& lesserOrEqual ) const;
+	bool	operator== ( const Fixed& isEqual ) const;
+	bool	operator!= ( const Fixed& isNotEqual ) const;
 
 	// arithmetic ops
-	Fixed	operator+ ( const Fixed& addendum );
-	Fixed	operator- ( const Fixed& subtrahendum );
-	Fixed	operator* ( const Fixed& multiplicandum );
-	Fixed	operator/ ( const Fixed& dividendum );
+	Fixed	operator+ ( const Fixed& addendum ) const;
+	Fixed	operator- ( const Fixed& subtrahendum ) const;
+	Fixed	operator* ( const Fixed& multiplicandum ) const;
+	Fixed	operator/ ( const Fixed& dividendum ) const;
 
 	// increment and decrement ops
 	Fixed	operator++ ( int );	// postfix	i++
