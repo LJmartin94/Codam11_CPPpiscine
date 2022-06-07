@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/06/07 11:42:36 by limartin      ########   odam.nl         */
+/*   Updated: 2022/06/07 14:34:36 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,9 @@ int		Fixed::toInt( void ) const
 
 std::string Fixed::toString( void ) const
 {
+	if ( (*this)._fractionalBits <= 0)
+		return (std::to_string( (*this).getRawBits() ));
+	
 	//set all bits that represent the integral part to 1, the rest to 0
 	int int_mask = INT_MAX << (*this)._fractionalBits; 
 	// store integral part of the first factor with bitwise AND
@@ -92,9 +95,11 @@ std::string Fixed::toString( void ) const
  	std::string ret = std::to_string(integral >> (*this)._fractionalBits);
 	if (fractional)
 	{
-		int bit_value = 128;
-		int dec_value = 50000000;
-		int str_value = 0;
+		// Convert the int that represent the fractional bits into a decimal fraction
+		long int bit_value = 1 * pow(2, (*this)._fractionalBits - 1);  //128 with 8 fractional bits
+		long int dec_value = 5 * pow(10, (*this)._fractionalBits - 1); //50000000 with 8 fractional bits
+		long int str_value = 0;
+		int zero_pad  = 0;
 		
 		while (fractional > 0)
 		{
@@ -107,15 +112,29 @@ std::string Fixed::toString( void ) const
 			dec_value = dec_value / 2;
 		}
 
-		ret = ret + ".";
-		if (str_value < 12500000)
-			ret = ret + "0";
-		if (str_value <  1562500)
-			ret = ret + "0";
-		
-		while (str_value % 10 == 0)
+		// Remove trailing zeros
+		while (str_value % 10 == 0 && str_value != 0)
+		{
 			str_value = str_value / 10;
-
+			zero_pad++;
+		}
+		
+		// Find leading zeros
+		dec_value = str_value;
+		while (dec_value > 0)
+		{
+			dec_value = dec_value / 10;
+			zero_pad++;
+		}
+		zero_pad = (*this)._fractionalBits - zero_pad;
+		
+		// Create the fractional portion of the string
+		ret = ret + ".";
+		while (zero_pad)
+		{
+			ret = ret + "0";
+			zero_pad--;
+		}
 		ret = ret + std::to_string(str_value);
 	}
 	return (ret);

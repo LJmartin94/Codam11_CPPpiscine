@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 13:56:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/06/07 11:43:54 by limartin      ########   odam.nl         */
+/*   Updated: 2022/06/07 14:34:49 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FIXED_HPP
 
 #include <iostream> //stream operators
-#include <cmath> //roundf function
+#include <cmath> //roundf function, pow function
 // #include <iomanip> // std::setprecision (DEBUG ONLY)
 
 class Fixed
@@ -64,7 +64,7 @@ class Fixed
 	
 	private:
 	int 				_value;
-	static const int	_fractionalBits = 8;
+	static const int	_fractionalBits = 8; //can be set to anything between 0 and 18 incl.
 };
 
 std::ostream& operator<< ( std::ostream& o, Fixed const & i );

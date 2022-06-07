@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 19:14:51 by limartin      #+#    #+#                 */
-/*   Updated: 2022/06/07 11:51:28 by limartin      ########   odam.nl         */
+/*   Updated: 2022/06/07 14:01:52 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int		main( void )
 {
+	bool testFloatsAndMultiplication = true;
 	bool testComparisonOps = false;
-	bool testFloatsAndMultiplication = false;
 	Fixed 		a;
 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
@@ -39,9 +39,12 @@ int		main( void )
 		std::cout << "Largest number you can possibly store:                    " << cpp << std::endl;
 		Fixed wut(8388608); //one bit larger than the largest number it can represent
 		--wut;
-		std::cout << "Storing 8388608 and underflowing the overflow:            " << wut << std::endl;
+		std::cout << "Storing 8388608 as int and underflowing the overflow:     " << wut << std::endl;
 	
 		std::cout << std::endl << "Testing some multiplications:" << std::endl;
+		Fixed const neg( Fixed( -4000.56789f ) * Fixed( 1000.0f ));
+		std::cout << neg << std::endl;
+
 		Fixed const d( Fixed( 8388.608f ) * Fixed( 1000.0f ));
 		std::cout << d << std::endl;
 		Fixed const e( Fixed( 2896.3092f ) * Fixed( 2896.3092f ));
