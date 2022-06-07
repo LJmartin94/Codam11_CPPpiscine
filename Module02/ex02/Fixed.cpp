@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/06/07 14:34:36 by limartin      ########   odam.nl         */
+/*   Updated: 2022/06/07 14:51:17 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ std::string Fixed::toString( void ) const
 {
 	if ( (*this)._fractionalBits <= 0)
 		return (std::to_string( (*this).getRawBits() ));
+	if ( (*this)._fractionalBits > 18)
+		return (std::to_string( (*this).toFloat() ));
 	
 	//set all bits that represent the integral part to 1, the rest to 0
 	int int_mask = INT_MAX << (*this)._fractionalBits; 
