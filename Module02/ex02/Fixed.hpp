@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 13:56:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/06/06 10:15:43 by limartin      ########   odam.nl         */
+/*   Updated: 2022/06/07 11:43:54 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream> //stream operators
 #include <cmath> //roundf function
+// #include <iomanip> // std::setprecision (DEBUG ONLY)
 
 class Fixed
 {
@@ -26,10 +27,11 @@ class Fixed
 	~Fixed();										//Destructor
 	
 	//ex01
-	int		getRawBits( void ) const; //returns the raw value of the fixed-point value
-	void	setRawBits( int const raw ); //sets the raw value of the fixed-point number
-	float	toFloat( void ) const;
-	int		toInt( void ) const;
+	int			getRawBits( void ) const; //returns the raw value of the fixed-point value
+	void		setRawBits( int const raw ); //sets the raw value of the fixed-point number
+	float		toFloat( void ) const;
+	int			toInt( void ) const;
+	std::string toString( void ) const; //custom display function that avoids float rounding
 
 	//ex02
 
