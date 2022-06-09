@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/06/09 16:46:12 by limartin      ########   odam.nl         */
+/*   Updated: 2022/06/09 16:55:42 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ std::string Fixed::eightBitToString( void ) const
 {
 	if ( (*this)._fractionalBits <= 0)
 		return (std::to_string( (*this).getRawBits() ));
-	if ( (*this)._fractionalBits > 18)
+	if ( (*this)._fractionalBits > 19)
 		return (std::to_string( (*this).toFloat() ));
 	
 	//set all bits that represent the integral part to 1, the rest to 0
@@ -97,38 +97,18 @@ std::string Fixed::eightBitToString( void ) const
  	std::string ret = std::to_string(integral >> (*this)._fractionalBits);
 	if (fractional)
 	{
-		// Convert the int that represent the fractional bits into a decimal fraction
-		long int bit_value = 1 * pow(2, (*this)._fractionalBits - 1);  //128 with 8 fractional bits
-		long int dec_value = 5 * pow(10, (*this)._fractionalBits - 1); //50000000 with 8 fractional bits
-		long int str_value = 0;
-		int zero_pad  = 0;
-		
-		while (fractional > 0)
-		{
-			if (fractional >= bit_value)
-			{
-				str_value = str_value + dec_value;
-				fractional = fractional - bit_value;
-			}
-			bit_value = bit_value / 2;
-			dec_value = dec_value / 2;
-		}
-
-		// Remove trailing zeros
-		while (str_value % 10 == 0 && str_value != 0)
-		{
-			str_value = str_value / 10;
-			zero_pad++;
-		}
+		// Calculate the decimal number that represents the fractional portion of the string
+		unsigned long int answer = pow(10, (*this)._fractionalBits) * (fractional / pow(2, (*this)._fractionalBits));
 		
 		// Find leading zeros
-		dec_value = str_value;
-		while (dec_value > 0)
-		{
-			dec_value = dec_value / 10;
-			zero_pad++;
-		}
-		zero_pad = (*this)._fractionalBits - zero_pad;
+		int digits = 0;
+		for (int i = 0; answer >= pow(10,i); i++)
+			digits++;
+		int zero_pad = (*this)._fractionalBits - digits;
+
+		// Remove trailing zeros
+		while (answer % 10 == 0 && answer != 0)
+			answer = answer / 10;
 		
 		// Create the fractional portion of the string
 		ret = ret + ".";
@@ -137,7 +117,7 @@ std::string Fixed::eightBitToString( void ) const
 			ret = ret + "0";
 			zero_pad--;
 		}
-		ret = ret + std::to_string(str_value);
+		ret = ret + std::to_string(answer);
 	}
 	return (ret);
 }
