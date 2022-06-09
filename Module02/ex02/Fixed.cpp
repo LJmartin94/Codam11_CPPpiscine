@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/06/07 14:51:17 by limartin      ########   odam.nl         */
+/*   Updated: 2022/06/09 16:46:12 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int		Fixed::toInt( void ) const
 	return(this->getRawBits() >> this->_fractionalBits);
 }
 
-std::string Fixed::toString( void ) const
+std::string Fixed::eightBitToString( void ) const
 {
 	if ( (*this)._fractionalBits <= 0)
 		return (std::to_string( (*this).getRawBits() ));
@@ -138,6 +138,89 @@ std::string Fixed::toString( void ) const
 			zero_pad--;
 		}
 		ret = ret + std::to_string(str_value);
+	}
+	return (ret);
+}
+
+std::string Fixed::thirtytwoBitToString( void ) const
+{
+	if ( (*this)._fractionalBits <= 0)
+		return (std::to_string( (*this).getRawBits() ));
+	
+	//set all bits that represent the integral part to 1, the rest to 0
+	int int_mask = INT_MAX << (*this)._fractionalBits; 
+	// store integral part of the first factor with bitwise AND
+	int integral = (*this).getRawBits() & int_mask;
+	// store fractional part of the number with bitwise XOR compared to the int
+	int fractional = (*this).getRawBits() ^ integral;
+
+ 	std::string ret = std::to_string(integral >> (*this)._fractionalBits);
+	if (fractional)
+	{
+		unsigned long int answer = pow(10, (*this)._fractionalBits) * (fractional / pow(2, (*this)._fractionalBits));
+		int digits = 0;
+		for (int i = 0; answer >= pow(10,i); i++)
+			digits++;
+		int zero_pad = (*this)._fractionalBits - digits;
+		while (answer % 10 == 0 && answer != 0)
+			answer = answer / 10;
+		
+		// Create the fractional portion of the string
+		ret = ret + ".";
+		while (zero_pad)
+		{
+			ret = ret + "0";
+			zero_pad--;
+		}
+		ret = ret + std::to_string(answer);
+
+		// int bits = (*this)._fractionalBits;
+		// long int str_value = 0;
+		// long int dec_value = 5;
+		// int frac_max = pow(2, (*this)._fractionalBits);
+
+		// for (int i = 0; i < bits; i++)
+		// {
+		// 	if (fractional >= (frac_max / 2))
+		// 		str_value = str_value + dec_value;
+		// 	str_value = str_value * 10;
+		// 	dec_value = dec_value * 5;
+		// 	fractional = fractional << 1;
+		// 	fractional = (fractional >= frac_max) ? fractional - frac_max : fractional;
+		// 	// fractional = fractional >> 1;
+		// 	// std::cout << "DEBUG: fractional bits = " << fractional << std::endl;
+
+		// }
+		// // Convert the int that represent the fractional bits into a decimal fraction
+		// long int bit_value = 1 * pow(2, (*this)._fractionalBits - 1);  //128 with 8 fractional bits
+		// int zero_pad  = 0;
+		
+		// while (fractional > 0)
+		// {
+		// 	if (fractional >= bit_value)
+		// 	{
+		// 		str_value = str_value + dec_value;
+		// 		fractional = fractional - bit_value;
+		// 	}
+		// 	bit_value = bit_value / 2;
+		// 	dec_value = dec_value / 2;
+		// }
+
+		// // Remove trailing zeros
+		// while (str_value % 10 == 0 && str_value != 0)
+		// {
+		// 	str_value = str_value / 10;
+		// 	zero_pad++;
+		// }
+		
+		// // Find leading zeros
+		// dec_value = str_value;
+		// while (dec_value > 0)
+		// {
+		// 	dec_value = dec_value / 10;
+		// 	zero_pad++;
+		// }
+		// zero_pad = (*this)._fractionalBits - zero_pad;
 	}
 	return (ret);
 }
@@ -296,7 +379,8 @@ const Fixed& Fixed::max( const Fixed& a, const Fixed& b )
 
 std::ostream& operator<< ( std::ostream& o, const Fixed& i )
 {
-	// o << std::setprecision(8) << i.toFloat();
-	o << i.toString();
+	o << "Float: " << std::setprecision(31) << i.toFloat() << " ";
+	// o << i.eightBitToString();
+	o << "String: " << i.thirtytwoBitToString() << " ";
 	return (o);
 }
