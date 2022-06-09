@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 13:56:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/06/09 16:46:05 by limartin      ########   odam.nl         */
+/*   Updated: 2022/06/09 20:53:21 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ class Fixed
 	static Fixed& max(Fixed& a, Fixed& b);
 	static const Fixed& max(const Fixed& a, const Fixed& b);
 	
-	
+
 	private:
 	int 				_value;
-	static const int	_fractionalBits = 8; //can be set to anything between 0 and 18 incl.
+	static const int	_fractionalBits = 25; //can be set to anything between 0 and 18 incl.
 };
 
 std::ostream& operator<< ( std::ostream& o, Fixed const & i );
