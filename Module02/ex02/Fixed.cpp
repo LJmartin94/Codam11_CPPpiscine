@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/06/09 20:52:35 by limartin      ########   odam.nl         */
+/*   Updated: 2022/06/10 11:42:00 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,10 +147,29 @@ std::string Fixed::thirtytwoBitToString( void ) const
 		std::string			ans_str = "";	//stores the first digits of 'answer' when they are definite, to prevent overflow
 		unsigned int 		zero_pad = 0;	//the number of zeros to add after the decimal point and before 'answer'
 		
+		// int frac_copy = fractional;
+		// for (int decimal_place = 1; decimal_place <= fbits; decimal_place++)
+		// {
+		// 	int bit_value = pow(2, (fbits - decimal_place)); //the value of a bit at this decimal place
+		// 	if (frac_copy >= bit_value)
+		// 	{
+		// 		ans_str = ans_str + "1";
+		// 		frac_copy = frac_copy - bit_value;
+		// 	}
+		// 	else 
+		// 		ans_str = ans_str + "0";
+		// }
+		// std::cout << "DEBUG Binary representation of fraction: " << ans_str << std::endl;
+		// ans_str = "";
+
 		// Convert the int that represent the fractional bits into a decimal fraction
 		// We cycle through every bit in 'fractional', and add a value (specified by 'to_add') to 'answer' if the bit is 1
 		for (int decimal_place = 1; decimal_place <= fbits; decimal_place++)
 		{
+			std::cout << std::endl;
+			std::cout << "At " << decimal_place << " decimal places, max ans is: " << max_ans << std::endl;
+			std::cout << "At " << decimal_place << " decimal places, act ans is: " << ans_str << "|" << answer << std::endl;
+			std::cout << "Zero pad: " << zero_pad << ", to_add: " << to_add << std::endl;
 			zero_pad++;
 			int bit_value = pow(2, (fbits - decimal_place)); //the value of a bit at this decimal place
 			if (fractional >= bit_value)
@@ -165,21 +184,17 @@ std::string Fixed::thirtytwoBitToString( void ) const
 				if ( fractional == 0) // when the bits in the fractional part are all 0, we can stop
 					break;
 			}
-			if (max_ans >= max_ans * 10 + to_add) //overflow protection
+			if (max_ans >= max_ans + to_add) //overflow protection
 			{
-				ans_str = ans_str + "F"; //indicate error
+				ans_str = ans_str + "E"; //indicate error
 				break;
 			}
-			max_ans = max_ans * 10 + to_add; //max_ans is always increased, as if all bits so far were switched on.
-			// max_ans = max_ans + to_add; //max_ans is always increased, as if all bits so far were switched on.
+			max_ans = max_ans + to_add; //max_ans is always increased, as if all bits so far were switched on.
 
-			while (1)
+			while (1) //remove all leading 9s from max_ans if any
 			{
 				int max_ans_digits = std::to_string(max_ans).length();
-				unsigned long int power = pow(10, max_ans_digits - 1); //how large max_ans is currently
-				std::cout << std::endl;
-				std::cout << "At " << decimal_place << " decimal places, max ans is: " << max_ans << " power: " << power << std::endl;
-				std::cout << "At " << decimal_place << " decimal places, act ans is: " << ans_str << answer << std::endl;
+				unsigned long int power = pow(10, max_ans_digits - 1); //whether max_ans is in the 10's, 100's or 1000's etc.
 				
 				if (max_ans / power == 9) //check if max_ans starts with '9'
 				{
@@ -192,31 +207,20 @@ std::string Fixed::thirtytwoBitToString( void ) const
 					break;
 			}
 
-			// Increment 'answer' by x10 (as we consider the next decimal place) and 'to_add' by x5 (half of 10)
+			if (max_ans > max_ans * 10 || answer > answer * 10) //overflow protection
+			{
+				ans_str = ans_str + "F"; //indicate error
+				break;
+			}
+			// Increment 'answer' and 'max_ans' by x10 (as we consider the next decimal place) and 'to_add' by x5 (half of 10)
 			answer = answer * 10;
+			max_ans = max_ans * 10;
 			to_add = to_add * 5;
 		}
 		ans_str = ans_str + std::to_string(answer);
-		
-
-		// // Remove trailing zeros
-		// while (str_value % 10 == 0 && str_value != 0)
-		// {
-		// 	str_value = str_value / 10;
-		// 	zero_pad++;
-		// }
-		
-		// Find leading zeros
-		unsigned int digits = ans_str.length();
-		zero_pad = (zero_pad > digits) ? zero_pad - digits : 0 ;
 
 		// Create the fractional portion of the string
 		ret = ret + ".";
-		while (zero_pad)
-		{
-			ret = ret + "0";
-			zero_pad--;
-		}
 		ret = ret + ans_str;
 	}
 	return (ret);

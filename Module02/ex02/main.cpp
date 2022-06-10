@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 19:14:51 by limartin      #+#    #+#                 */
-/*   Updated: 2022/06/07 14:01:52 by limartin      ########   odam.nl         */
+/*   Updated: 2022/06/10 10:37:10 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,32 @@
 
 int		main( void )
 {
-	bool testFloatsAndMultiplication = true;
+	bool frationalBitsRabbitHole = false;
+	bool testFloatsAndMultiplication = false;
 	bool testComparisonOps = false;
 	Fixed 		a;
 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-	std::cout << "Tests specified by subject:" << std::endl;
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
+	// std::cout << "Tests specified by subject:" << std::endl;
+	// std::cout << a << std::endl;
+	// std::cout << ++a << std::endl;
+	// std::cout << a << std::endl;
+	// std::cout << a++ << std::endl;
+	// std::cout << a << std::endl;
 	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b )<< std::endl;
-	std::cout << std::endl;
+	// std::cout << Fixed::max( a, b )<< std::endl;
+	// std::cout << std::endl;
 
+	if (frationalBitsRabbitHole)
+	{
+		Fixed cpp;
+		cpp.setRawBits(INT_MAX);
+		std::cout << "Largest number you can possibly store:                    " << cpp << std::endl;
+
+		Fixed small;
+		small++;
+		std::cout << "Smallest number you can possibly store:                   " << small << std::endl;
+	}
 	if (testFloatsAndMultiplication)
 	{
 		Fixed const c(8388607.749f);
