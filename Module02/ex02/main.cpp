@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 19:14:51 by limartin      #+#    #+#                 */
-/*   Updated: 2022/06/10 14:11:51 by limartin      ########   odam.nl         */
+/*   Updated: 2022/06/10 14:49:15 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,10 @@ int		main( void )
 
 		Fixed small;
 		small++;
-		std::cout << "Smallest number you can possibly store:                   " << small << std::endl;
+		std::cout << "Smallest difference you can possibly store:               " << small << std::endl;
+
+		cpp.setRawBits(INT_MIN);
+		std::cout << "Smallest number you can possibly store:                   " << cpp << std::endl;
 	}
 	if (testFloatsAndMultiplication)
 	{

@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/06/10 14:21:56 by limartin      ########   odam.nl         */
+/*   Updated: 2022/06/10 14:50:30 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ std::string Fixed::eightBitToString( void ) const
 	if ( (*this)._fractionalBits <= 0)
 		return (std::to_string( (*this).getRawBits() ));
 	if ( (*this)._fractionalBits > 19)
-		return (std::to_string( (*this).toFloat() ));
+		return (Fixed::thirtytwoBitToString());
 	
 	//set all bits that represent the integral part to 1, the rest to 0
 	int int_mask = INT_MAX << (*this)._fractionalBits; 
@@ -124,90 +124,58 @@ std::string Fixed::eightBitToString( void ) const
 
 std::string Fixed::thirtytwoBitToString( void ) const
 {
-	const int fbits = (*this)._fractionalBits; //abbreviation for convenience
-	
-	//if there are no bits to store fractional info, 
-	//the number simply is the integer that was passed
+	const int fbits = (*this)._fractionalBits;
 	if ( fbits <= 0) 
 		return (std::to_string( (*this).getRawBits() ));
 	
-	//set all bits that represent the integral part to 1, the rest to 0
 	int int_mask = INT_MAX << fbits; 
-	// store integral part of the first factor with bitwise AND
 	int integral = (*this).getRawBits() & int_mask;
-	// store fractional part of the number with bitwise XOR compared to the int
 	int fractional = (*this).getRawBits() ^ integral;
 
  	std::string ret = std::to_string(integral >> fbits);
 	if (fractional)
 	{
-		std::string			computation_str = "0";
-		std::string			to_add = "5";
-		to_add[0] = to_add[0] - '0';
-
-		for (int decimal_place = 1; decimal_place <= fbits; decimal_place++)
+		std::string			computation_str = "0"; //string to represent fractional part
+		std::string			to_add = "5"; //what to add to fractional part if bit is 1
+		to_add[0] = to_add[0] - '0'; //remove ascii number offset
+		for (int decimal_place = 1; decimal_place <= fbits; decimal_place++) //cycle through all bits
 		{
-			// Pad ascii chars
-			for(std::string::iterator first_digit = to_add.begin(); first_digit != to_add.end(); ++first_digit)
-				*first_digit = *first_digit + '0';
-			// std::cout << std::endl << "Begin comp str:        " << computation_str << std::endl;
-			// std::cout << "to_add this iteration: " << to_add << std::endl;
-			// Strip all chars in string of ascii padding
-			for(std::string::iterator first_digit = to_add.begin(); first_digit != to_add.end(); ++first_digit)
-				*first_digit = *first_digit - '0';
-
-			int bit_value = pow(2, (fbits - decimal_place)); //the value of a bit at this decimal place
+			int bit_value = pow(2, (fbits - decimal_place)); //check if 'fractional' has this bit switched on
 			if (fractional >= bit_value)
 			{
-				// Strip all chars in string of ascii padding
-				for(std::string::iterator first_digit = computation_str.begin(); first_digit != computation_str.end(); ++first_digit)
-					*first_digit = *first_digit - '0';
-
-				//add to_add to computation_str
-				std::string::reverse_iterator i = computation_str.rbegin();
-				std::string::reverse_iterator j = to_add.rbegin();
-				while(i < computation_str.rend() && j < to_add.rend())
+				for(std::string::iterator iter = computation_str.begin(); iter != computation_str.end(); ++iter) //remove ascii offset
+					*iter = *iter - '0';
+				std::string::reverse_iterator ri = computation_str.rbegin();
+				std::string::reverse_iterator rj = to_add.rbegin();
+				while(ri < computation_str.rend() && rj < to_add.rend()) //sum digits in 'to_add' and 'computation_str' from R to L 
 				{
-					*i = *i + *j;
-					i++;
-					j++;
+					*ri = *ri + *rj;
+					ri++;
+					rj++;
 				}
-				
-				// carry overflowed numbers from right to left
-				for(std::string::reverse_iterator last_digit = computation_str.rbegin(); last_digit < computation_str.rend(); ++last_digit)
+				for(std::string::reverse_iterator r_iter = computation_str.rbegin(); r_iter < computation_str.rend(); ++r_iter) //carry overflow from R to L
 				{
-					*(last_digit + 1) = *(last_digit + 1) + *last_digit / 10;
-					*last_digit = *last_digit % 10;
+					*(r_iter + 1) = *(r_iter + 1) + *r_iter / 10;
+					*r_iter = *r_iter % 10;
 				}
-
-				// Pad ascii chars
-				for(std::string::iterator first_digit = computation_str.begin(); first_digit != computation_str.end(); ++first_digit)
-					*first_digit = *first_digit + '0';
-				
-				fractional = fractional - bit_value;
-				if ( fractional == 0) // when the bits in the fractional part are all 0, we can stop
+				for(std::string::iterator iter = computation_str.begin(); iter != computation_str.end(); ++iter) //add ascii offset
+					*iter = *iter + '0';
+				fractional = fractional - bit_value; //turn off the bit in fractional you just handled.
+				if ( fractional == 0)
 					break;
 			}
-			// std::cout << "End comp str:          " << computation_str << std::endl;
-
-
-			computation_str = computation_str + "0";
+			computation_str = computation_str + "0"; //give both strings one more decimal place
 			to_add = "0" + to_add;
 			to_add[0] = to_add[0] - '0';
-			//Multiplication on string x5
-			for(std::string::reverse_iterator last_digit = to_add.rbegin(); last_digit != to_add.rend(); ++last_digit)
+			for(std::string::reverse_iterator r_iter = to_add.rbegin(); r_iter != to_add.rend(); ++r_iter) //calc new 'to_add' (* 5 / 10)
+				*r_iter = *r_iter * 5;
+			for(std::string::reverse_iterator r_iter = to_add.rbegin(); r_iter < to_add.rend(); ++r_iter) //carry overflow from R to L
 			{
-				*last_digit = *last_digit * 5;
-			}
-			// carry overflowed numbers from right to left
-			for(std::string::reverse_iterator last_digit = to_add.rbegin(); last_digit < to_add.rend(); ++last_digit)
-			{
-				*(last_digit + 1) = *(last_digit + 1) + *last_digit / 10;
-				*last_digit = *last_digit % 10;
+				*(r_iter + 1) = *(r_iter + 1) + *r_iter / 10;
+				*r_iter = *r_iter % 10;
 			}
 		}
-		ret = ret + ".";
-		ret = ret + computation_str;
+		ret = ret + "." + computation_str; //Create the fractional portion of the string
 	}
 	return (ret);
 }
@@ -366,8 +334,7 @@ const Fixed& Fixed::max( const Fixed& a, const Fixed& b )
 
 std::ostream& operator<< ( std::ostream& o, const Fixed& i )
 {
-	o << "Float: " << std::setprecision(31) << i.toFloat() << " ";
-	// o << i.eightBitToString();
-	o << "String: " << i.thirtytwoBitToString() << " ";
+	// o << std::setprecision(31) << i.toFloat();
+	o << i.eightBitToString();
 	return (o);
 }
