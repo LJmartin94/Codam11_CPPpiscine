@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/06/10 11:42:00 by limartin      ########   odam.nl         */
+/*   Updated: 2022/06/10 14:21:56 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,87 +141,73 @@ std::string Fixed::thirtytwoBitToString( void ) const
  	std::string ret = std::to_string(integral >> fbits);
 	if (fractional)
 	{
-		unsigned long int	answer = 0;		//the decimal number that appears after the decimal point (but without leading or trailing zeroes)
-		unsigned long int	max_ans = 0;	//the max value that could appear after the decimal point (the closest value to next whole number possible with this number of bits)
-		unsigned long int	to_add = 5;		//what val to add to the answer if a bit is set to 1
-		std::string			ans_str = "";	//stores the first digits of 'answer' when they are definite, to prevent overflow
-		unsigned int 		zero_pad = 0;	//the number of zeros to add after the decimal point and before 'answer'
-		
-		// int frac_copy = fractional;
-		// for (int decimal_place = 1; decimal_place <= fbits; decimal_place++)
-		// {
-		// 	int bit_value = pow(2, (fbits - decimal_place)); //the value of a bit at this decimal place
-		// 	if (frac_copy >= bit_value)
-		// 	{
-		// 		ans_str = ans_str + "1";
-		// 		frac_copy = frac_copy - bit_value;
-		// 	}
-		// 	else 
-		// 		ans_str = ans_str + "0";
-		// }
-		// std::cout << "DEBUG Binary representation of fraction: " << ans_str << std::endl;
-		// ans_str = "";
+		std::string			computation_str = "0";
+		std::string			to_add = "5";
+		to_add[0] = to_add[0] - '0';
 
-		// Convert the int that represent the fractional bits into a decimal fraction
-		// We cycle through every bit in 'fractional', and add a value (specified by 'to_add') to 'answer' if the bit is 1
 		for (int decimal_place = 1; decimal_place <= fbits; decimal_place++)
 		{
-			std::cout << std::endl;
-			std::cout << "At " << decimal_place << " decimal places, max ans is: " << max_ans << std::endl;
-			std::cout << "At " << decimal_place << " decimal places, act ans is: " << ans_str << "|" << answer << std::endl;
-			std::cout << "Zero pad: " << zero_pad << ", to_add: " << to_add << std::endl;
-			zero_pad++;
+			// Pad ascii chars
+			for(std::string::iterator first_digit = to_add.begin(); first_digit != to_add.end(); ++first_digit)
+				*first_digit = *first_digit + '0';
+			// std::cout << std::endl << "Begin comp str:        " << computation_str << std::endl;
+			// std::cout << "to_add this iteration: " << to_add << std::endl;
+			// Strip all chars in string of ascii padding
+			for(std::string::iterator first_digit = to_add.begin(); first_digit != to_add.end(); ++first_digit)
+				*first_digit = *first_digit - '0';
+
 			int bit_value = pow(2, (fbits - decimal_place)); //the value of a bit at this decimal place
 			if (fractional >= bit_value)
 			{
-				if (answer >= answer + to_add) //overflow protection
+				// Strip all chars in string of ascii padding
+				for(std::string::iterator first_digit = computation_str.begin(); first_digit != computation_str.end(); ++first_digit)
+					*first_digit = *first_digit - '0';
+
+				//add to_add to computation_str
+				std::string::reverse_iterator i = computation_str.rbegin();
+				std::string::reverse_iterator j = to_add.rbegin();
+				while(i < computation_str.rend() && j < to_add.rend())
 				{
-					ans_str = ans_str + "E"; //indicate error
-					break;
+					*i = *i + *j;
+					i++;
+					j++;
 				}
-				answer = answer + to_add;
+				
+				// carry overflowed numbers from right to left
+				for(std::string::reverse_iterator last_digit = computation_str.rbegin(); last_digit < computation_str.rend(); ++last_digit)
+				{
+					*(last_digit + 1) = *(last_digit + 1) + *last_digit / 10;
+					*last_digit = *last_digit % 10;
+				}
+
+				// Pad ascii chars
+				for(std::string::iterator first_digit = computation_str.begin(); first_digit != computation_str.end(); ++first_digit)
+					*first_digit = *first_digit + '0';
+				
 				fractional = fractional - bit_value;
 				if ( fractional == 0) // when the bits in the fractional part are all 0, we can stop
 					break;
 			}
-			if (max_ans >= max_ans + to_add) //overflow protection
-			{
-				ans_str = ans_str + "E"; //indicate error
-				break;
-			}
-			max_ans = max_ans + to_add; //max_ans is always increased, as if all bits so far were switched on.
+			// std::cout << "End comp str:          " << computation_str << std::endl;
 
-			while (1) //remove all leading 9s from max_ans if any
-			{
-				int max_ans_digits = std::to_string(max_ans).length();
-				unsigned long int power = pow(10, max_ans_digits - 1); //whether max_ans is in the 10's, 100's or 1000's etc.
-				
-				if (max_ans / power == 9) //check if max_ans starts with '9'
-				{
-					max_ans = max_ans - (9 * power); //remove leading nine
-					ans_str = ans_str + std::to_string(answer / power); //store corresponding digit of actual answer
-					answer = answer % power; //remove leading digit from actual answer
-					// to_add = to_add / 10;
-				}
-				else
-					break;
-			}
 
-			if (max_ans > max_ans * 10 || answer > answer * 10) //overflow protection
+			computation_str = computation_str + "0";
+			to_add = "0" + to_add;
+			to_add[0] = to_add[0] - '0';
+			//Multiplication on string x5
+			for(std::string::reverse_iterator last_digit = to_add.rbegin(); last_digit != to_add.rend(); ++last_digit)
 			{
-				ans_str = ans_str + "F"; //indicate error
-				break;
+				*last_digit = *last_digit * 5;
 			}
-			// Increment 'answer' and 'max_ans' by x10 (as we consider the next decimal place) and 'to_add' by x5 (half of 10)
-			answer = answer * 10;
-			max_ans = max_ans * 10;
-			to_add = to_add * 5;
+			// carry overflowed numbers from right to left
+			for(std::string::reverse_iterator last_digit = to_add.rbegin(); last_digit < to_add.rend(); ++last_digit)
+			{
+				*(last_digit + 1) = *(last_digit + 1) + *last_digit / 10;
+				*last_digit = *last_digit % 10;
+			}
 		}
-		ans_str = ans_str + std::to_string(answer);
-
-		// Create the fractional portion of the string
 		ret = ret + ".";
-		ret = ret + ans_str;
+		ret = ret + computation_str;
 	}
 	return (ret);
 }

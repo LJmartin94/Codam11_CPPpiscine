@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 19:14:51 by limartin      #+#    #+#                 */
-/*   Updated: 2022/06/10 10:37:10 by limartin      ########   odam.nl         */
+/*   Updated: 2022/06/10 14:11:51 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int		main( void )
 {
-	bool frationalBitsRabbitHole = false;
+	bool frationalBitsRabbitHole = true;
 	bool testFloatsAndMultiplication = false;
 	bool testComparisonOps = false;
 	Fixed 		a;
@@ -27,7 +27,7 @@ int		main( void )
 	// std::cout << a << std::endl;
 	// std::cout << a++ << std::endl;
 	// std::cout << a << std::endl;
-	std::cout << b << std::endl;
+	// std::cout << b << std::endl;
 	// std::cout << Fixed::max( a, b )<< std::endl;
 	// std::cout << std::endl;
 
