@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/06/10 14:50:30 by limartin      ########   odam.nl         */
+/*   Updated: 2022/06/10 17:03:16 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ Fixed::Fixed( float n )
 : _value( n * (1 << _fractionalBits) )
 {
 	// std::cout << "Float constructor called (with value " << n << ")" << std::endl;
+	std::cout << "Under the hood, the float was stored as exactly: " << (*this) << std::endl;
 	return;
 }
 
@@ -125,12 +126,14 @@ std::string Fixed::eightBitToString( void ) const
 std::string Fixed::thirtytwoBitToString( void ) const
 {
 	const int fbits = (*this)._fractionalBits;
+	const int rbits = (*this).getRawBits();
 	if ( fbits <= 0) 
-		return (std::to_string( (*this).getRawBits() ));
+		return (std::to_string( rbits ));
 	
-	int int_mask = INT_MAX << fbits; 
-	int integral = (*this).getRawBits() & int_mask;
-	int fractional = (*this).getRawBits() ^ integral;
+	// int neg = (rbits < 0) ? 1 : 0;
+	int int_mask = INT_MAX << fbits;
+	int integral = rbits & int_mask;
+	int fractional = rbits ^ integral;
 
  	std::string ret = std::to_string(integral >> fbits);
 	if (fractional)
@@ -246,18 +249,21 @@ Fixed	Fixed::operator* ( const Fixed& factor ) const
 	int integral_b = factor.getRawBits() & int_mask;
 	int fractional_b = factor.getRawBits() ^ integral_b;
 
-	//make a cross products of the two factors four component parts,
-	//each time bitshifting only zero'd bits if possible.
+	// make a cross products of the two factors four component parts,
+	// each time bitshifting only zero'd bits if possible.
 	int sum_one = (integral_a >> (*this)._fractionalBits) * integral_b;
 	int sum_two = fractional_a * (integral_b >> (*this)._fractionalBits);
 	int sum_three = (integral_a >> (*this)._fractionalBits) * fractional_b;
 	int sum_four = (fractional_a * fractional_b) >> (*this)._fractionalBits;
 	product.setRawBits(sum_one + sum_two + sum_three + sum_four);
 
-	sum_one = (integral_a >> (*this)._fractionalBits) * factor.getRawBits() + ((fractional_a * factor.getRawBits()) >> (*this)._fractionalBits);
-	product.setRawBits(sum_one);
+	// product.setRawBits( (integral_a >> (*this)._fractionalBits) * factor.getRawBits() + \
+	// 					((fractional_a * factor.getRawBits()) >> (*this)._fractionalBits) );
+	
+	std::cout << "Cross product: " << product << std::endl;
 
 	product.setRawBits(this->getRawBits() * factor.toFloat());
+	std::cout << "Float product: " << product << std::endl;
 	return (product);
 }
 
@@ -334,7 +340,7 @@ const Fixed& Fixed::max( const Fixed& a, const Fixed& b )
 
 std::ostream& operator<< ( std::ostream& o, const Fixed& i )
 {
-	// o << std::setprecision(31) << i.toFloat();
+	o << std::setprecision(31) << i.toFloat() << " s:";
 	o << i.eightBitToString();
 	return (o);
 }
