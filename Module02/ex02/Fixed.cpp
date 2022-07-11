@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/06/10 17:03:16 by limartin      ########   odam.nl         */
+/*   Updated: 2022/07/11 13:24:15 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ std::string Fixed::eightBitToString( void ) const
 {
 	if ( (*this)._fractionalBits <= 0)
 		return (std::to_string( (*this).getRawBits() ));
-	if ( (*this)._fractionalBits > 19)
+	if ( (*this)._fractionalBits > 0)
 		return (Fixed::thirtytwoBitToString());
 	
 	//set all bits that represent the integral part to 1, the rest to 0
@@ -130,12 +130,12 @@ std::string Fixed::thirtytwoBitToString( void ) const
 	if ( fbits <= 0) 
 		return (std::to_string( rbits ));
 	
-	// int neg = (rbits < 0) ? 1 : 0;
 	int int_mask = INT_MAX << fbits;
 	int integral = rbits & int_mask;
 	int fractional = rbits ^ integral;
-
- 	std::string ret = std::to_string(integral >> fbits);
+	
+	int neg = (rbits < 0) ? 1 : 0; //we add 1 for twos complement when negative
+ 	std::string ret = std::to_string((integral >> fbits) + neg);
 	if (fractional)
 	{
 		std::string			computation_str = "0"; //string to represent fractional part
