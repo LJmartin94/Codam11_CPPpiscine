@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/07/12 10:20:33 by limartin      ########   odam.nl         */
+/*   Updated: 2022/07/12 10:51:25 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,14 +141,16 @@ std::string Fixed::thirtytwoBitToString( void ) const
 	{
 		std::string			computation_str = "0"; //string to represent fractional part
 		std::string			to_add = "5"; //what to add to fractional part if bit is 1
-		to_add[0] = to_add[0] - '0'; //remove ascii number offset
+		
+		//remove ascii number offset for performing calculations
+		to_add[0] = to_add[0] - '0';
+		computation_str[0] = computation_str[0] - '0';
+
 		for (int decimal_place = 1; decimal_place <= fbits; decimal_place++) //cycle through all bits
 		{
-			int bit_value = pow(2, (fbits - decimal_place)); //check if 'fractional' has this bit switched on
-			if (fractional >= bit_value)
+			int bit_value = pow(2, (fbits - decimal_place));
+			if (fractional >= bit_value) //check if 'fractional' has this bit switched on
 			{
-				for(std::string::iterator iter = computation_str.begin(); iter != computation_str.end(); ++iter) //remove ascii offset
-					*iter = *iter - '0';
 				std::string::reverse_iterator ri = computation_str.rbegin();
 				std::string::reverse_iterator rj = to_add.rbegin();
 				while(ri < computation_str.rend() && rj < to_add.rend()) //sum digits in 'to_add' and 'computation_str' from R to L 
@@ -162,16 +164,19 @@ std::string Fixed::thirtytwoBitToString( void ) const
 					*(r_iter + 1) = *(r_iter + 1) + *r_iter / 10;
 					*r_iter = *r_iter % 10;
 				}
-				for(std::string::iterator iter = computation_str.begin(); iter != computation_str.end(); ++iter) //add ascii offset
-					*iter = *iter + '0';
 				fractional = fractional - bit_value; //turn off the bit in fractional you just handled.
 				if ( fractional == 0)
 					break;
 			}
-			computation_str = computation_str + "0"; //give both strings one more decimal place
+
+			//give both strings one more decimal place
+			computation_str = computation_str + "0";
 			to_add = "0" + to_add;
+			computation_str[computation_str.length()] = computation_str[computation_str.length()] - '0';
 			to_add[0] = to_add[0] - '0';
-			for(std::string::reverse_iterator r_iter = to_add.rbegin(); r_iter != to_add.rend(); ++r_iter) //calc new 'to_add' (* 5 / 10)
+			
+			//calc new 'to_add' (* 5 / 10)
+			for(std::string::reverse_iterator r_iter = to_add.rbegin(); r_iter != to_add.rend(); ++r_iter)
 				*r_iter = *r_iter * 5;
 			for(std::string::reverse_iterator r_iter = to_add.rbegin(); r_iter < to_add.rend(); ++r_iter) //carry overflow from R to L
 			{
@@ -182,8 +187,10 @@ std::string Fixed::thirtytwoBitToString( void ) const
 		if(neg) //if the number is negative, add the computation string to -1
 		{
 			for(std::string::iterator i = computation_str.begin(); i+1 != computation_str.end(); ++i)
-				*i = ('9' - *i) + '0';
+				*i = 9 - *i;
 		}
+		for(std::string::iterator iter = computation_str.begin(); iter != computation_str.end(); ++iter) //add ascii offset back on.
+			*iter = *iter + '0';
 		ret = ret + "." + computation_str; //Create the fractional portion of the string
 	}
 	return (ret);
