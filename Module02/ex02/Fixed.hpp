@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 13:56:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/07/12 13:19:47 by limartin      ########   odam.nl         */
+/*   Updated: 2022/07/12 16:50:19 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ class Fixed
 
 	private:
 	int 				_value;
-	static const int	_fractionalBits = 8; //can be set to anything in 32bit range
+	static const int	_fractionalBits = 30; //can be set to anything in 32bit range
 };
 
 std::ostream& operator<< ( std::ostream& o, Fixed const & i );

@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/07/12 13:20:14 by limartin      ########   odam.nl         */
+/*   Updated: 2022/07/12 17:03:07 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -252,6 +252,8 @@ Fixed	Fixed::operator* ( const Fixed& factor ) const
 {
 	Fixed product;
 	
+//its not about the integral and fractional part, its about the first 16bits and the last 16 bits.
+
 	//set all bits that represent the integral part to 1, the rest to 0
 	int int_mask = INT_MAX << (*this)._fractionalBits; 
 	// store integral part of the first factor with bitwise AND
@@ -269,15 +271,11 @@ Fixed	Fixed::operator* ( const Fixed& factor ) const
 	int sum_one = (integral_a >> (*this)._fractionalBits) * integral_b;
 	int sum_two = fractional_a * (integral_b >> (*this)._fractionalBits);
 	int sum_three = (integral_a >> (*this)._fractionalBits) * fractional_b;
-	int sum_four = (fractional_a * fractional_b) >> (*this)._fractionalBits;
+	int sum_four = ((int64_t)fractional_a * (int64_t)fractional_b) >> (*this)._fractionalBits;
 	product.setRawBits(sum_one + sum_two + sum_three + sum_four);
-
-	// but this can be simplified to:
-	product.setRawBits( (integral_a >> (*this)._fractionalBits) * factor.getRawBits() + \
-						((fractional_a * factor.getRawBits()) >> (*this)._fractionalBits) );
 	
-	// using the cross product is slightly better at preserving the float's state as stored in memory.
-	int debug = 0;
+	// using this cross product is slightly better at preserving the float's state as stored in memory.
+	int debug = 1;
 	if (debug)
 	{
 		std::cout << "Cross product: " << product << std::endl;
@@ -290,9 +288,11 @@ Fixed	Fixed::operator* ( const Fixed& factor ) const
 Fixed	Fixed::operator/ ( const Fixed& divisor ) const
 {
 	Fixed quotient;
-	long int fidelity;
-	fidelity = (*this).getRawBits() * (1 << this->_fractionalBits);
-	quotient.setRawBits( (int)(fidelity / divisor.getRawBits()) );
+
+	int64_t fidelity = (*this).getRawBits();
+	fidelity = fidelity * (1 << this->_fractionalBits);
+	fidelity = fidelity / divisor.getRawBits();
+	quotient.setRawBits((int) fidelity);
 	return (quotient);
 }
 

@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 19:14:51 by limartin      #+#    #+#                 */
-/*   Updated: 2022/07/12 11:18:20 by limartin      ########   odam.nl         */
+/*   Updated: 2022/07/12 16:58:12 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,18 @@ int		main( void )
 	}
 	if (testFloatsAndMultiplication)
 	{
+		Fixed const example( Fixed( 100000.23456789123456789f ) * Fixed( 10.0f ));
+		std::cout << "Difference between float and cross product: " << example << std::endl;
+
+		Fixed const exampletwo( Fixed( 1.5f ) * Fixed( 0.5f ));
+		std::cout << "Test with fixed_bits 30: " << exampletwo << std::endl;
+
+		Fixed const examplethree( Fixed( 0.5f ) / Fixed( 0.5f ));
+		std::cout << "Test with fixed_bits 30: " << examplethree << std::endl;
+
+		Fixed const examplefour( Fixed( 0.000000000931322574615478515625f ) / Fixed( 0.5f ));
+		std::cout << "Test with fixed_bits 30: " << examplefour << std::endl;
+
 		Fixed const c(8388607.749f);
 		std::cout << "Largest number you can store using the float constructor: " << c << std::endl;
 		Fixed cpp;
