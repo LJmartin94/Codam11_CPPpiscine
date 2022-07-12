@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/07/11 13:24:15 by limartin      ########   odam.nl         */
+/*   Updated: 2022/07/12 10:20:33 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,7 @@ std::string Fixed::thirtytwoBitToString( void ) const
 	
 	int neg = (rbits < 0) ? 1 : 0; //we add 1 for twos complement when negative
  	std::string ret = std::to_string((integral >> fbits) + neg);
+	
 	if (fractional)
 	{
 		std::string			computation_str = "0"; //string to represent fractional part
@@ -177,6 +178,11 @@ std::string Fixed::thirtytwoBitToString( void ) const
 				*(r_iter + 1) = *(r_iter + 1) + *r_iter / 10;
 				*r_iter = *r_iter % 10;
 			}
+		}
+		if(neg) //if the number is negative, add the computation string to -1
+		{
+			for(std::string::iterator i = computation_str.begin(); i+1 != computation_str.end(); ++i)
+				*i = ('9' - *i) + '0';
 		}
 		ret = ret + "." + computation_str; //Create the fractional portion of the string
 	}
