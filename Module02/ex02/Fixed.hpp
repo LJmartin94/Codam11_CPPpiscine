@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 13:56:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/07/11 12:52:51 by limartin      ########   odam.nl         */
+/*   Updated: 2022/07/12 13:19:47 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Fixed
 	~Fixed();										//Destructor
 	
 	//ex01
-	int			getRawBits( void ) const; //returns the raw value of the fixed-point value
+	int			getRawBits( void ) const; //returns the raw value of the fixed-point number
 	void		setRawBits( int const raw ); //sets the raw value of the fixed-point number
 	float		toFloat( void ) const;
 	int			toInt( void ) const;
@@ -65,7 +65,7 @@ class Fixed
 
 	private:
 	int 				_value;
-	static const int	_fractionalBits = 8; //can be set to anything between 0 and 18 incl.
+	static const int	_fractionalBits = 8; //can be set to anything in 32bit range
 };
 
 std::ostream& operator<< ( std::ostream& o, Fixed const & i );

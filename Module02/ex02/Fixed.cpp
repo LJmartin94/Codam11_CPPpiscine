@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/07/12 11:09:53 by limartin      ########   odam.nl         */
+/*   Updated: 2022/07/12 13:20:14 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Fixed::Fixed( float n )
 : _value( n * (1 << _fractionalBits) )
 {
 	// std::cout << "Float constructor called (with value " << n << ")" << std::endl;
-	std::cout << "Under the hood, the float was stored as exactly: " << (*this) << std::endl;
+	// std::cout << "Under the hood, the float was stored as exactly: " << (*this) << std::endl;
 	return;
 }
 
@@ -83,10 +83,11 @@ int		Fixed::toInt( void ) const
 
 std::string Fixed::eightBitToString( void ) const
 {
+	//This function doesn't work for negative numbers or for more than 18 fractional bits
 	if ( (*this)._fractionalBits <= 0)
 		return (std::to_string( (*this).getRawBits() ));
 	if ( (*this)._fractionalBits > 0)
-		return (Fixed::thirtytwoBitToString());
+		return (Fixed::thirtytwoBitToString()); //So we send it here instead.
 	
 	//set all bits that represent the integral part to 1, the rest to 0
 	int int_mask = INT_MAX << (*this)._fractionalBits; 
@@ -264,19 +265,25 @@ Fixed	Fixed::operator* ( const Fixed& factor ) const
 
 	// make a cross products of the two factors four component parts,
 	// each time bitshifting only zero'd bits if possible.
+	
 	int sum_one = (integral_a >> (*this)._fractionalBits) * integral_b;
 	int sum_two = fractional_a * (integral_b >> (*this)._fractionalBits);
 	int sum_three = (integral_a >> (*this)._fractionalBits) * fractional_b;
 	int sum_four = (fractional_a * fractional_b) >> (*this)._fractionalBits;
 	product.setRawBits(sum_one + sum_two + sum_three + sum_four);
 
-	// product.setRawBits( (integral_a >> (*this)._fractionalBits) * factor.getRawBits() + \
-	// 					((fractional_a * factor.getRawBits()) >> (*this)._fractionalBits) );
+	// but this can be simplified to:
+	product.setRawBits( (integral_a >> (*this)._fractionalBits) * factor.getRawBits() + \
+						((fractional_a * factor.getRawBits()) >> (*this)._fractionalBits) );
 	
-	std::cout << "Cross product: " << product << std::endl;
-
-	product.setRawBits(this->getRawBits() * factor.toFloat());
-	std::cout << "Float product: " << product << std::endl;
+	// using the cross product is slightly better at preserving the float's state as stored in memory.
+	int debug = 0;
+	if (debug)
+	{
+		std::cout << "Cross product: " << product << std::endl;
+		product.setRawBits(this->getRawBits() * factor.toFloat());
+		std::cout << "Float product: " << product << std::endl;
+	}
 	return (product);
 }
 
@@ -353,7 +360,7 @@ const Fixed& Fixed::max( const Fixed& a, const Fixed& b )
 
 std::ostream& operator<< ( std::ostream& o, const Fixed& i )
 {
-	o << std::setprecision(31) << i.toFloat() << " s:";
+	// o << std::setprecision(31) << i.toFloat() << " s:";
 	o << i.eightBitToString();
 	return (o);
 }
