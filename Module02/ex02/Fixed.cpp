@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/07/12 10:51:25 by limartin      ########   odam.nl         */
+/*   Updated: 2022/07/12 11:09:53 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,7 +172,7 @@ std::string Fixed::thirtytwoBitToString( void ) const
 			//give both strings one more decimal place
 			computation_str = computation_str + "0";
 			to_add = "0" + to_add;
-			computation_str[computation_str.length()] = computation_str[computation_str.length()] - '0';
+			computation_str[computation_str.length() -1] = computation_str[computation_str.length() -1] - '0';
 			to_add[0] = to_add[0] - '0';
 			
 			//calc new 'to_add' (* 5 / 10)
