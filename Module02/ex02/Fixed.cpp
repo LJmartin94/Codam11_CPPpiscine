@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/07/13 18:36:10 by limartin      ########   odam.nl         */
+/*   Updated: 2022/07/13 21:45:33 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -278,8 +278,27 @@ Fixed	Fixed::operator* ( const Fixed& factor ) const
 	answer = answer >> (*this)._fractionalBits;
 	product.setRawBits((int)answer);
 
+	int factorA_int = (*this).getRawBits();
+	int factorB_int = factor.getRawBits();
+	int bits_to_shift = (sizeof(int)/2);
+	
+	int A_part_one = factorA_int >> bits_to_shift;
+	int A_part_two = (factorA_int << bits_to_shift) >> bits_to_shift;
+	int B_part_one = factorB_int >> bits_to_shift;
+	int B_part_two = (factorB_int << bits_to_shift) >> bits_to_shift;
+
+
+	//this doesnt work lmao
+	int ans = ( (A_part_one * B_part_one) << bits_to_shift >> (*this)._fractionalBits << bits_to_shift ) +
+				( (A_part_one * B_part_two) << bits_to_shift >> (*this)._fractionalBits ) +
+				( (A_part_two * B_part_one) << bits_to_shift >> (*this)._fractionalBits ) +
+				( (A_part_two * B_part_two) >> (*this)._fractionalBits );
+
+	product.setRawBits(ans);
+
+
 	// using this cross product is slightly better at preserving the float's state as stored in memory.
-	int debug = 0;
+	int debug = 1;
 	if (debug)
 	{
 		std::cout << "Cross product: " << product << std::endl;
