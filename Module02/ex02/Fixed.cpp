@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/07/12 17:03:07 by limartin      ########   odam.nl         */
+/*   Updated: 2022/07/13 18:36:10 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -252,30 +252,34 @@ Fixed	Fixed::operator* ( const Fixed& factor ) const
 {
 	Fixed product;
 	
-//its not about the integral and fractional part, its about the first 16bits and the last 16 bits.
+// //its not about the integral and fractional part, its about the first 16bits and the last 16 bits.
 
-	//set all bits that represent the integral part to 1, the rest to 0
-	int int_mask = INT_MAX << (*this)._fractionalBits; 
-	// store integral part of the first factor with bitwise AND
-	int integral_a = (*this).getRawBits() & int_mask;
-	// store fractional part of the number with bitwise XOR compared to the int
-	int fractional_a = (*this).getRawBits() ^ integral_a;
+// 	//set all bits that represent the integral part to 1, the rest to 0
+// 	int int_mask = INT_MAX << (*this)._fractionalBits; 
+// 	// store integral part of the first factor with bitwise AND
+// 	int integral_a = (*this).getRawBits() & int_mask;
+// 	// store fractional part of the number with bitwise XOR compared to the int
+// 	int fractional_a = (*this).getRawBits() ^ integral_a;
 	
-	//do the same for the other factor in the product
-	int integral_b = factor.getRawBits() & int_mask;
-	int fractional_b = factor.getRawBits() ^ integral_b;
+// 	//do the same for the other factor in the product
+// 	int integral_b = factor.getRawBits() & int_mask;
+// 	int fractional_b = factor.getRawBits() ^ integral_b;
 
-	// make a cross products of the two factors four component parts,
-	// each time bitshifting only zero'd bits if possible.
+// 	// make a cross products of the two factors four component parts,
+// 	// each time bitshifting only zero'd bits if possible.
 	
-	int sum_one = (integral_a >> (*this)._fractionalBits) * integral_b;
-	int sum_two = fractional_a * (integral_b >> (*this)._fractionalBits);
-	int sum_three = (integral_a >> (*this)._fractionalBits) * fractional_b;
-	int sum_four = ((int64_t)fractional_a * (int64_t)fractional_b) >> (*this)._fractionalBits;
-	product.setRawBits(sum_one + sum_two + sum_three + sum_four);
+// 	int sum_one = (integral_a >> (*this)._fractionalBits) * integral_b;
+// 	int sum_two = fractional_a * (integral_b >> (*this)._fractionalBits);
+// 	int sum_three = (integral_a >> (*this)._fractionalBits) * fractional_b;
+// 	int sum_four = ((int64_t)fractional_a * (int64_t)fractional_b) >> (*this)._fractionalBits;
+// 	product.setRawBits(sum_one + sum_two + sum_three + sum_four);
 	
+	int64_t answer = (int64_t)(factor.getRawBits()) * (int64_t)((*this).getRawBits());
+	answer = answer >> (*this)._fractionalBits;
+	product.setRawBits((int)answer);
+
 	// using this cross product is slightly better at preserving the float's state as stored in memory.
-	int debug = 1;
+	int debug = 0;
 	if (debug)
 	{
 		std::cout << "Cross product: " << product << std::endl;
