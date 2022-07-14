@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/07/13 21:45:33 by limartin      ########   odam.nl         */
+/*   Updated: 2022/07/14 17:39:45 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ int		Fixed::toInt( void ) const
 	return(this->getRawBits() >> this->_fractionalBits);
 }
 
+
+// some custom display functions not required by the subject
 std::string Fixed::eightBitToString( void ) const
 {
 	//This function doesn't work for negative numbers or for more than 18 fractional bits
@@ -252,56 +254,15 @@ Fixed	Fixed::operator* ( const Fixed& factor ) const
 {
 	Fixed product;
 	
-// //its not about the integral and fractional part, its about the first 16bits and the last 16 bits.
-
-// 	//set all bits that represent the integral part to 1, the rest to 0
-// 	int int_mask = INT_MAX << (*this)._fractionalBits; 
-// 	// store integral part of the first factor with bitwise AND
-// 	int integral_a = (*this).getRawBits() & int_mask;
-// 	// store fractional part of the number with bitwise XOR compared to the int
-// 	int fractional_a = (*this).getRawBits() ^ integral_a;
-	
-// 	//do the same for the other factor in the product
-// 	int integral_b = factor.getRawBits() & int_mask;
-// 	int fractional_b = factor.getRawBits() ^ integral_b;
-
-// 	// make a cross products of the two factors four component parts,
-// 	// each time bitshifting only zero'd bits if possible.
-	
-// 	int sum_one = (integral_a >> (*this)._fractionalBits) * integral_b;
-// 	int sum_two = fractional_a * (integral_b >> (*this)._fractionalBits);
-// 	int sum_three = (integral_a >> (*this)._fractionalBits) * fractional_b;
-// 	int sum_four = ((int64_t)fractional_a * (int64_t)fractional_b) >> (*this)._fractionalBits;
-// 	product.setRawBits(sum_one + sum_two + sum_three + sum_four);
-	
 	int64_t answer = (int64_t)(factor.getRawBits()) * (int64_t)((*this).getRawBits());
 	answer = answer >> (*this)._fractionalBits;
 	product.setRawBits((int)answer);
 
-	int factorA_int = (*this).getRawBits();
-	int factorB_int = factor.getRawBits();
-	int bits_to_shift = (sizeof(int)/2);
-	
-	int A_part_one = factorA_int >> bits_to_shift;
-	int A_part_two = (factorA_int << bits_to_shift) >> bits_to_shift;
-	int B_part_one = factorB_int >> bits_to_shift;
-	int B_part_two = (factorB_int << bits_to_shift) >> bits_to_shift;
-
-
-	//this doesnt work lmao
-	int ans = ( (A_part_one * B_part_one) << bits_to_shift >> (*this)._fractionalBits << bits_to_shift ) +
-				( (A_part_one * B_part_two) << bits_to_shift >> (*this)._fractionalBits ) +
-				( (A_part_two * B_part_one) << bits_to_shift >> (*this)._fractionalBits ) +
-				( (A_part_two * B_part_two) >> (*this)._fractionalBits );
-
-	product.setRawBits(ans);
-
-
-	// using this cross product is slightly better at preserving the float's state as stored in memory.
-	int debug = 1;
+	// using this method is slightly better at preserving the float's state as stored in memory.
+	int debug = 0;
 	if (debug)
 	{
-		std::cout << "Cross product: " << product << std::endl;
+		std::cout << "Our way: " << product << std::endl;
 		product.setRawBits(this->getRawBits() * factor.toFloat());
 		std::cout << "Float product: " << product << std::endl;
 	}
@@ -312,10 +273,10 @@ Fixed	Fixed::operator/ ( const Fixed& divisor ) const
 {
 	Fixed quotient;
 
-	int64_t fidelity = (*this).getRawBits();
-	fidelity = fidelity * (1 << this->_fractionalBits);
-	fidelity = fidelity / divisor.getRawBits();
-	quotient.setRawBits((int) fidelity);
+	int64_t answer = (*this).getRawBits();
+	answer = answer * (1 << this->_fractionalBits);
+	answer = answer / divisor.getRawBits();
+	quotient.setRawBits((int) answer);
 	return (quotient);
 }
 
