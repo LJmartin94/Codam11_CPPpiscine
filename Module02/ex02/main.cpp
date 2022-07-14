@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 19:14:51 by limartin      #+#    #+#                 */
-/*   Updated: 2022/07/12 16:58:12 by limartin      ########   odam.nl         */
+/*   Updated: 2022/07/14 17:44:38 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int		main( void )
 {
 	bool frationalBitsRabbitHole = false;
-	bool testFloatsAndMultiplication = true;
+	bool testFloatsAndMultiplication = false;
 	bool testComparisonOps = false;
 	Fixed 		a;
 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );

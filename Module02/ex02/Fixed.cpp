@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/07/14 17:39:45 by limartin      ########   odam.nl         */
+/*   Updated: 2022/07/14 18:31:41 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -318,25 +318,29 @@ Fixed&	Fixed::operator-- ()
 
 Fixed& Fixed::min( Fixed& a, Fixed& b )
 {
-	(void)b;
+	if (b < a)
+		return(b);
 	return (a);
 }
 
 const Fixed& Fixed::min( const Fixed& a, const Fixed& b )
 {
-	(void)b;
+	if (b < a)
+		return(b);
 	return (a);
 }
 
 Fixed& Fixed::max( Fixed& a, Fixed& b )
 {
-	(void)b;
+	if (b > a)
+		return(b);
 	return (a);
 }
 
 const Fixed& Fixed::max( const Fixed& a, const Fixed& b )
 {
-	(void)b;
+	if (b > a)
+		return(b);
 	return (a);
 }
 
