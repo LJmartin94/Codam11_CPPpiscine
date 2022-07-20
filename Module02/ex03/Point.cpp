@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/16 12:03:21 by limartin      #+#    #+#                 */
-/*   Updated: 2022/07/20 18:06:32 by limartin      ########   odam.nl         */
+/*   Updated: 2022/07/20 18:26:31 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ Point& Point::operator= ( const Point& assignment )
 	if (this != &assignment)
 	{
 		this->_x = assignment.getPointX();
+		this->_y = assignment.getPointY();
 	}
 	return(*this);
 }
