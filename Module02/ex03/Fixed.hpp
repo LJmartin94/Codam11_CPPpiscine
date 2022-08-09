@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 13:56:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/07/13 18:34:00 by limartin      ########   odam.nl         */
+/*   Updated: 2022/08/09 14:40:17 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream> //stream operators
 #include <cmath> //roundf function, pow function
 #include <iomanip> // std::setprecision (DEBUG ONLY)
+#include <climits> // Definition of INT_MAX
 
 class Fixed
 {
