@@ -6,17 +6,18 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 13:56:48 by limartin      #+#    #+#                 */
-/*   Updated: 2022/08/09 14:40:17 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/09 16:15:13 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
-#include <iostream> //stream operators
-#include <cmath> //roundf function, pow function
+#include <iostream> // stream operators
+#include <cmath> // roundf function, pow function
 #include <iomanip> // std::setprecision (DEBUG ONLY)
 #include <climits> // Definition of INT_MAX
+#include <sstream> // string stream for custom to_string function
 
 class Fixed
 {
@@ -67,6 +68,7 @@ class Fixed
 	private:
 	int 				_value;
 	static const int	_fractionalBits = 8; //can be set to anything in 32bit range
+	std::string			_my_to_string( int integer ) const; // the to_string method is C++ 11, so I made my own.
 };
 
 std::ostream& operator<< ( std::ostream& o, Fixed const & i );
