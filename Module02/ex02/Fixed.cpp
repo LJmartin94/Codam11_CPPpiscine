@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/10 18:50:41 by limartin      #+#    #+#                 */
-/*   Updated: 2022/07/14 18:31:41 by limartin      ########   odam.nl         */
+/*   Updated: 2022/08/09 16:04:58 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ std::string Fixed::eightBitToString( void ) const
 {
 	//This function doesn't work for negative numbers or for more than 18 fractional bits
 	if ( (*this)._fractionalBits <= 0)
-		return (std::to_string( (*this).getRawBits() ));
+		return (Fixed::_my_to_string( (*this).getRawBits() ));
 	if ( (*this)._fractionalBits > 0)
 		return (Fixed::thirtytwoBitToString()); //So we send it here instead.
 	
@@ -98,7 +98,7 @@ std::string Fixed::eightBitToString( void ) const
 	// store fractional part of the number with bitwise XOR compared to the int
 	int fractional = (*this).getRawBits() ^ integral;
 
- 	std::string ret = std::to_string(integral >> (*this)._fractionalBits);
+ 	std::string ret = Fixed::_my_to_string(integral >> (*this)._fractionalBits);
 	if (fractional)
 	{
 		// Calculate the decimal number that represents the fractional portion of the string
@@ -121,7 +121,7 @@ std::string Fixed::eightBitToString( void ) const
 			ret = ret + "0";
 			zero_pad--;
 		}
-		ret = ret + std::to_string(answer);
+		ret = ret + Fixed::_my_to_string(answer);
 	}
 	return (ret);
 }
@@ -131,14 +131,14 @@ std::string Fixed::thirtytwoBitToString( void ) const
 	const int fbits = (*this)._fractionalBits;
 	const int rbits = (*this).getRawBits();
 	if ( fbits <= 0) 
-		return (std::to_string( rbits ));
+		return (Fixed::_my_to_string( rbits ));
 	
 	int int_mask = INT_MAX << fbits;
 	int integral = rbits & int_mask;
 	int fractional = rbits ^ integral;
 	
 	int neg = (rbits < 0) ? 1 : 0; //we add 1 for twos complement when negative
- 	std::string ret = std::to_string((integral >> fbits) + neg);
+ 	std::string ret = Fixed::_my_to_string((integral >> fbits) + neg);
 	
 	if (fractional)
 	{
@@ -351,4 +351,13 @@ std::ostream& operator<< ( std::ostream& o, const Fixed& i )
 	// o << std::setprecision(31) << i.toFloat() << " s:";
 	o << i.eightBitToString();
 	return (o);
+}
+
+// Util methods
+
+std::string Fixed::_my_to_string ( int integer ) const
+{
+	std::stringstream ss;
+	ss << integer;
+	return( ss.str() );
 }
