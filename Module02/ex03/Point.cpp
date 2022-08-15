@@ -6,7 +6,7 @@
 /*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/16 12:03:21 by limartin      #+#    #+#                 */
-/*   Updated: 2022/08/11 15:07:32 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/15 15:10:00 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,9 @@ Point& Point::operator= ( const Point& assignment )
 {
 	if (this != &assignment)
 	{
-		this->_x = assignment.getPointX();
-		this->_y = assignment.getPointY();
+		std::cout<< "Copy assignment operator used" << std::endl;
+		const_cast<Fixed&>(_x) = assignment.getPointX();
+		const_cast<Fixed&>(_y) = assignment.getPointY();
 	}
 	return(*this);
 }
