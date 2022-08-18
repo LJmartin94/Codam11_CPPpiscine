@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/18 14:08:36 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/18 15:08:06 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,14 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 // Default constructor
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap(std::string name, int hp, int nrg, int dmg)
+: _name(name), _hp(hp), _energy(nrg), _dmg(dmg)
 {
 	if (CLAPTRAP_DEBUG_MESSAGES)
 		std::cout << "Default constructor called." << std::endl;
+	if (CLAPTRAP_DEBUG_MESSAGES && CLAPTRAP_ADD_VERBOSE)
+		std::cout << "My name is: " << _name << ", my hp is: " << _hp 
+		<< ", my energy is: " << _energy << ", my damage is: " << _dmg << std::endl;
 	return;
 }
 
