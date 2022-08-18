@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/18 16:24:41 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/18 20:13:19 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ TemplateClass::TemplateClass()
 }
 
 // Copy constructor
-TemplateClass::TemplateClass( const TemplateClass& copy)
+TemplateClass::TemplateClass(const TemplateClass& copy)
 {
 	if (TemplateClass_DEBUG_MESSAGES)
 		std::cout << "Copy constructor called." << std::endl;
@@ -47,7 +47,7 @@ TemplateClass::~TemplateClass()
 ////////////////////////////////////////////////////////////////////////////////
 
 // Assignment operator overload (deep copy)
-TemplateClass& TemplateClass::operator= ( const TemplateClass& assignment )
+TemplateClass& TemplateClass::operator= (const TemplateClass& assignment)
 {
 	if (TemplateClass_DEBUG_MESSAGES && TemplateClass_ADD_VERBOSE)
 		std::cout << "Copy assignment operator called" << std::endl;
@@ -83,7 +83,7 @@ TemplateClass& TemplateClass::operator= ( const TemplateClass& assignment )
 ////////////////////////////////////////////////////////////////////////////////
 
 //Stream operator overload
-std::ostream& operator<< ( std::ostream& o, const TemplateClass& i )
+std::ostream& operator<< (std::ostream& o, const TemplateClass& i)
 {
 	//TODO: REQUIRES PER CLASS IMPLEMENTATION
 	o << i;
