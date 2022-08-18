@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/18 14:41:27 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/18 16:37:10 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ class ClapTrap
 	////////////////////////////////////////////////////////////////////////////
 	public:
 	// Default constructor
-	ClapTrap(std::string name="No One", int hp=10, int nrg=10, int dmg=0);
+	ClapTrap(std::string name="No One", \
+	unsigned int hp=10, unsigned int nrg=10, unsigned int dmg=0);
 	
 	ClapTrap(const ClapTrap& copy);			// Copy constructor
 	~ClapTrap();							// Destructor
@@ -39,20 +40,27 @@ class ClapTrap
 	// Pubic member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	public:
+	void attack(const std::string& target);
+	void takeDamage(unsigned int amount);
+	void beRepaired(unsigned int amount);
 	////////////////////////////////////////////////////////////////////////////
 
 	// Private member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	private:
-	std::string _name;
-	int			_hp;
-	int			_energy;
-	int			_dmg;
+	std::string		_name;
+	unsigned int	_hp;
+	unsigned int	_energy;
+	unsigned int	_dmg;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Accessors
 	////////////////////////////////////////////////////////////////////////////
 	public:
+	std::string		Get_name() const;
+	unsigned int	Get_hp() const;
+	unsigned int	Get_energy() const;
+	unsigned int	Get_dmg() const;
 	////////////////////////////////////////////////////////////////////////////
 
 };
