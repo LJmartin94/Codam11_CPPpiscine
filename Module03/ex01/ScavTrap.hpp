@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 17:17:23 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/18 17:19:11 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/18 20:44:32 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 # define SCAVTRAP_HPP
 
 #include <iostream> // Stream operators
+#include "ClapTrap.hpp" // Parent class
 
 # define ScavTrap_DEBUG_MESSAGES 1
 # define ScavTrap_ADD_VERBOSE 1
 
-class ScavTrap
+class ScavTrap : public ClapTrap
 {
 	// Constructors & Destructors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	ScavTrap();							// Default constructor
+	// Default constructor
+	ScavTrap(std::string name="No One", \
+	unsigned int hp=100, unsigned int nrg=50, unsigned int dmg=20);
+	
 	ScavTrap(const ScavTrap& copy);		// Copy constructor
 	~ScavTrap();						// Destructor
 	////////////////////////////////////////////////////////////////////////////
