@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/19 11:01:25 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/19 11:36:41 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int main(void)
 
 	ScavTrap jerry(tom);
 	jerry.Set_name("Gerald");
+	jerry.guardGate();
 	std::cout << jerry << std::endl;
 
 	jerry.takeDamage(100);
@@ -45,6 +46,7 @@ int main(void)
 	boyo.beRepaired(3);
 	boyo.takeDamage(3);
 	boyo.attack("it doesn't matter who");
+	boyo.guardGate();
 	std::cout << std::endl;
 
 	ScavTrap another("Bingus");
@@ -57,6 +59,7 @@ int main(void)
 	tiredSally.attack("her mother in law");
 	tiredSally.attack("her mother in law");
 	tiredSally.attack("her mother in law");
+	tiredSally.guardGate();
 	std::cout << tiredSally << std::endl;
 	
 	return(0);

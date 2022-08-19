@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 17:17:23 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/18 20:44:32 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/19 11:26:31 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ class ScavTrap : public ClapTrap
 	// Pubic member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	public:
+	void attack(const std::string& target);
+	void guardGate();
 	////////////////////////////////////////////////////////////////////////////
 
 	// Private member variables & methods

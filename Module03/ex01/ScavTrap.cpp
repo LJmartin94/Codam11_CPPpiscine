@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 17:17:26 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/19 10:59:41 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/19 11:32:27 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,47 @@ ScavTrap& ScavTrap::operator= ( const ScavTrap& assignment )
 
 // Pubic member variables & methods
 ////////////////////////////////////////////////////////////////////////////////
+
+void ScavTrap::attack(const std::string& target)
+{
+	if (!(this->Get_hp() > 0))
+	{
+		std::cout << "The SCAVTRAP (Not ClapTrap) formerly known as " << this->Get_name() 
+		<< " wanted to attack " << target << ", but is already dead!" << std::endl;
+	}
+	else if (!(this->Get_energy() >= 1))
+	{
+		std::cout << "SCAVTRAP (Not ClapTrap) "<< this->Get_name() << " wanted to attack " << target 
+		<< ", but does not have enough energy!" << std::endl;
+	}
+	else
+	{
+		std::cout << "SCAVTRAP (Not ClapTrap) "<< this->Get_name() << " attacks " << target 
+		<< ", causing " << this->Get_dmg() << " points of damage!" << std::endl;
+		this->Set_energy(this->Get_energy() - 1);
+	}
+	return;
+}
+
+void ScavTrap::guardGate()
+{
+	if (!(this->Get_hp() > 0))
+	{
+		std::cout << "The SCAVTRAP (Not ClapTrap) formerly known as " << this->Get_name() 
+		<< " is too dead to guard a gate :(" << std::endl;
+	}
+	else if (!(this->Get_energy() >= 1))
+	{
+		std::cout << "SCAVTRAP (Not ClapTrap) "<< this->Get_name() << " would simply love to guard a gate,"
+		<< " but does not have enough energy!" << std::endl;
+	}
+	else
+	{
+		std::cout << "SCAVTRAP (Not ClapTrap) "<< this->Get_name() << " is now in ~~Gate Keeper~~ mode! Gnarly!" << std::endl;
+		this->Set_energy(this->Get_energy() - 1);
+	}
+	return;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
