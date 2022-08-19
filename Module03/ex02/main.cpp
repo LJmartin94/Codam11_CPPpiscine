@@ -6,31 +6,31 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/19 11:36:41 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/19 11:47:57 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
-	ScavTrap bob("Bob");
+	FragTrap bob("Bob");
 	std::cout << std::endl;
 
-	ScavTrap bla;
+	FragTrap bla;
 	std::cout << std::endl;
 	
-	ScavTrap tom("Thomas", 5, 5, 1);
+	FragTrap tom("Thomas", 5, 5, 1);
 	std::cout << std::endl;
 
 	bla = tom;
 	std::cout << bla << std::endl;
 	std::cout << std::endl;
 
-	ScavTrap jake;
+	FragTrap jake;
 	std::cout << jake << std::endl;
 
-	ScavTrap jerry(tom);
+	FragTrap jerry(tom);
 	jerry.Set_name("Gerald");
 	jerry.guardGate();
 	std::cout << jerry << std::endl;
@@ -41,7 +41,7 @@ int main(void)
 	bla.takeDamage(100);
 	std::cout << tom << std::endl;
 	
-	ScavTrap boyo("Someone Else", 3, 3 ,3);
+	FragTrap boyo("Someone Else", 3, 3 ,3);
 	boyo.takeDamage(3);
 	boyo.beRepaired(3);
 	boyo.takeDamage(3);
@@ -49,13 +49,13 @@ int main(void)
 	boyo.guardGate();
 	std::cout << std::endl;
 
-	ScavTrap another("Bingus");
+	FragTrap another("Bingus");
 	another.takeDamage(1);
 	another.beRepaired(11);
 	another.takeDamage(10);
 	std::cout << another << std::endl;
 
-	ScavTrap tiredSally("Tired Sally", 10, 1, 1);
+	FragTrap tiredSally("Tired Sally", 10, 1, 1);
 	tiredSally.attack("her mother in law");
 	tiredSally.attack("her mother in law");
 	tiredSally.attack("her mother in law");

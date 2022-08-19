@@ -6,11 +6,11 @@
 #    By: lindsay <lindsay@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/18 14:21:41 by lindsay       #+#    #+#                  #
-#    Updated: 2022/08/18 17:16:37 by lindsay       ########   odam.nl          #
+#    Updated: 2022/08/19 11:45:44 by lindsay       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ScavTraps
+NAME = FragTraps
 
 ROOT_DIR = ./
 
@@ -25,7 +25,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 
 SRC = $(SRC_PATH)main.cpp \
 	$(SRC_PATH)ClapTrap.cpp \
-	$(SRC_PATH)ScavTrap.cpp \
+	$(SRC_PATH)FragTrap.cpp \
 
 OBJ := $(SRC:%.cpp=%.o)
 
