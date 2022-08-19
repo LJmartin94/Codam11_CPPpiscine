@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/18 20:51:16 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/19 11:01:25 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,14 @@
 int main(void)
 {
 	ScavTrap bob("Bob");
+	std::cout << std::endl;
+
 	ScavTrap bla;
+	std::cout << std::endl;
+	
 	ScavTrap tom("Thomas", 5, 5, 1);
+	std::cout << std::endl;
+
 	bla = tom;
 	std::cout << bla << std::endl;
 	std::cout << std::endl;
@@ -25,6 +31,7 @@ int main(void)
 	std::cout << jake << std::endl;
 
 	ScavTrap jerry(tom);
+	jerry.Set_name("Gerald");
 	std::cout << jerry << std::endl;
 
 	jerry.takeDamage(100);

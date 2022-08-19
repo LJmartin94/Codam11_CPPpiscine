@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 17:17:26 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/18 20:49:29 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/19 10:59:41 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,15 @@
 // Default constructor
 ScavTrap::ScavTrap(std::string name, \
 unsigned int hp, unsigned int nrg, unsigned int dmg)
-: ClapTrap(name, hp, nrg, dmg)
+: ClapTrap(name)
 {
 	if (ScavTrap_DEBUG_MESSAGES)
 		std::cout << "SCAVTRAP Default constructor called." << std::endl;
+	
+	this->Set_hp(hp);
+	this->Set_energy(nrg);
+	this->Set_dmg(dmg);
+
 	if (ScavTrap_DEBUG_MESSAGES && ScavTrap_ADD_VERBOSE)
 		std::cout << "My name is: " << this->Get_name() << ", my hp is: " 
 		<< this->Get_hp() << ", my energy is: " << this->Get_energy() 
@@ -60,7 +65,10 @@ ScavTrap& ScavTrap::operator= ( const ScavTrap& assignment )
 		std::cout << "SCAVTRAP Copy assignment operator called" << std::endl;
 	if (this != &assignment)
 	{
-		//TODO: REQUIRES PER CLASS IMPLEMENTATION
+		this->Set_name(assignment.Get_name());
+		this->Set_hp(assignment.Get_hp());
+		this->Set_energy(assignment.Get_energy());
+		this->Set_dmg(assignment.Get_dmg());
 	}
 	return(*this);
 }
