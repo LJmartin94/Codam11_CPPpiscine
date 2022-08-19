@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/18 16:37:10 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/19 10:39:57 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,11 @@ class ClapTrap
 	unsigned int	Get_hp() const;
 	unsigned int	Get_energy() const;
 	unsigned int	Get_dmg() const;
+
+	void			Set_name(std::string arg);
+	void			Set_hp(unsigned int arg);
+	void			Set_energy(unsigned int arg);
+	void			Set_dmg(unsigned int arg);
 	////////////////////////////////////////////////////////////////////////////
 
 };
