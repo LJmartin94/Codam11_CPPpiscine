@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/18 16:59:12 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/19 10:39:21 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,6 +160,30 @@ unsigned int	ClapTrap::Get_energy() const
 unsigned int	ClapTrap::Get_dmg() const
 {
 	return(this->_dmg);
+}
+
+void 			ClapTrap::Set_name(std::string arg)
+{
+	this->_name = arg;
+	return;
+}
+
+void 			ClapTrap::Set_hp(unsigned int arg)
+{
+	this->_hp = arg;
+	return;
+}
+
+void 			ClapTrap::Set_energy(unsigned int arg)
+{
+	this->_energy = arg;
+	return;
+}
+
+void 			ClapTrap::Set_dmg(unsigned int arg)
+{
+	this->_dmg = arg;
+	return;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
