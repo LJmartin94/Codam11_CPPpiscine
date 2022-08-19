@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/19 14:00:15 by limartin      ########   odam.nl         */
+/*   Updated: 2022/08/19 14:13:58 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ int main(void)
 
 	FragTrap jerry(tom);
 	jerry.Set_name("Gerald");
-	jerry.guardGate();
+	jerry.highFivesGuys();
+	jerry.highFivesGuys();
+	jerry.highFivesGuys();
+	jerry.highFivesGuys();
 	std::cout << jerry << std::endl;
 
 	jerry.takeDamage(100);
@@ -46,7 +49,10 @@ int main(void)
 	boyo.beRepaired(3);
 	boyo.takeDamage(3);
 	boyo.attack("it doesn't matter who");
-	boyo.guardGate();
+	boyo.highFivesGuys();
+	boyo.highFivesGuys();
+	boyo.highFivesGuys();
+	boyo.highFivesGuys();
 	std::cout << std::endl;
 
 	FragTrap another("Bingus");
@@ -59,7 +65,10 @@ int main(void)
 	tiredSally.attack("her mother in law");
 	tiredSally.attack("her mother in law");
 	tiredSally.attack("her mother in law");
-	tiredSally.guardGate();
+	tiredSally.highFivesGuys();
+	tiredSally.highFivesGuys();
+	tiredSally.highFivesGuys();
+	tiredSally.highFivesGuys();
 	std::cout << tiredSally << std::endl;
 	
 	return(0);

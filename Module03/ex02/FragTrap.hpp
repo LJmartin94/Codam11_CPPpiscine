@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 17:17:23 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/19 11:50:49 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/19 14:19:51 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,13 @@ class FragTrap : public ClapTrap
 	// Pubic member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	void guardGate();
+	void highFivesGuys(void);
 	////////////////////////////////////////////////////////////////////////////
 
 	// Private member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	private:
+	unsigned int _highFivesGiven;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Accessors

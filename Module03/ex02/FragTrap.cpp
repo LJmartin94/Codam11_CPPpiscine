@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 17:17:26 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/19 11:50:40 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/19 14:21:17 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ unsigned int hp, unsigned int nrg, unsigned int dmg)
 	this->Set_hp(hp);
 	this->Set_energy(nrg);
 	this->Set_dmg(dmg);
+	this->_highFivesGiven = 0;
 
 	if (FragTrap_DEBUG_MESSAGES && FragTrap_ADD_VERBOSE)
 		std::cout << "My name is: " << this->Get_name() << ", my hp is: " 
@@ -69,6 +70,7 @@ FragTrap& FragTrap::operator= ( const FragTrap& assignment )
 		this->Set_hp(assignment.Get_hp());
 		this->Set_energy(assignment.Get_energy());
 		this->Set_dmg(assignment.Get_dmg());
+		this->_highFivesGiven = assignment._highFivesGiven;
 	}
 	return(*this);
 }
@@ -79,22 +81,26 @@ FragTrap& FragTrap::operator= ( const FragTrap& assignment )
 // Pubic member variables & methods
 ////////////////////////////////////////////////////////////////////////////////
 
-void FragTrap::guardGate()
+void FragTrap::highFivesGuys(void)
 {
 	if (!(this->Get_hp() > 0))
 	{
 		std::cout << "The FragTRAP (Not ClapTrap) formerly known as " << this->Get_name() 
-		<< " is too dead to guard a gate :(" << std::endl;
+		<< " is too dead to high-five you :(" <<  std::endl;
+		std::cout << "High fives succesfully given: " << this->_highFivesGiven << std::endl;
 	}
 	else if (!(this->Get_energy() >= 1))
 	{
-		std::cout << "FragTRAP (Not ClapTrap) "<< this->Get_name() << " would simply love to guard a gate,"
-		<< " but does not have enough energy!" << std::endl;
+		std::cout << "FragTRAP (Not ClapTrap) "<< this->Get_name() 
+		<< " wanted to give you a high five, but was too slow as they have no energy." << std::endl;
+		std::cout << "High fives succesfully given: " << this->_highFivesGiven << std::endl;
 	}
 	else
 	{
-		std::cout << "FragTRAP (Not ClapTrap) "<< this->Get_name() << " is now in ~~Gate Keeper~~ mode! Gnarly!" << std::endl;
+		std::cout << "FragTRAP (Not ClapTrap) "<< this->Get_name() << " positively requests a HI 5! *BEEP BOOP*" << std::endl;
 		this->Set_energy(this->Get_energy() - 1);
+		this->_highFivesGiven++;
+		std::cout << "High fives succesfully given: " << this->_highFivesGiven << std::endl;
 	}
 	return;
 }
