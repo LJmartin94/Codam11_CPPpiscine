@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 17:17:23 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/19 11:47:38 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/19 11:50:49 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class FragTrap : public ClapTrap
 	public:
 	// Default constructor
 	FragTrap(std::string name="No One", \
-	unsigned int hp=100, unsigned int nrg=50, unsigned int dmg=20);
+	unsigned int hp=100, unsigned int nrg=100, unsigned int dmg=30);
 	
 	FragTrap(const FragTrap& copy);		// Copy constructor
 	~FragTrap();						// Destructor
@@ -41,7 +41,6 @@ class FragTrap : public ClapTrap
 	// Pubic member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	void attack(const std::string& target);
 	void guardGate();
 	////////////////////////////////////////////////////////////////////////////
 

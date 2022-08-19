@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 17:17:26 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/19 11:47:43 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/19 11:50:40 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,27 +78,6 @@ FragTrap& FragTrap::operator= ( const FragTrap& assignment )
 
 // Pubic member variables & methods
 ////////////////////////////////////////////////////////////////////////////////
-
-void FragTrap::attack(const std::string& target)
-{
-	if (!(this->Get_hp() > 0))
-	{
-		std::cout << "The FragTRAP (Not ClapTrap) formerly known as " << this->Get_name() 
-		<< " wanted to attack " << target << ", but is already dead!" << std::endl;
-	}
-	else if (!(this->Get_energy() >= 1))
-	{
-		std::cout << "FragTRAP (Not ClapTrap) "<< this->Get_name() << " wanted to attack " << target 
-		<< ", but does not have enough energy!" << std::endl;
-	}
-	else
-	{
-		std::cout << "FragTRAP (Not ClapTrap) "<< this->Get_name() << " attacks " << target 
-		<< ", causing " << this->Get_dmg() << " points of damage!" << std::endl;
-		this->Set_energy(this->Get_energy() - 1);
-	}
-	return;
-}
 
 void FragTrap::guardGate()
 {
