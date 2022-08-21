@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   TemplateClass.cpp                                  :+:    :+:            */
+/*   Animal.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/18 20:13:19 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/21 11:28:58 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "TemplateClass.hpp"
+#include "Animal.hpp"
 
 // Constructors & Destructors
 ////////////////////////////////////////////////////////////////////////////////
 
 // Default constructor
-TemplateClass::TemplateClass()
+Animal::Animal()
 {
-	if (TemplateClass_DEBUG_MESSAGES)
-		std::cout << "Default constructor called." << std::endl;
+	if (Animal_DEBUG_MESSAGES)
+		std::cout << "ANIMAL Default constructor called." << std::endl;
 	return;
 }
 
 // Copy constructor
-TemplateClass::TemplateClass(const TemplateClass& copy)
+Animal::Animal(const Animal& copy)
 {
-	if (TemplateClass_DEBUG_MESSAGES)
-		std::cout << "Copy constructor called." << std::endl;
+	if (Animal_DEBUG_MESSAGES)
+		std::cout << "ANIMAL Copy constructor called." << std::endl;
 	*this = copy;
 	return;
 }
 
 // Destructor
-TemplateClass::~TemplateClass()
+Animal::~Animal()
 {
-	if (TemplateClass_DEBUG_MESSAGES)
-		std::cout << "Destructor called" << std::endl;
+	if (Animal_DEBUG_MESSAGES)
+		std::cout << "ANIMAL Destructor called" << std::endl;
 	return;
 }
 
@@ -47,10 +47,10 @@ TemplateClass::~TemplateClass()
 ////////////////////////////////////////////////////////////////////////////////
 
 // Assignment operator overload (deep copy)
-TemplateClass& TemplateClass::operator= (const TemplateClass& assignment)
+Animal& Animal::operator= (const Animal& assignment)
 {
-	if (TemplateClass_DEBUG_MESSAGES && TemplateClass_ADD_VERBOSE)
-		std::cout << "Copy assignment operator called" << std::endl;
+	if (Animal_DEBUG_MESSAGES && Animal_ADD_VERBOSE)
+		std::cout << "ANIMAL Copy assignment operator called" << std::endl;
 	if (this != &assignment)
 	{
 		//TODO: REQUIRES PER CLASS IMPLEMENTATION
@@ -83,7 +83,7 @@ TemplateClass& TemplateClass::operator= (const TemplateClass& assignment)
 ////////////////////////////////////////////////////////////////////////////////
 
 //Stream operator overload
-std::ostream& operator<< (std::ostream& o, const TemplateClass& i)
+std::ostream& operator<< (std::ostream& o, const Animal& i)
 {
 	//TODO: REQUIRES PER CLASS IMPLEMENTATION
 	o << i;

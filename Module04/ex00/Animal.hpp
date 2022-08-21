@@ -1,43 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   TemplateClass.hpp                                  :+:    :+:            */
+/*   Animal.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/18 20:12:51 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/21 11:30:32 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-//TODO: Make sure this is all-caps!
-#ifndef TEMPLATECLASS_HPP
-# define TEMPLATECLASS_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 #include <iostream> // Stream operators
 
-# define TemplateClass_DEBUG_MESSAGES 1
-# define TemplateClass_ADD_VERBOSE 1
+# define Animal_DEBUG_MESSAGES 1
+# define Animal_ADD_VERBOSE 1
 
-class TemplateClass
+class Animal
 {
 	// Constructors & Destructors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	TemplateClass();								// Default constructor
-	TemplateClass(const TemplateClass& copy);		// Copy constructor
-	~TemplateClass();								// Destructor
+	Animal(std::string type = "unknown");	// Default constructor
+	Animal(const Animal& copy);				// Copy constructor
+	~Animal();								// Destructor
 	////////////////////////////////////////////////////////////////////////////
 
 	// Operator overloads
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	TemplateClass& operator= (const TemplateClass& assignment);	// Assignment operator
+	Animal& operator= (const Animal& assignment);	// Assignment operator
 	////////////////////////////////////////////////////////////////////////////
 
 	// Pubic member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	public:
+	////////////////////////////////////////////////////////////////////////////
+
+	// Protected member variables & methods
+	////////////////////////////////////////////////////////////////////////////
+	protected:
 	////////////////////////////////////////////////////////////////////////////
 
 	// Private member variables & methods
@@ -52,6 +56,6 @@ class TemplateClass
 };
 
 // Stream operator overload
-std::ostream& operator<< (std::ostream& o, TemplateClass const & i);
+std::ostream& operator<< (std::ostream& o, Animal const & i);
 
 #endif
