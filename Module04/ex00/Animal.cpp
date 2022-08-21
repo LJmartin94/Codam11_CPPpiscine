@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/21 11:28:58 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/21 11:36:15 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 // Default constructor
-Animal::Animal()
+Animal::Animal(std::string type)
+: _type(type)
 {
 	if (Animal_DEBUG_MESSAGES)
 		std::cout << "ANIMAL Default constructor called." << std::endl;
@@ -62,6 +63,12 @@ Animal& Animal::operator= (const Animal& assignment)
 
 
 // Pubic member variables & methods
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// Protected member variables & methods
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
