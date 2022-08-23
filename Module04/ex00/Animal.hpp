@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/23 12:28:08 by limartin      ########   odam.nl         */
+/*   Updated: 2022/08/23 12:48:32 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ class Animal
 	// Protected member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	protected:
-	std::string _type;
+	std::string	_type;
+	void		makeSound();
 	////////////////////////////////////////////////////////////////////////////
 
 	// Private member variables & methods
