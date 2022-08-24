@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/24 20:34:00 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/24 20:58:45 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Cat : public Animal
 	public:
 	Cat();										// Default constructor
 	Cat(const Cat& copy);						// Copy constructor
-	virtual ~Cat();								// Destructor
+	~Cat();										// Destructor
 	////////////////////////////////////////////////////////////////////////////
 
 	// Operator overloads
@@ -38,7 +38,7 @@ class Cat : public Animal
 	// Pubic member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	virtual void	makeSound() const;
+	void	makeSound() const;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Protected member variables & methods
@@ -57,7 +57,7 @@ class Cat : public Animal
 	public:
 	std::string		Get_type(void) const;
 	
-	virtual void 	Set_type(std::string type);
+	void 	Set_type(std::string type);
 	////////////////////////////////////////////////////////////////////////////
 };
 

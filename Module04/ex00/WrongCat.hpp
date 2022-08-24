@@ -26,7 +26,7 @@ class WrongCat : public WrongAnimal
 	public:
 	WrongCat();									// Default constructor
 	WrongCat(const WrongCat& copy);				// Copy constructor
-	virtual ~WrongCat();						// Destructor
+	~WrongCat();								// Destructor
 	////////////////////////////////////////////////////////////////////////////
 
 	// Operator overloads
@@ -38,7 +38,7 @@ class WrongCat : public WrongAnimal
 	// Pubic member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	virtual void	makeSound() const;
+	void	makeSound() const;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Protected member variables & methods
@@ -57,7 +57,7 @@ class WrongCat : public WrongAnimal
 	public:
 	std::string		Get_type(void) const;
 	
-	virtual void 	Set_type(std::string type);
+	void 	Set_type(std::string type);
 	////////////////////////////////////////////////////////////////////////////
 };
 

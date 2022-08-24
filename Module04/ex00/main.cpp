@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/24 20:45:04 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/24 20:57:48 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,21 @@ int main(void)
 	std::cout << w->Get_type() << " says ";
 	w->makeSound();
 
-	
-
 	std::cout << *meta;
 	std::cout << *i;
 	// std::cout << *j;
-	std::cout << *w;
+	std::cout << *w;	
 
 	delete meta;
 	delete i;
 	// delete j;
 	delete w;
 	
+	const WrongCat* ok = new WrongCat();
+	std::cout << ok->Get_type() << " says ";
+	ok->makeSound();
+	std::cout << *ok;
+	delete ok;
+
 	return(0);
 }
