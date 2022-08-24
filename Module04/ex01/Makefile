@@ -6,11 +6,11 @@
 #    By: lindsay <lindsay@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/18 14:21:41 by lindsay       #+#    #+#                  #
-#    Updated: 2022/08/24 21:08:24 by lindsay       ########   odam.nl          #
+#    Updated: 2022/08/24 23:49:22 by lindsay       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = CatsAndDogs
+NAME = CatsAndDogsAndBrains
 
 ROOT_DIR = ./
 
@@ -27,8 +27,7 @@ SRC = $(SRC_PATH)main.cpp \
 	$(SRC_PATH)Animal.cpp \
 	$(SRC_PATH)Cat.cpp \
 	$(SRC_PATH)Dog.cpp \
-	$(SRC_PATH)WrongAnimal.cpp \
-	$(SRC_PATH)WrongCat.cpp \
+	$(SRC_PATH)Brain.cpp \
 
 
 OBJ := $(SRC:%.cpp=%.o)

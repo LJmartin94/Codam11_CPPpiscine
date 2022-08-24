@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/24 23:13:23 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/24 23:54:31 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ Brain& Brain::operator= (const Brain& assignment)
 		std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &assignment)
 	{
-		//TODO: REQUIRES PER CLASS IMPLEMENTATION
+		for (int i = 0; i < BRAIN_SIZE; i++)
+			this->_ideas[i] = assignment.Get_idea(i);
 	}
 	return(*this);
 }
@@ -81,7 +82,20 @@ Brain& Brain::operator= (const Brain& assignment)
 
 // Accessors
 ////////////////////////////////////////////////////////////////////////////////
+std::string	Brain::Get_idea(unsigned int i) const
+{
+	if (i >= BRAIN_SIZE)
+		return("That idea is just too out of the box to be thunk.");
+	return(this->_ideas[i]);
+}
 
+void		Brain::Set_idea(unsigned int i, std::string genius)
+{
+	if (i >= BRAIN_SIZE)
+		return;
+	this->_ideas[i] = genius;
+	return;
+}
 ////////////////////////////////////////////////////////////////////////////////
 
 
@@ -91,8 +105,11 @@ Brain& Brain::operator= (const Brain& assignment)
 //Stream operator overload
 std::ostream& operator<< (std::ostream& o, const Brain& i)
 {
-	//TODO: REQUIRES PER CLASS IMPLEMENTATION
-	o << i;
+	std::string idea = i.Get_idea( rand() % BRAIN_SIZE);
+	if (idea.empty())
+		o << "Mind blank." << std::endl;
+	else
+		o << "Here's a random thought I had: " << idea << std::endl;
 	return (o);
 }
 
