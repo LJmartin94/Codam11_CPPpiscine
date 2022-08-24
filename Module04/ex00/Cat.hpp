@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Animal.hpp                                         :+:    :+:            */
+/*   Cat.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/24 20:17:22 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/24 19:37:46 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-#include <iostream> // Stream operators
+#include "Animal.hpp"	// Parent Class
+#include <iostream>		// Stream operators
 
-# define Animal_DEBUG_MESSAGES 1
-# define Animal_ADD_VERBOSE 1
+# define Cat_DEBUG_MESSAGES 1
+# define Cat_ADD_VERBOSE 1
 
-class Animal
+class Cat : public Animal
 {
 	// Constructors & Destructors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	Animal(std::string type = "Unknown animal");	// Default constructor
-	Animal(const Animal& copy);						// Copy constructor
-	virtual ~Animal();								// Destructor
+	Cat();										// Default constructor
+	Cat(const Cat& copy);						// Copy constructor
+	virtual ~Cat();								// Destructor
 	////////////////////////////////////////////////////////////////////////////
 
 	// Operator overloads
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	Animal& operator= (const Animal& assignment);	// Assignment operator
+	Cat& operator= (const Cat& assignment);	// Assignment operator
 	////////////////////////////////////////////////////////////////////////////
 
 	// Pubic member variables & methods
@@ -54,13 +55,13 @@ class Animal
 	// Accessors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	virtual std::string		Get_type(void) const;
+	std::string		Get_type(void) const;
 	
-	virtual void 			Set_type(std::string type);
+	virtual void 	Set_type(std::string type);
 	////////////////////////////////////////////////////////////////////////////
 };
 
 // Stream operator overload
-std::ostream& operator<< (std::ostream& o, Animal const & i);
+std::ostream& operator<< (std::ostream& o, Cat const & i);
 
 #endif
