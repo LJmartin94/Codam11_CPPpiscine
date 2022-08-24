@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/21 11:36:15 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/24 13:26:21 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ Animal& Animal::operator= (const Animal& assignment)
 		std::cout << "ANIMAL Copy assignment operator called" << std::endl;
 	if (this != &assignment)
 	{
-		//TODO: REQUIRES PER CLASS IMPLEMENTATION
+		this->_type = assignment._type;
 	}
 	return(*this);
 }
