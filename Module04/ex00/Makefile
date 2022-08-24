@@ -6,7 +6,7 @@
 #    By: lindsay <lindsay@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/18 14:21:41 by lindsay       #+#    #+#                  #
-#    Updated: 2022/08/24 20:44:39 by lindsay       ########   odam.nl          #
+#    Updated: 2022/08/24 21:08:24 by lindsay       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,9 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
 SRC = $(SRC_PATH)main.cpp \
 	$(SRC_PATH)Animal.cpp \
 	$(SRC_PATH)Cat.cpp \
+	$(SRC_PATH)Dog.cpp \
 	$(SRC_PATH)WrongAnimal.cpp \
 	$(SRC_PATH)WrongCat.cpp \
-	# $(SRC_PATH)Dog.cpp \
 
 
 OBJ := $(SRC:%.cpp=%.o)
