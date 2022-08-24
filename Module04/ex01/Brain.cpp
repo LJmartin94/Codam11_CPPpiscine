@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/25 00:19:50 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/25 00:29:10 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 // Default constructor
 Brain::Brain()
 {
+	srand(time(NULL));
 	if (Brain_DEBUG_MESSAGES)
 		std::cout << "Default constructor called." << std::endl;
 	return;
@@ -105,7 +106,6 @@ void		Brain::Set_idea(unsigned int i, std::string genius)
 //Stream operator overload
 std::ostream& operator<< (std::ostream& o, const Brain& i)
 {
-	srand(time(NULL));
 	std::string idea = i.Get_idea( rand() % BRAIN_SIZE);
 	if (idea.empty())
 		o << "Mind blank." << std::endl;
