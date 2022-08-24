@@ -6,11 +6,11 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/24 14:01:56 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/24 18:37:45 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "TemplateClass.hpp"
+#include "Animal.hpp"
 
 int main(void)
 {
@@ -28,6 +28,11 @@ int main(void)
 	i->makeSound();
 	j->makeSound();
 	w->makeSound();
+
+	std::cout << meta;
+	std::cout << i;
+	std::cout << j;
+	std::cout << w;
 
 	delete meta;
 	delete i;

@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/24 13:26:41 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/24 19:37:46 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class Animal
 	// Constructors & Destructors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	Animal(std::string type = "unknown");	// Default constructor
-	Animal(const Animal& copy);				// Copy constructor
-	~Animal();								// Destructor
+	Animal(std::string type = "Unknown animal");	// Default constructor
+	Animal(const Animal& copy);						// Copy constructor
+	~Animal();										// Destructor
 	////////////////////////////////////////////////////////////////////////////
 
 	// Operator overloads
@@ -37,13 +37,13 @@ class Animal
 	// Pubic member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	public:
+	virtual void	makeSound() const;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Protected member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	protected:
-	std::string	_type;
-	void		makeSound();
+	std::string		_type;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Private member variables & methods
@@ -54,6 +54,9 @@ class Animal
 	// Accessors
 	////////////////////////////////////////////////////////////////////////////
 	public:
+	std::string		Get_type(void) const;
+	
+	virtual void 	Set_type(std::string type);
 	////////////////////////////////////////////////////////////////////////////
 };
 

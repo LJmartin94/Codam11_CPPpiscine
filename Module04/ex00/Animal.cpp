@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/24 13:26:21 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/24 19:39:32 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,12 @@ Animal& Animal::operator= (const Animal& assignment)
 // Pubic member variables & methods
 ////////////////////////////////////////////////////////////////////////////////
 
+void	Animal::makeSound() const
+{
+	std::cout << "AWOOGA i guess." << std::endl;
+	return;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 
 
@@ -82,7 +88,16 @@ Animal& Animal::operator= (const Animal& assignment)
 
 // Accessors
 ////////////////////////////////////////////////////////////////////////////////
+std::string Animal::Get_type(void) const
+{
+	return(this->_type);
+}
 
+void Animal::Set_type(std::string type)
+{
+	this->_type = type;
+	return;
+}
 ////////////////////////////////////////////////////////////////////////////////
 
 
@@ -92,8 +107,9 @@ Animal& Animal::operator= (const Animal& assignment)
 //Stream operator overload
 std::ostream& operator<< (std::ostream& o, const Animal& i)
 {
-	//TODO: REQUIRES PER CLASS IMPLEMENTATION
-	o << i;
+	o << i.Get_type() << " goes ";
+	i.makeSound(); //not great implementation as this always goes to std::cout
+	o << std::endl;
 	return (o);
 }
 
