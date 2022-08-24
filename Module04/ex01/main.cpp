@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/25 00:31:50 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/25 00:35:56 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int main(void)
 	}
 
 	std::cout << *brian << std::endl;
+	std::cout << brian->Get_idea(100) << std::endl;
 	
 	delete brian;
 	return(0);

@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/25 00:29:10 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/25 00:34:55 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Brain::Brain()
 {
 	srand(time(NULL));
 	if (Brain_DEBUG_MESSAGES)
-		std::cout << "Default constructor called." << std::endl;
+		std::cout << "Brain Default constructor called." << std::endl;
 	return;
 }
 
@@ -28,7 +28,7 @@ Brain::Brain()
 Brain::Brain(const Brain& copy)
 {
 	if (Brain_DEBUG_MESSAGES)
-		std::cout << "Copy constructor called." << std::endl;
+		std::cout << "Brain Copy constructor called." << std::endl;
 	*this = copy;
 	return;
 }
@@ -37,7 +37,7 @@ Brain::Brain(const Brain& copy)
 Brain::~Brain()
 {
 	if (Brain_DEBUG_MESSAGES)
-		std::cout << "Destructor called" << std::endl;
+		std::cout << "Brain Destructor called" << std::endl;
 	return;
 }
 
@@ -51,7 +51,7 @@ Brain::~Brain()
 Brain& Brain::operator= (const Brain& assignment)
 {
 	if (Brain_DEBUG_MESSAGES && Brain_ADD_VERBOSE)
-		std::cout << "Copy assignment operator called" << std::endl;
+		std::cout << "Brain Copy assignment operator called" << std::endl;
 	if (this != &assignment)
 	{
 		for (int i = 0; i < BRAIN_SIZE; i++)
