@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/25 13:45:29 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/25 15:18:20 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ Dog::Dog(const Dog& copy)
 {
 	if (Dog_DEBUG_MESSAGES)
 		std::cout << "Dog Copy constructor called." << std::endl;
+	this->_brain = NULL;
 	*this = copy;
 	return;
 }

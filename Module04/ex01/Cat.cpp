@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/25 13:32:44 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/25 15:14:59 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ Cat::Cat(const Cat& copy)
 {
 	if (Cat_DEBUG_MESSAGES)
 		std::cout << "Cat Copy constructor called." << std::endl;
+	this->_brain = NULL;
 	*this = copy;
 	return;
 }
