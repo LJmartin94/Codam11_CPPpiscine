@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/25 00:35:56 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/25 13:30:29 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 int main(void)
 {
+	std::cout << "=TESTING BRAINS==================================================" << std::endl;
 	Brain *brian = new Brain();
 
 	std::cout << *brian << std::endl;
@@ -47,7 +48,21 @@ int main(void)
 
 	std::cout << *brian << std::endl;
 	std::cout << brian->Get_idea(100) << std::endl;
+
+	std::cout << "=TESTING CAT BRAINS==================================================" << std::endl;
+	Cat *smartCat = new Cat();
+	std::cout << *(smartCat->Get_brain());
+	smartCat->Set_brain(brian);
+	std::cout << *(smartCat->Get_brain());
+
+	std::cout << "=TESTING COPY CAT BRAINS==================================================" << std::endl;
+	Cat *copyCat = new Cat(*smartCat);
+	std::cout << *(copyCat->Get_brain());
+	delete smartCat;
+	std::cout << *(copyCat->Get_brain());
 	
+	std::cout << "=CLEANING UP==================================================" << std::endl;
+	delete copyCat;
 	delete brian;
 	return(0);
 }

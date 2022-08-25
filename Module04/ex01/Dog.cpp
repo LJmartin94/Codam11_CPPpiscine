@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/24 21:08:10 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/25 13:45:29 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ Dog::Dog()
 		std::cout << "Dog Default constructor called." << std::endl;
 		std::cout << *this << std::endl;
 	}
+	this->_brain = new Brain;
 	return;
 }
 
@@ -41,6 +42,7 @@ Dog::Dog(const Dog& copy)
 // Destructor
 Dog::~Dog()
 {
+	delete this->_brain;
 	if (Dog_DEBUG_MESSAGES)
 		std::cout << "Dog Destructor called" << std::endl;
 	return;
@@ -60,6 +62,7 @@ Dog& Dog::operator= (const Dog& assignment)
 	if (this != &assignment)
 	{
 		this->_type = assignment._type;
+		this->Set_brain(assignment.Get_brain());
 	}
 	return(*this);
 }
@@ -98,9 +101,22 @@ std::string Dog::Get_type(void) const
 	return(this->_type);
 }
 
+Brain* Dog::Get_brain(void) const
+{
+	return(this->_brain);
+}
+
+
 void Dog::Set_type(std::string type)
 {
 	this->_type = type;
+	return;
+}
+
+void Dog::Set_brain(Brain *brain)
+{
+	delete this->_brain;
+	this->_brain = new Brain(*brain);
 	return;
 }
 ////////////////////////////////////////////////////////////////////////////////

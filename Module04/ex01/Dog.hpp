@@ -6,14 +6,15 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/24 21:07:38 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/25 00:53:17 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 # define DOG_HPP
 
-#include "Animal.hpp"	// Parent Class
+#include "Animal.hpp"	// Parent class
+#include "Brain.hpp"	// Member variable class
 #include <iostream>		// Stream operators
 
 # define Dog_DEBUG_MESSAGES 1
@@ -50,14 +51,17 @@ class Dog : public Animal
 	// Private member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	private:
+	Brain* _brain;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Accessors
 	////////////////////////////////////////////////////////////////////////////
 	public:
 	std::string		Get_type(void) const;
+	Brain*			Get_brain(void) const;
 	
-	void 	Set_type(std::string type);
+	void 			Set_type(std::string type);
+	void			Set_brain(Brain* brain);
 	////////////////////////////////////////////////////////////////////////////
 };
 
