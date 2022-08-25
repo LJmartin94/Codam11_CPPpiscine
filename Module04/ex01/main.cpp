@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/25 15:11:16 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/25 15:29:24 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,16 @@ int main(void)
 	std::cout << *(copyCat->Get_brain());
 	delete smartCat;
 	std::cout << *(copyCat->Get_brain());
+
+	std::cout << "=TESTING COPY ANIMAL BRAINS==================================================" << std::endl;
+	Animal *copyAnimal = new Cat(*copyCat);
+	std::cout << *(copyAnimal->Get_brain());
+	delete copyCat;
+	std::cout << *(copyAnimal->Get_brain());
 	
 	std::cout << "=CLEANING UP==================================================" << std::endl;
 	delete smartAnimal;
 	delete dumbAnimal;
-	delete copyCat;
 	delete brian;
 	return(0);
 }
