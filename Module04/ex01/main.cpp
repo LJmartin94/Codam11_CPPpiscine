@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/25 15:29:24 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/25 16:10:21 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,45 @@ int main(void)
 	std::cout << *(copyAnimal->Get_brain());
 	
 	std::cout << "=CLEANING UP==================================================" << std::endl;
+	delete copyAnimal;
 	delete smartAnimal;
 	delete dumbAnimal;
 	delete brian;
+
+	std::cout << "=TESTS SPECIFIED BY SUBJECT==================================================" << std::endl;
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	std::cout << "Now deleting:" << std::endl;
+	delete j;
+	delete i;
+
+	std::cout << "=TESTS DESCRIBED BY SUBJECT==================================================" << std::endl;
+		
+	Animal* zoo[4];
+	for (unsigned int i = 0; i < 4; i++)
+	{
+		if (i % 2 == 0)
+			zoo[i] = new Dog();
+		else
+			zoo[i] = new Cat();
+	}
+	zoo[0]->makeSound();
+
+	for (unsigned int i = 0; i < 4; i++)
+		delete zoo[i];
+
+	// std::cout << "=ALTERNATE METHOD USING new[] AND delete[]==================================================" << std::endl;
+	// //this only saves the animal part of the dog or cat though.
+	// Animal* zoo2 = new Animal[4];
+	// for (unsigned int i = 0; i < 4; i++)
+	// {
+	// 	if (i % 2 == 0)
+	// 		zoo2[i] = Dog();
+	// 	else
+	// 		zoo2[i] = Cat();
+	// }
+	// zoo2[0].makeSound();
+	// std::cout << zoo2[0].Get_type() << std::endl;
+	// delete[] zoo2;
 	return(0);
 }
