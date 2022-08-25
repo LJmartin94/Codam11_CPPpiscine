@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/25 15:48:23 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/25 18:39:21 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class Animal
 	// Pubic member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	virtual void	makeSound() const;
+	virtual void	makeSound() const = 0;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Protected member variables & methods
@@ -55,11 +55,11 @@ class Animal
 	// Accessors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	virtual std::string		Get_type(void) const;
-	virtual Brain*			Get_brain(void) const;
+	virtual std::string		Get_type(void) const = 0;
+	virtual Brain*			Get_brain(void) const = 0;
 	
-	virtual void 			Set_type(std::string type);
-	virtual void 			Set_brain(Brain* brain);
+	virtual void 			Set_type(std::string type) = 0;
+	virtual void 			Set_brain(Brain* brain) = 0;
 	////////////////////////////////////////////////////////////////////////////
 };
 

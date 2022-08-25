@@ -6,11 +6,11 @@
 #    By: lindsay <lindsay@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/18 14:21:41 by lindsay       #+#    #+#                  #
-#    Updated: 2022/08/24 23:49:22 by lindsay       ########   odam.nl          #
+#    Updated: 2022/08/25 18:38:25 by lindsay       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = CatsAndDogsAndBrains
+NAME = VRCat
 
 ROOT_DIR = ./
 

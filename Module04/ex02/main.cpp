@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/25 16:10:21 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/25 18:56:22 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@ int main(void)
 	std::cout << *(smartAnimal->Get_brain());
 
 	std::cout << "=TESTING BRAINLESS ANIMAL BRAINS==================================================" << std::endl;
-	Animal *dumbAnimal = new Animal();
-	Brain *no_brain = dumbAnimal->Get_brain();
-	if (no_brain != NULL)
-		std::cout << *(dumbAnimal->Get_brain());
-	dumbAnimal->Set_brain(brian);
+	// Animal *dumbAnimal = new Animal();
+	// Brain *no_brain = dumbAnimal->Get_brain();
+	// if (no_brain != NULL)
+	// 	std::cout << *(dumbAnimal->Get_brain());
+	// dumbAnimal->Set_brain(brian);
 
 	std::cout << "=TESTING COPY CAT BRAINS==================================================" << std::endl;
 	Cat *copyCat = new Cat(*smartCat);
@@ -83,7 +83,7 @@ int main(void)
 	std::cout << "=CLEANING UP==================================================" << std::endl;
 	delete copyAnimal;
 	delete smartAnimal;
-	delete dumbAnimal;
+	// delete dumbAnimal;
 	delete brian;
 
 	std::cout << "=TESTS SPECIFIED BY SUBJECT==================================================" << std::endl;
