@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/24 20:09:21 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/25 14:01:07 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,23 @@ std::string Animal::Get_type(void) const
 	return(this->_type);
 }
 
+Brain* Animal::Get_brain(void) const
+{
+	std::cout << "Could not get brain, this animal has no brain!" << std::endl;
+	return(NULL);
+}
+
+
 void Animal::Set_type(std::string type)
 {
 	this->_type = type;
+	return;
+}
+
+void Animal::Set_brain(Brain* brain)
+{
+	(void)brain;
+	std::cout << "Could not set brain, this animal has no brain!" << std::endl;
 	return;
 }
 ////////////////////////////////////////////////////////////////////////////////

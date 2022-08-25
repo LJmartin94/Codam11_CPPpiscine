@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/25 13:30:29 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/25 15:11:16 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,19 @@ int main(void)
 	smartCat->Set_brain(brian);
 	std::cout << *(smartCat->Get_brain());
 
+	std::cout << "=TESTING ANIMAL BRAINS==================================================" << std::endl;
+	Animal *smartAnimal = new Cat();
+	std::cout << *(smartAnimal->Get_brain());
+	smartAnimal->Set_brain(brian);
+	std::cout << *(smartAnimal->Get_brain());
+
+	std::cout << "=TESTING BRAINLESS ANIMAL BRAINS==================================================" << std::endl;
+	Animal *dumbAnimal = new Animal();
+	Brain *no_brain = dumbAnimal->Get_brain();
+	if (no_brain != NULL)
+		std::cout << *(dumbAnimal->Get_brain());
+	dumbAnimal->Set_brain(brian);
+
 	std::cout << "=TESTING COPY CAT BRAINS==================================================" << std::endl;
 	Cat *copyCat = new Cat(*smartCat);
 	std::cout << *(copyCat->Get_brain());
@@ -62,6 +75,8 @@ int main(void)
 	std::cout << *(copyCat->Get_brain());
 	
 	std::cout << "=CLEANING UP==================================================" << std::endl;
+	delete smartAnimal;
+	delete dumbAnimal;
 	delete copyCat;
 	delete brian;
 	return(0);

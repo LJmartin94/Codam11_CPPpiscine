@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/24 20:17:22 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/08/25 13:58:02 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ANIMAL_HPP
 
 #include <iostream> // Stream operators
+#include "Brain.hpp" // Member variable of child class
 
 # define Animal_DEBUG_MESSAGES 1
 # define Animal_ADD_VERBOSE 1
@@ -55,8 +56,10 @@ class Animal
 	////////////////////////////////////////////////////////////////////////////
 	public:
 	virtual std::string		Get_type(void) const;
+	virtual Brain*			Get_brain(void) const;
 	
 	virtual void 			Set_type(std::string type);
+	virtual void 			Set_brain(Brain* brain);
 	////////////////////////////////////////////////////////////////////////////
 };
 
