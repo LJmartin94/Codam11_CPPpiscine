@@ -6,7 +6,7 @@
 #    By: lindsay <lindsay@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/18 14:21:41 by lindsay       #+#    #+#                  #
-#    Updated: 2022/08/25 18:38:25 by lindsay       ########   odam.nl          #
+#    Updated: 2022/08/29 13:25:39 by limartin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ HEADER_FILES = $(INCL_PATH)
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = $(SRC_PATH)main.cpp \
 	$(SRC_PATH)Animal.cpp \
