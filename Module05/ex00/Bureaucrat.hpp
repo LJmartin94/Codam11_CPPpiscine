@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/31 16:56:10 by limartin      ########   odam.nl         */
+/*   Updated: 2022/08/31 17:14:16 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,18 @@ class Bureaucrat
 	// Private member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	private:
+	const std::string	_name;
+	unsigned int		_grade;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Accessors
 	////////////////////////////////////////////////////////////////////////////
 	public:
+	const std::string	Get_name(void);
+	unsigned int		Get_grade(void);
+
+	void				Decrement_grade(void);
+	void				Increment_grade(void);
 	////////////////////////////////////////////////////////////////////////////
 };
 

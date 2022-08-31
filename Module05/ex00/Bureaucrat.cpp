@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/31 16:56:30 by limartin      ########   odam.nl         */
+/*   Updated: 2022/08/31 17:01:43 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ Bureaucrat::Bureaucrat()
 	if (Bureaucrat_DEBUG_MESSAGES)
 		std::cout << "Default constructor called." << std::endl;
 	return;
+
+// Any attempt to instantiate a Bureaucrat using an invalid grade must throw an exception:
+// either a Bureaucrat::GradeTooHighException or a Bureaucrat::GradeTooLowException.
 }
 
 // Copy constructor
