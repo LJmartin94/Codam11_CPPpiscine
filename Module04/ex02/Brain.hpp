@@ -6,11 +6,10 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/24 23:50:55 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/01 22:54:55 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-//TODO: Make sure this is all-caps!
 #ifndef BRAIN_HPP
 # define BRAIN_HPP
 
