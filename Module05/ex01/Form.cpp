@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 23:37:04 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 00:36:04 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,12 @@ Form& Form::operator= (const Form& assignment)
 
 // Accessors
 ////////////////////////////////////////////////////////////////////////////////
-std::string	Form::Get_name(void) const
+std::string		Form::Get_name(void) const
 {
 	return(this->_name);
 }
 
-bool				Form::Get_signed(void) const
+bool			Form::Get_signed(void) const
 {
 	return(this->_signed);
 }
@@ -112,6 +112,15 @@ unsigned int	Form::Get_executeGrade(void) const
 	return(this->_executeGrade);
 }
 
+
+// Basically Set_signed();
+void			Form::beSigned(const Bureaucrat& signer)
+{
+	if (signer.Get_grade() > this->Get_signGrade())
+		throw GradeTooLowException();
+	else
+		this->_signed = true;
+}
 ////////////////////////////////////////////////////////////////////////////////
 
 

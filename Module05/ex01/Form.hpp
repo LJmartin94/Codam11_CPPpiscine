@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 23:24:48 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 00:28:38 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FORM_HPP
 
 #include <iostream> // Stream operators
+#include "Bureaucrat.hpp" // Used in beSigned() member function
 
 # define Form_DEBUG_MESSAGES 1
 # define Form_ADD_VERBOSE 1
@@ -62,6 +63,8 @@ class Form
 	bool			Get_signed(void) const;
 	unsigned int	Get_signGrade(void) const;
 	unsigned int	Get_executeGrade(void) const;
+
+	void			beSigned(const Bureaucrat& signer); // Basically Set_signed
 	////////////////////////////////////////////////////////////////////////////
 
 	// Nested classes
