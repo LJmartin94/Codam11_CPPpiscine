@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/31 17:14:16 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/01 17:22:00 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Bureaucrat
 	////////////////////////////////////////////////////////////////////////////
 	public:
 	Bureaucrat();								// Default constructor
-	Bureaucrat(const Bureaucrat& copy);		// Copy constructor
+	Bureaucrat(const Bureaucrat& copy);			// Copy constructor
 	~Bureaucrat();								// Destructor
 	////////////////////////////////////////////////////////////////////////////
 
@@ -54,11 +54,33 @@ class Bureaucrat
 	// Accessors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	const std::string	Get_name(void);
-	unsigned int		Get_grade(void);
+	const std::string	Get_name(void) const;
+	unsigned int		Get_grade(void) const;
 
 	void				Decrement_grade(void);
 	void				Increment_grade(void);
+	////////////////////////////////////////////////////////////////////////////
+
+	// Nested classes
+	////////////////////////////////////////////////////////////////////////////
+	private:
+	class GradeTooHighException : public std::exception
+	{
+		public:
+			const char *what() const throw()
+			{
+				return ("Exception: Grade too high.");
+			}
+	};
+
+	class GradeTooLowException : public std::exception
+	{
+		public:
+			const char *what() const throw()
+			{
+				return ("Exception: Grade too low.");
+			}
+	};
 	////////////////////////////////////////////////////////////////////////////
 };
 

@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/08/31 17:01:43 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/01 17:24:02 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,44 @@ Bureaucrat& Bureaucrat::operator= (const Bureaucrat& assignment)
 
 
 // Accessors
+////////////////////////////////////////////////////////////////////////////////
+const std::string	Bureaucrat::Get_name(void) const
+{
+	return(this->_name);
+}
+
+unsigned int		Bureaucrat::Get_grade(void) const
+{
+	return(this->_grade);
+}
+
+
+void				Bureaucrat::Decrement_grade(void)
+{
+	// The lower the grade, the better; 
+	// so decrement_grade must increment the unsigned int
+	// (according to the subject)
+	if(this->_grade + 1 > 150)
+		throw GradeTooLowException();
+	else
+		this->_grade++;
+}
+
+void				Bureaucrat::Increment_grade(void)
+{
+	// The lower the grade, the better; 
+	// so increment_grade must decrement the unsigned int
+	// (according to the subject)
+	if(this->_grade - 1 < 1)
+		throw GradeTooHighException();
+	else
+		this->_grade--;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// Nested classes
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
