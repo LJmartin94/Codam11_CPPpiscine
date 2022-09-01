@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 23:15:45 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/01 23:24:48 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,23 @@ class Form
 	// Nested classes
 	////////////////////////////////////////////////////////////////////////////
 	private:
+	class GradeTooHighException : public std::exception
+	{
+		public:
+			const char *what() const throw()
+			{
+				return ("Exception: Grade too high. (Form::GradeTooHighException)");
+			}
+	};
+
+	class GradeTooLowException : public std::exception
+	{
+		public:
+			const char *what() const throw()
+			{
+				return ("Exception: Grade too low. (Form::GradeTooLowException)");
+			}
+	};
 	////////////////////////////////////////////////////////////////////////////
 };
 
