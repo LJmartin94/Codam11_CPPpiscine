@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 23:14:50 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/01 23:37:04 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,12 @@ Form::Form(std::string name, unsigned int to_sign, unsigned int to_execute)
 : _name(name), _signed(false), _signGrade(to_sign), _executeGrade(to_execute)
 {
 	if (Form_DEBUG_MESSAGES)
-		std::cout << "Default constructor called." << std::endl;
+		std::cout << "Form Default constructor called." << std::endl;
+
+	if(to_sign < 1 || to_execute < 1)
+		throw GradeTooHighException();
+	else if (to_sign > 150 || to_execute > 150)
+		throw GradeTooLowException();
 	return;
 }
 
@@ -32,7 +37,7 @@ _signGrade(copy._signGrade),
 _executeGrade(copy._executeGrade)
 {
 	if (Form_DEBUG_MESSAGES)
-		std::cout << "Copy constructor called." << std::endl;
+		std::cout << "Form Copy constructor called." << std::endl;
 	return;
 }
 
@@ -40,7 +45,7 @@ _executeGrade(copy._executeGrade)
 Form::~Form()
 {
 	if (Form_DEBUG_MESSAGES)
-		std::cout << "Destructor called" << std::endl;
+		std::cout << "Form Destructor called" << std::endl;
 	return;
 }
 
@@ -54,7 +59,7 @@ Form::~Form()
 Form& Form::operator= (const Form& assignment)
 {
 	if (Form_DEBUG_MESSAGES && Form_ADD_VERBOSE)
-		std::cout << "Copy assignment operator called" << std::endl;
+		std::cout << "Form Copy assignment operator called" << std::endl;
 	if (this != &assignment)
 	{
 		this->_signed = assignment._signed; 
