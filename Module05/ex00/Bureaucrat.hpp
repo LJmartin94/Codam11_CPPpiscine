@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 21:00:26 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/01 22:20:15 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ class Bureaucrat
 		public:
 			const char *what() const throw()
 			{
-				return ("Exception: Grade too high.");
+				return ("Exception: Grade too high. (Bureaucrat::GradeTooHighException)");
 			}
 	};
 
@@ -80,7 +80,7 @@ class Bureaucrat
 		public:
 			const char *what() const throw()
 			{
-				return ("Exception: Grade too low.");
+				return ("Exception: Grade too low. (Bureaucrat::GradeTooLowException)");
 			}
 	};
 	////////////////////////////////////////////////////////////////////////////
