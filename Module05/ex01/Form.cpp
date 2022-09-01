@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 22:35:09 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/01 22:45:02 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,25 @@ Form& Form::operator= (const Form& assignment)
 
 // Accessors
 ////////////////////////////////////////////////////////////////////////////////
+const std::string	Form::Get_name(void) const
+{
+	return(this->_name);
+}
+
+bool				Form::Get_signed(void) const
+{
+	return(this->_signed);
+}
+
+const unsigned int	Form::Get_signGrade(void) const
+{
+	return(this->_signGrade);
+}
+
+const unsigned int	Form::Get_executeGrade(void) const
+{
+	return(this->_executeGrade);
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 
