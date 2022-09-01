@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 17:22:00 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/01 21:00:26 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ class Bureaucrat
 	// Constructors & Destructors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	Bureaucrat();								// Default constructor
+	// Default constructor
+	Bureaucrat(std::string name = "Bob", unsigned int grade = 75);
+	
 	Bureaucrat(const Bureaucrat& copy);			// Copy constructor
 	~Bureaucrat();								// Destructor
 	////////////////////////////////////////////////////////////////////////////

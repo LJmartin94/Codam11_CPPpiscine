@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 17:24:02 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/01 22:07:53 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,27 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 // Default constructor
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat(std::string name, unsigned int grade)
+: _name(name)
 {
 	if (Bureaucrat_DEBUG_MESSAGES)
 		std::cout << "Default constructor called." << std::endl;
+	
+	if (grade > 150)
+		throw GradeTooLowException();
+	else if (grade < 1)
+		throw GradeTooHighException();
+	else
+		this->_grade = grade;
 	return;
-
-// Any attempt to instantiate a Bureaucrat using an invalid grade must throw an exception:
-// either a Bureaucrat::GradeTooHighException or a Bureaucrat::GradeTooLowException.
 }
 
 // Copy constructor
 Bureaucrat::Bureaucrat(const Bureaucrat& copy)
+: _name(copy._name), _grade(copy._grade)
 {
 	if (Bureaucrat_DEBUG_MESSAGES)
 		std::cout << "Copy constructor called." << std::endl;
-	*this = copy;
 	return;
 }
 
@@ -56,7 +61,9 @@ Bureaucrat& Bureaucrat::operator= (const Bureaucrat& assignment)
 		std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &assignment)
 	{
-		//TODO: REQUIRES PER CLASS IMPLEMENTATION
+		this->_grade = assignment._grade;
+		// We don't copy over the _name as it is const, 
+		// even though we could with a const cast, but that's UB. 
 	}
 	return(*this);
 }
@@ -132,8 +139,8 @@ void				Bureaucrat::Increment_grade(void)
 //Stream operator overload
 std::ostream& operator<< (std::ostream& o, const Bureaucrat& i)
 {
-	//TODO: REQUIRES PER CLASS IMPLEMENTATION
-	o << i;
+	o << i.Get_name() << ", bureaucrat grade " << i.Get_grade() << "." 
+	<< std::endl;
 	return (o);
 }
 
