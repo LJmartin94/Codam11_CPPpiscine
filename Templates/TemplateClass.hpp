@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 17:14:53 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/01 22:10:45 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ class TemplateClass
 	////////////////////////////////////////////////////////////////////////////
 };
 
-// Stream operator overload
+// Stream insertion operator overload
 std::ostream& operator<< (std::ostream& o, TemplateClass const & i);
 
 #endif
