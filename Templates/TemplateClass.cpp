@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 22:10:50 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/01 23:35:03 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 TemplateClass::TemplateClass()
 {
 	if (TemplateClass_DEBUG_MESSAGES)
-		std::cout << "Default constructor called." << std::endl;
+		std::cout << "TemplateClass Default constructor called." << std::endl;
 	return;
 }
 
@@ -27,7 +27,7 @@ TemplateClass::TemplateClass()
 TemplateClass::TemplateClass(const TemplateClass& copy)
 {
 	if (TemplateClass_DEBUG_MESSAGES)
-		std::cout << "Copy constructor called." << std::endl;
+		std::cout << "TemplateClass Copy constructor called." << std::endl;
 	*this = copy;
 	return;
 }
@@ -36,7 +36,7 @@ TemplateClass::TemplateClass(const TemplateClass& copy)
 TemplateClass::~TemplateClass()
 {
 	if (TemplateClass_DEBUG_MESSAGES)
-		std::cout << "Destructor called" << std::endl;
+		std::cout << "TemplateClass Destructor called" << std::endl;
 	return;
 }
 
@@ -50,7 +50,7 @@ TemplateClass::~TemplateClass()
 TemplateClass& TemplateClass::operator= (const TemplateClass& assignment)
 {
 	if (TemplateClass_DEBUG_MESSAGES && TemplateClass_ADD_VERBOSE)
-		std::cout << "Copy assignment operator called" << std::endl;
+		std::cout << "TemplateClass Copy assignment operator called" << std::endl;
 	if (this != &assignment)
 	{
 		//TODO: REQUIRES PER CLASS IMPLEMENTATION

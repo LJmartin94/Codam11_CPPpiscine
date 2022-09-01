@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 22:07:53 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/01 23:34:29 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Bureaucrat::Bureaucrat(std::string name, unsigned int grade)
 : _name(name)
 {
 	if (Bureaucrat_DEBUG_MESSAGES)
-		std::cout << "Default constructor called." << std::endl;
+		std::cout << "Bureaucrat Default constructor called." << std::endl;
 	
 	if (grade > 150)
 		throw GradeTooLowException();
@@ -36,7 +36,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& copy)
 : _name(copy._name), _grade(copy._grade)
 {
 	if (Bureaucrat_DEBUG_MESSAGES)
-		std::cout << "Copy constructor called." << std::endl;
+		std::cout << "Bureaucrat Copy constructor called." << std::endl;
 	return;
 }
 
@@ -44,7 +44,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& copy)
 Bureaucrat::~Bureaucrat()
 {
 	if (Bureaucrat_DEBUG_MESSAGES)
-		std::cout << "Destructor called" << std::endl;
+		std::cout << "Bureaucrat Destructor called" << std::endl;
 	return;
 }
 
@@ -58,7 +58,7 @@ Bureaucrat::~Bureaucrat()
 Bureaucrat& Bureaucrat::operator= (const Bureaucrat& assignment)
 {
 	if (Bureaucrat_DEBUG_MESSAGES && Bureaucrat_ADD_VERBOSE)
-		std::cout << "Copy assignment operator called" << std::endl;
+		std::cout << "Bureaucrat Copy assignment operator called" << std::endl;
 	if (this != &assignment)
 	{
 		this->_grade = assignment._grade;
