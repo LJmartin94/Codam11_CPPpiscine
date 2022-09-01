@@ -6,11 +6,11 @@
 #    By: lindsay <lindsay@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/18 14:21:41 by lindsay       #+#    #+#                  #
-#    Updated: 2022/08/31 16:53:46 by limartin      ########   odam.nl          #
+#    Updated: 2022/09/01 22:33:36 by lindsay       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucracy
+NAME = BobTheBureaucrat
 
 ROOT_DIR = ./
 

@@ -6,11 +6,11 @@
 #    By: lindsay <lindsay@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/18 14:21:41 by lindsay       #+#    #+#                  #
-#    Updated: 2022/08/31 16:53:46 by limartin      ########   odam.nl          #
+#    Updated: 2022/09/01 22:34:16 by lindsay       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucracy
+NAME = CanWeFaxIt
 
 ROOT_DIR = ./
 
@@ -25,6 +25,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = $(SRC_PATH)main.cpp \
 	$(SRC_PATH)Bureaucrat.cpp \
+	$(SRC_PATH)Form.cpp \
 
 OBJ := $(SRC:%.cpp=%.o)
 
