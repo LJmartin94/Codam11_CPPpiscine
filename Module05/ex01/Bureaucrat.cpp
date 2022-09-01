@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 23:34:29 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 00:52:55 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,21 @@ Bureaucrat& Bureaucrat::operator= (const Bureaucrat& assignment)
 
 // Pubic methods
 ////////////////////////////////////////////////////////////////////////////////
-
+void				Bureaucrat::signForm(Form& formToSign) const
+{
+	try
+	{
+		formToSign.beSigned(*this);
+		if (formToSign.Get_signed())
+			std::cout << this->_name << " signed " << formToSign.Get_name() \
+			<< std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << this->_name << " couldn't sign " << formToSign.Get_name() \
+		<< " because " << e.what() << std::endl;
+	}
+}
 ////////////////////////////////////////////////////////////////////////////////
 
 
