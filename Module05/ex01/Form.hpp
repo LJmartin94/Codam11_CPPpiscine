@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 23:00:46 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/01 23:15:45 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ class Form
 	// Accessors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	const std::string	Get_name(void) const;
-	bool				Get_signed(void) const;
-	const unsigned int	Get_signGrade(void) const;
-	const unsigned int	Get_executeGrade(void) const;
+	std::string		Get_name(void) const;
+	bool			Get_signed(void) const;
+	unsigned int	Get_signGrade(void) const;
+	unsigned int	Get_executeGrade(void) const;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Nested classes

@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 22:58:26 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/01 23:14:50 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ Form& Form::operator= (const Form& assignment)
 
 // Accessors
 ////////////////////////////////////////////////////////////////////////////////
-const std::string	Form::Get_name(void) const
+std::string	Form::Get_name(void) const
 {
 	return(this->_name);
 }
@@ -97,12 +97,12 @@ bool				Form::Get_signed(void) const
 	return(this->_signed);
 }
 
-const unsigned int	Form::Get_signGrade(void) const
+unsigned int	Form::Get_signGrade(void) const
 {
 	return(this->_signGrade);
 }
 
-const unsigned int	Form::Get_executeGrade(void) const
+unsigned int	Form::Get_executeGrade(void) const
 {
 	return(this->_executeGrade);
 }
@@ -122,8 +122,16 @@ const unsigned int	Form::Get_executeGrade(void) const
 //Stream insertion operator overload
 std::ostream& operator<< (std::ostream& o, const Form& i)
 {
-	//TODO: REQUIRES PER CLASS IMPLEMENTATION
-	o << i;
+	o << std::endl
+	<< "Form name:          " << i.Get_name() << std::endl
+	<< "Form sign grade:    " << i.Get_signGrade() << std::endl
+	<< "Form execute grade: " << i.Get_executeGrade() << std::endl
+	<< "Form status:        ";
+	if(i.Get_signed())
+		o << "Signed." << std::endl;
+	else
+		o << "Not yet signed." << std::endl;
+	o << std::endl;
 	return (o);
 }
 
