@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 22:44:44 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/01 23:00:46 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ class Form
 	// Constructors & Destructors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	Form();								// Default constructor
-	Form(const Form& copy);		// Copy constructor
-	~Form();								// Destructor
+	// Default constructor
+	Form(std::string name = "Blank", \
+	unsigned int to_sign = 150, unsigned int to_execute = 150);
+	Form(const Form& copy);						// Copy constructor
+	~Form();									// Destructor
 	////////////////////////////////////////////////////////////////////////////
 
 	// Operator overloads
