@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 16:04:22 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 17:34:20 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class ShrubberyCreationForm : public Form
 	// Operator overloads
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	ShrubberyCreationForm& operator= (const ShrubberyCreationForm& assignment);	// Assignment operator
+	// ShrubberyCreationForm& operator= (const ShrubberyCreationForm& assignment);	// Assignment operator
 	////////////////////////////////////////////////////////////////////////////
 
 	// Pubic member variables & methods

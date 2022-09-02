@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 16:30:41 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 17:33:38 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,16 @@ PresidentialPardonForm::~PresidentialPardonForm()
 ////////////////////////////////////////////////////////////////////////////////
 
 // Assignment operator overload (deep copy)
-PresidentialPardonForm& PresidentialPardonForm::operator= (const PresidentialPardonForm& assignment)
-{
-	if (PresidentialPardonForm_DEBUG_MESSAGES && PresidentialPardonForm_ADD_VERBOSE)
-		std::cout << "PresidentialPardonForm Copy assignment operator called" << std::endl;
-	if (this != &assignment)
-	{
-		//TODO: REQUIRES PER CLASS IMPLEMENTATION
-	}
-	return(*this);
-}
+// PresidentialPardonForm& PresidentialPardonForm::operator= (const PresidentialPardonForm& assignment)
+// {
+// 	if (PresidentialPardonForm_DEBUG_MESSAGES && PresidentialPardonForm_ADD_VERBOSE)
+// 		std::cout << "PresidentialPardonForm Copy assignment operator called" << std::endl;
+// 	if (this != &assignment)
+// 	{
+// 		this->_signed = assignment._signed;
+// 	}
+// 	return(*this);
+// }
 
 ////////////////////////////////////////////////////////////////////////////////
 
