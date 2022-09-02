@@ -6,11 +6,11 @@
 #    By: lindsay <lindsay@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/18 14:21:41 by lindsay       #+#    #+#                  #
-#    Updated: 2022/09/01 22:34:16 by lindsay       ########   odam.nl          #
+#    Updated: 2022/09/02 13:31:05 by lindsay       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = CanWeFaxIt
+NAME = YesWeCanInFiveToTenWorkingDays
 
 ROOT_DIR = ./
 
@@ -26,6 +26,9 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = $(SRC_PATH)main.cpp \
 	$(SRC_PATH)Bureaucrat.cpp \
 	$(SRC_PATH)Form.cpp \
+	$(SRC_PATH)PresidentialPardonForm.cpp \
+	$(SRC_PATH)RobotomyRequestForm.cpp \
+	$(SRC_PATH)ShrubberyCreationForm.cpp \
 
 OBJ := $(SRC:%.cpp=%.o)
 
