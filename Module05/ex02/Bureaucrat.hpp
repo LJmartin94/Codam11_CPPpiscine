@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 01:29:06 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 17:16:15 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ class Bureaucrat
 	////////////////////////////////////////////////////////////////////////////
 	public:
 	void				signForm(Form& formToSign) const;
+	void				executeForm(const Form& formToExecute) const;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Protected member variables & methods

@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 16:19:16 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 17:23:13 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,21 @@ int main(void)
 	PresidentialPardonForm nicola("Nicola Sturgeon");
 	std::cout << nicola << std::endl;
 
-	nicola.execute(bob);
+	try
+	{
+		nicola.execute(bob);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	bob.executeForm(nicola);
+	igor.executeForm(nicola);
+	bob.signForm(nicola);
+	igor.executeForm(nicola);
+	bob.executeForm(nicola);
+
 
 	// std::cout << "=INITIAL CHECK=================================" << std::endl;
 	// Form blank;
