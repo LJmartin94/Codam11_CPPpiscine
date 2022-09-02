@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 13:38:44 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 13:56:11 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ RobotomyRequestForm::RobotomyRequestForm()
 
 // Copy constructor
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& copy)
+: Form(copy)
 {
 	if (RobotomyRequestForm_DEBUG_MESSAGES)
 		std::cout << "RobotomyRequestForm Copy constructor called." << std::endl;

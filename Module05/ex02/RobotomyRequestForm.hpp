@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 13:39:41 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 13:51:37 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 # define ROBOTOMYREQUESTFORM_HPP
 
 #include <iostream> // Stream operators
+#include "Form.hpp" // Parent class
 
 # define RobotomyRequestForm_DEBUG_MESSAGES 1
 # define RobotomyRequestForm_ADD_VERBOSE 1
 
-class RobotomyRequestForm
+class RobotomyRequestForm : public Form
 {
 	// Constructors & Destructors
 	////////////////////////////////////////////////////////////////////////////

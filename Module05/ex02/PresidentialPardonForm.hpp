@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 13:38:07 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 14:03:39 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 # define PRESIDENTIALPARDONFORM_HPP
 
 #include <iostream> // Stream operators
+#include "Form.hpp" // Parent class
 
 # define PresidentialPardonForm_DEBUG_MESSAGES 1
 # define PresidentialPardonForm_ADD_VERBOSE 1
 
-class PresidentialPardonForm
+class PresidentialPardonForm : public Form
 {
 	// Constructors & Destructors
 	////////////////////////////////////////////////////////////////////////////

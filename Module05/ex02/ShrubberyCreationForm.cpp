@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 13:40:24 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 13:56:20 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ ShrubberyCreationForm::ShrubberyCreationForm()
 
 // Copy constructor
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy)
+: Form(copy)
 {
 	if (ShrubberyCreationForm_DEBUG_MESSAGES)
 		std::cout << "ShrubberyCreationForm Copy constructor called." << std::endl;
