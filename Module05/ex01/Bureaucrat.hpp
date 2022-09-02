@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 00:45:03 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 01:29:06 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream> // Stream operators
 #include "Form.hpp" // Used in signForm() member function
+class Form;
 
 # define Bureaucrat_DEBUG_MESSAGES 1
 # define Bureaucrat_ADD_VERBOSE 1
