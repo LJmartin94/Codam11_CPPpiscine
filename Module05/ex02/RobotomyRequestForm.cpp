@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 14:29:31 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 15:06:58 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 // Default constructor
-RobotomyRequestForm::RobotomyRequestForm()
+RobotomyRequestForm::RobotomyRequestForm(std::string target)
+: Form("RobotomyRequestForm", target, 72, 45)
 {
 	if (RobotomyRequestForm_DEBUG_MESSAGES)
 		std::cout << "RobotomyRequestForm Default constructor called." << std::endl;

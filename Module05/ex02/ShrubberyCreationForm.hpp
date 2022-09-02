@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 14:29:15 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 14:34:21 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,12 @@ class ShrubberyCreationForm : public Form
 	// Constructors & Destructors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	ShrubberyCreationForm();								// Default constructor
-	ShrubberyCreationForm(const ShrubberyCreationForm& copy);		// Copy constructor
-	~ShrubberyCreationForm();								// Destructor
+	// Default constructor
+	ShrubberyCreationForm(std::string target = "None");
+	// Copy constructor
+	ShrubberyCreationForm(const ShrubberyCreationForm& copy);
+	// Destructor
+	~ShrubberyCreationForm();
 	////////////////////////////////////////////////////////////////////////////
 
 	// Operator overloads

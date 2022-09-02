@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 14:28:10 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 15:04:27 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 // Default constructor
-ShrubberyCreationForm::ShrubberyCreationForm()
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target)
+: Form("ShrubberyCreationForm", target, 145, 137)
 {
 	if (ShrubberyCreationForm_DEBUG_MESSAGES)
 		std::cout << "ShrubberyCreationForm Default constructor called." << std::endl;

@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 14:28:59 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 15:05:01 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 // Default constructor
 PresidentialPardonForm::PresidentialPardonForm()
+: Form("PresidentialPardonForm", target, 25, 5)
 {
 	if (PresidentialPardonForm_DEBUG_MESSAGES)
 		std::cout << "PresidentialPardonForm Default constructor called." << std::endl;

@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 14:29:11 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 15:09:47 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,12 @@ class PresidentialPardonForm : public Form
 	// Constructors & Destructors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	PresidentialPardonForm();								// Default constructor
-	PresidentialPardonForm(const PresidentialPardonForm& copy);		// Copy constructor
-	~PresidentialPardonForm();								// Destructor
+	// Default constructor
+	PresidentialPardonForm(std::string target = "None");
+	// Copy constructor
+	PresidentialPardonForm(const PresidentialPardonForm& copy);
+	// Destructor
+	~PresidentialPardonForm();
 	////////////////////////////////////////////////////////////////////////////
 
 	// Operator overloads

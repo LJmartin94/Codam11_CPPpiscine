@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 14:29:44 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 15:08:15 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,12 @@ class RobotomyRequestForm : public Form
 	// Constructors & Destructors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	RobotomyRequestForm();								// Default constructor
-	RobotomyRequestForm(const RobotomyRequestForm& copy);		// Copy constructor
-	~RobotomyRequestForm();								// Destructor
+	// Default constructor
+	RobotomyRequestForm(std::string target = "None");
+	// Copy constructor
+	RobotomyRequestForm(const RobotomyRequestForm& copy);
+	// Destructor
+	~RobotomyRequestForm();
 	////////////////////////////////////////////////////////////////////////////
 
 	// Operator overloads
