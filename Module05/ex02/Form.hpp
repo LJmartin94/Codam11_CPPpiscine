@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 14:45:12 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 14:53:29 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ class Form
 	////////////////////////////////////////////////////////////////////////////
 	private:
 	const std::string	_name;
+	const std::string	_target;
 	bool				_signed;
 	const unsigned int	_signGrade;
 	const unsigned int	_executeGrade;
-	const std::string	_target;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Accessors

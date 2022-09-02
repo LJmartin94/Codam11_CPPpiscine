@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 14:12:45 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 14:54:59 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int main(void)
 {
 	ShrubberyCreationForm shrub;
 	std::cout << shrub << std::endl;
+	ShrubberyCreationForm frank("Frank");
+	std::cout << frank;
 	// std::cout << "=INITIAL CHECK=================================" << std::endl;
 	// Form blank;
 	// std::cout << blank;
