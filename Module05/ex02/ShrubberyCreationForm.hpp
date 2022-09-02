@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   TemplateClass.hpp                                  :+:    :+:            */
+/*   ShrubberyCreationForm.hpp                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 22:10:45 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 13:40:55 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 //TODO: Make sure this is all-caps!
-#ifndef TEMPLATECLASS_HPP
-# define TEMPLATECLASS_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+# define SHRUBBERYCREATIONFORM_HPP
 
 #include <iostream> // Stream operators
 
-# define TemplateClass_DEBUG_MESSAGES 1
-# define TemplateClass_ADD_VERBOSE 1
+# define ShrubberyCreationForm_DEBUG_MESSAGES 1
+# define ShrubberyCreationForm_ADD_VERBOSE 1
 
-class TemplateClass
+class ShrubberyCreationForm
 {
 	// Constructors & Destructors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	TemplateClass();								// Default constructor
-	TemplateClass(const TemplateClass& copy);		// Copy constructor
-	~TemplateClass();								// Destructor
+	ShrubberyCreationForm();								// Default constructor
+	ShrubberyCreationForm(const ShrubberyCreationForm& copy);		// Copy constructor
+	~ShrubberyCreationForm();								// Destructor
 	////////////////////////////////////////////////////////////////////////////
 
 	// Operator overloads
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	TemplateClass& operator= (const TemplateClass& assignment);	// Assignment operator
+	ShrubberyCreationForm& operator= (const ShrubberyCreationForm& assignment);	// Assignment operator
 	////////////////////////////////////////////////////////////////////////////
 
 	// Pubic member variables & methods
@@ -62,6 +62,6 @@ class TemplateClass
 };
 
 // Stream insertion operator overload
-std::ostream& operator<< (std::ostream& o, TemplateClass const & i);
+std::ostream& operator<< (std::ostream& o, ShrubberyCreationForm const & i);
 
 #endif

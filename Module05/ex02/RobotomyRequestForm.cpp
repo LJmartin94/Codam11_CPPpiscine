@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   TemplateClass.cpp                                  :+:    :+:            */
+/*   RobotomyRequestForm.cpp                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 23:35:03 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 13:38:44 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "TemplateClass.hpp"
+#include "RobotomyRequestForm.hpp"
 
 // Constructors & Destructors
 ////////////////////////////////////////////////////////////////////////////////
 
 // Default constructor
-TemplateClass::TemplateClass()
+RobotomyRequestForm::RobotomyRequestForm()
 {
-	if (TemplateClass_DEBUG_MESSAGES)
-		std::cout << "TemplateClass Default constructor called." << std::endl;
+	if (RobotomyRequestForm_DEBUG_MESSAGES)
+		std::cout << "RobotomyRequestForm Default constructor called." << std::endl;
 	return;
 }
 
 // Copy constructor
-TemplateClass::TemplateClass(const TemplateClass& copy)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& copy)
 {
-	if (TemplateClass_DEBUG_MESSAGES)
-		std::cout << "TemplateClass Copy constructor called." << std::endl;
+	if (RobotomyRequestForm_DEBUG_MESSAGES)
+		std::cout << "RobotomyRequestForm Copy constructor called." << std::endl;
 	*this = copy;
 	return;
 }
 
 // Destructor
-TemplateClass::~TemplateClass()
+RobotomyRequestForm::~RobotomyRequestForm()
 {
-	if (TemplateClass_DEBUG_MESSAGES)
-		std::cout << "TemplateClass Destructor called" << std::endl;
+	if (RobotomyRequestForm_DEBUG_MESSAGES)
+		std::cout << "RobotomyRequestForm Destructor called" << std::endl;
 	return;
 }
 
@@ -47,10 +47,10 @@ TemplateClass::~TemplateClass()
 ////////////////////////////////////////////////////////////////////////////////
 
 // Assignment operator overload (deep copy)
-TemplateClass& TemplateClass::operator= (const TemplateClass& assignment)
+RobotomyRequestForm& RobotomyRequestForm::operator= (const RobotomyRequestForm& assignment)
 {
-	if (TemplateClass_DEBUG_MESSAGES && TemplateClass_ADD_VERBOSE)
-		std::cout << "TemplateClass Copy assignment operator called" << std::endl;
+	if (RobotomyRequestForm_DEBUG_MESSAGES && RobotomyRequestForm_ADD_VERBOSE)
+		std::cout << "RobotomyRequestForm Copy assignment operator called" << std::endl;
 	if (this != &assignment)
 	{
 		//TODO: REQUIRES PER CLASS IMPLEMENTATION
@@ -95,7 +95,7 @@ TemplateClass& TemplateClass::operator= (const TemplateClass& assignment)
 ////////////////////////////////////////////////////////////////////////////////
 
 //Stream insertion operator overload
-std::ostream& operator<< (std::ostream& o, const TemplateClass& i)
+std::ostream& operator<< (std::ostream& o, const RobotomyRequestForm& i)
 {
 	//TODO: REQUIRES PER CLASS IMPLEMENTATION
 	o << i;
