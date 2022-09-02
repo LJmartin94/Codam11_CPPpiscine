@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 14:46:57 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 16:30:24 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,22 @@ Form& Form::operator= (const Form& assignment)
 
 // Pubic methods
 ////////////////////////////////////////////////////////////////////////////////
-
+// virtual void	execute(const Bureaucrat& executor) -> pure virtual function
 ////////////////////////////////////////////////////////////////////////////////
 
 
 // Protected methods
 ////////////////////////////////////////////////////////////////////////////////
-
+bool	Form::check_executable(const Bureaucrat& executor) const
+{
+	if (this->Get_executeGrade() < executor.Get_grade())
+		throw GradeTooLowException();
+	else if ( !(this->Get_signed()) )
+		throw FormUnsignedException();
+	else
+		return (true);
+	return (false);
+}
 ////////////////////////////////////////////////////////////////////////////////
 
 

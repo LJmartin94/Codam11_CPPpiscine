@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 14:53:29 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 16:30:17 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,13 @@ class Form
 	// Pubic member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	public:
+	virtual void	execute(const Bureaucrat& executor) const = 0;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Protected member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	protected:
+	bool			check_executable(const Bureaucrat& executor) const;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Private member variables & methods
@@ -88,6 +90,15 @@ class Form
 			const char *what() const throw()
 			{
 				return ("Exception: Grade too low. (Form::GradeTooLowException)");
+			}
+	};
+
+	class FormUnsignedException : public std::exception
+	{
+		public:
+			const char *what() const throw()
+			{
+				return ("Exception: Form has not yet been signed. (Form::FormUnsignedException)");
 			}
 	};
 	////////////////////////////////////////////////////////////////////////////
