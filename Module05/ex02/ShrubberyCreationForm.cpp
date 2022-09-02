@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 13:56:20 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 14:28:10 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,6 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator= (const ShrubberyCreation
 ////////////////////////////////////////////////////////////////////////////////
 
 //Stream insertion operator overload
-std::ostream& operator<< (std::ostream& o, const ShrubberyCreationForm& i)
-{
-	//TODO: REQUIRES PER CLASS IMPLEMENTATION
-	o << i;
-	return (o);
-}
+// Inherited from parent.
 
 ////////////////////////////////////////////////////////////////////////////////

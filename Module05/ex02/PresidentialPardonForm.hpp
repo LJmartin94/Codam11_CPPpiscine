@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 14:03:39 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 14:29:11 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ class PresidentialPardonForm : public Form
 };
 
 // Stream insertion operator overload
-std::ostream& operator<< (std::ostream& o, PresidentialPardonForm const & i);
+// Inherited from parent.
 
 #endif
