@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 17:34:20 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 20:01:25 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 #include <iostream> // Stream operators
+#include <fstream> // File manipulation
 #include "Form.hpp" // Parent class
 
 # define ShrubberyCreationForm_DEBUG_MESSAGES 1
