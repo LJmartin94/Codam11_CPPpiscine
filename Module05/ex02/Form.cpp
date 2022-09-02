@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 00:36:04 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 14:18:27 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,11 @@ unsigned int	Form::Get_executeGrade(void) const
 	return(this->_executeGrade);
 }
 
+std::string		Form::Get_target(void) const
+{
+	return(this->_target);
+}
+
 
 // Basically Set_signed();
 void			Form::beSigned(const Bureaucrat& signer)
@@ -138,6 +143,7 @@ std::ostream& operator<< (std::ostream& o, const Form& i)
 {
 	o << std::endl
 	<< "Form name:          " << i.Get_name() << std::endl
+	<< "Form target:        " << i.Get_target() << std::endl
 	<< "Form sign grade:    " << i.Get_signGrade() << std::endl
 	<< "Form execute grade: " << i.Get_executeGrade() << std::endl
 	<< "Form status:        ";

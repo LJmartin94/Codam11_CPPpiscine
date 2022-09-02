@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 01:28:30 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 14:24:48 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ class Form
 	bool				_signed;
 	const unsigned int	_signGrade;
 	const unsigned int	_executeGrade;
+	const std::string	_target;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Accessors
@@ -64,6 +65,7 @@ class Form
 	bool			Get_signed(void) const;
 	unsigned int	Get_signGrade(void) const;
 	unsigned int	Get_executeGrade(void) const;
+	std::string		Get_target(void) const;
 
 	void			beSigned(const Bureaucrat& signer); // Basically Set_signed
 	////////////////////////////////////////////////////////////////////////////
