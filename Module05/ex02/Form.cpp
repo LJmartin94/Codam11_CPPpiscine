@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 14:18:27 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 14:46:57 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,13 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 // Default constructor
-Form::Form(std::string name, unsigned int to_sign, unsigned int to_execute)
-: _name(name), _signed(false), _signGrade(to_sign), _executeGrade(to_execute)
+Form::Form(std::string name, std::string target, unsigned int to_sign, \
+unsigned int to_execute)
+: _name(name), 
+_target(target), 
+_signed(false), 
+_signGrade(to_sign), 
+_executeGrade(to_execute)
 {
 	if (Form_DEBUG_MESSAGES)
 		std::cout << "Form Default constructor called." << std::endl;
@@ -31,7 +36,8 @@ Form::Form(std::string name, unsigned int to_sign, unsigned int to_execute)
 
 // Copy constructor
 Form::Form(const Form& copy)
-: _name(copy._name), 
+: _name(copy._name),
+_target(copy._target),
 _signed(copy._signed), 
 _signGrade(copy._signGrade), 
 _executeGrade(copy._executeGrade)
