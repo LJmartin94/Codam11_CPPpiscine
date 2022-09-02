@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 15:04:27 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 16:31:23 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,11 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator= (const ShrubberyCreation
 
 // Pubic methods
 ////////////////////////////////////////////////////////////////////////////////
-
+void	ShrubberyCreationForm::execute(const Bureaucrat& executor) const
+{
+	if (this->check_executable(executor))
+		std::cout << this->Get_name() << " does the thing." << std::endl;
+}
 ////////////////////////////////////////////////////////////////////////////////
 
 

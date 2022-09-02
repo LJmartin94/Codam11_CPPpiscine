@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 15:09:47 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 16:33:58 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ class PresidentialPardonForm : public Form
 	// Pubic member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	public:
+	void	execute(const Bureaucrat& executor) const;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Protected member variables & methods

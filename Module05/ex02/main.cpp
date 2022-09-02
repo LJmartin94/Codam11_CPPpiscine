@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 14:54:59 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 16:19:16 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,18 @@
 
 int main(void)
 {
-	ShrubberyCreationForm shrub;
+	Bureaucrat bob("Bob", 1);
+	Bureaucrat igor("Igor", 150);
+
+	ShrubberyCreationForm shrub("Shrobert");
 	std::cout << shrub << std::endl;
-	ShrubberyCreationForm frank("Frank");
-	std::cout << frank;
+	RobotomyRequestForm marvin("Marvin");
+	std::cout << marvin << std::endl;
+	PresidentialPardonForm nicola("Nicola Sturgeon");
+	std::cout << nicola << std::endl;
+
+	nicola.execute(bob);
+
 	// std::cout << "=INITIAL CHECK=================================" << std::endl;
 	// Form blank;
 	// std::cout << blank;
