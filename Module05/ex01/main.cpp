@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 01:58:40 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/02 02:15:00 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,20 @@ void test_signForm(const Bureaucrat& signer, Form& to_sign)
 	std::cout << std::endl << "Form start: " << to_sign;
 	signer.signForm(to_sign);
 	std::cout << std::endl << "Form end: " << to_sign;
+}
+
+void test_FormCreation(std::string name, \
+unsigned int signGrade, unsigned int executeGrade)
+{
+	try
+	{
+		Form newForm(name, signGrade, executeGrade);
+		std::cout << newForm << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 }
 
 int main(void)
@@ -87,5 +101,19 @@ int main(void)
 	medium = reset;
 	hard = reset;
 
+	std::cout << "=MESSING WITH CONSTRUCTOR PARAMS===============" << std::endl;
+	test_FormCreation("Nope", 0, 75);
+	test_FormCreation("Nope", 75, 0);
+	test_FormCreation("Nope", 0, 0);
+	test_FormCreation("Nope", 0, 151);
+	test_FormCreation("Nope", 151, 0);
+	std::cout << std::endl;
+	test_FormCreation("Nope", -1, 75);
+	test_FormCreation("Nope", 151, 75);
+	test_FormCreation("Nope", 75, 151);
+	test_FormCreation("Nope", 151, 151);
+	std::cout << std::endl;
+
+	
 	return(0);
 }
