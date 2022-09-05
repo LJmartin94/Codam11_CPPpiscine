@@ -6,11 +6,11 @@
 #    By: lindsay <lindsay@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/18 14:21:41 by lindsay       #+#    #+#                  #
-#    Updated: 2022/09/05 14:38:32 by lindsay       ########   odam.nl          #
+#    Updated: 2022/09/05 14:52:27 by lindsay       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = YesWeCanInFiveToTenWorkingDays
+NAME = InFiveToTenWorkingDays
 
 ROOT_DIR = ./
 
@@ -29,6 +29,7 @@ SRC = $(SRC_PATH)main.cpp \
 	$(SRC_PATH)PresidentialPardonForm.cpp \
 	$(SRC_PATH)RobotomyRequestForm.cpp \
 	$(SRC_PATH)ShrubberyCreationForm.cpp \
+	$(SRC_PATH)Intern.cpp \
 
 OBJ := $(SRC:%.cpp=%.o)
 
