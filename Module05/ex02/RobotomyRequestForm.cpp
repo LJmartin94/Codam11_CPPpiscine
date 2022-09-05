@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 17:34:06 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/05 14:34:48 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
 : Form("RobotomyRequestForm", target, 72, 45)
 {
+	srand(time(NULL));
 	if (RobotomyRequestForm_DEBUG_MESSAGES)
 		std::cout << "RobotomyRequestForm Default constructor called." << std::endl;
 	return;
@@ -68,7 +69,19 @@ RobotomyRequestForm::~RobotomyRequestForm()
 void	RobotomyRequestForm::execute(const Bureaucrat& executor) const
 {
 	if (this->check_executable(executor))
-		std::cout << this->Get_name() << " does the thing." << std::endl;
+	{
+		std::cout << "*DRILL GO BRRRRRRRRR*" << std::endl;
+		if ( rand() % 2 )
+		{
+			std::cout << this->Get_target() 
+			<< " has been succesfully robotomised." << std::endl;
+		}
+		else
+		{
+			std::cout << "Could not robotomise "<< this->Get_target() 
+			<< "! (ATTEMPT FAILED)" << std::endl;
+		}
+	}
 }
 ////////////////////////////////////////////////////////////////////////////////
 

@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 17:34:00 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/05 14:35:41 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 #include <iostream> // Stream operators
 #include "Form.hpp" // Parent class
+# include <stdlib.h> // Rand function
 
 # define RobotomyRequestForm_DEBUG_MESSAGES 1
 # define RobotomyRequestForm_ADD_VERBOSE 1
