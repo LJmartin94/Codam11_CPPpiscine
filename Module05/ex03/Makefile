@@ -6,7 +6,7 @@
 #    By: lindsay <lindsay@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/18 14:21:41 by lindsay       #+#    #+#                  #
-#    Updated: 2022/09/05 14:52:27 by lindsay       ########   odam.nl          #
+#    Updated: 2022/09/05 18:14:29 by lindsay       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f Shrobert_shrubbery
+	rm -f Bender_shrubbery
 	@echo "$(NAME) fully cleaned"
 
 re: fclean all
