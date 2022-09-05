@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/05 18:04:10 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/05 18:20:20 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ Form	*Intern::makeForm(std::string formName, std::string formTarget)
 	const std::string forms[3] = \
 	{"ROBOTOMYREQUEST", "PRESIDENTIALPARDON", "SHRUBBERYCREATION"};
 	int form_requested = -1;
-	for ( int i = 0; i < 3; i++)
+	for ( int i = 0; i <3; i++)
 	{
 		if(formName.compare(forms[i]) == 0)
 			form_requested = i;
