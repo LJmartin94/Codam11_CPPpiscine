@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   TemplateClass.cpp                                  :+:    :+:            */
+/*   Intern.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 23:35:03 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/05 16:41:32 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "TemplateClass.hpp"
+#include "Intern.hpp"
 
 // Constructors & Destructors
 ////////////////////////////////////////////////////////////////////////////////
 
 // Default constructor
-TemplateClass::TemplateClass()
+Intern::Intern()
 {
-	if (TemplateClass_DEBUG_MESSAGES)
-		std::cout << "TemplateClass Default constructor called." << std::endl;
+	if (Intern_DEBUG_MESSAGES)
+		std::cout << "Intern Default constructor called." << std::endl;
 	return;
 }
 
 // Copy constructor
-TemplateClass::TemplateClass(const TemplateClass& copy)
+Intern::Intern(const Intern& copy)
 {
-	if (TemplateClass_DEBUG_MESSAGES)
-		std::cout << "TemplateClass Copy constructor called." << std::endl;
+	if (Intern_DEBUG_MESSAGES)
+		std::cout << "Intern Copy constructor called." << std::endl;
 	*this = copy;
 	return;
 }
 
 // Destructor
-TemplateClass::~TemplateClass()
+Intern::~Intern()
 {
-	if (TemplateClass_DEBUG_MESSAGES)
-		std::cout << "TemplateClass Destructor called" << std::endl;
+	if (Intern_DEBUG_MESSAGES)
+		std::cout << "Intern Destructor called" << std::endl;
 	return;
 }
 
@@ -47,13 +47,13 @@ TemplateClass::~TemplateClass()
 ////////////////////////////////////////////////////////////////////////////////
 
 // Assignment operator overload (deep copy)
-TemplateClass& TemplateClass::operator= (const TemplateClass& assignment)
+Intern& Intern::operator= (const Intern& assignment)
 {
-	if (TemplateClass_DEBUG_MESSAGES && TemplateClass_ADD_VERBOSE)
-		std::cout << "TemplateClass Copy assignment operator called" << std::endl;
+	if (Intern_DEBUG_MESSAGES && Intern_ADD_VERBOSE)
+		std::cout << "Intern Copy assignment operator called" << std::endl;
 	if (this != &assignment)
 	{
-		//TODO: REQUIRES PER CLASS IMPLEMENTATION
+		//This does nothing
 	}
 	return(*this);
 }
@@ -63,7 +63,10 @@ TemplateClass& TemplateClass::operator= (const TemplateClass& assignment)
 
 // Pubic methods
 ////////////////////////////////////////////////////////////////////////////////
-
+Form	*makeForm(std::string formName, std::string formTarget)
+{
+	
+}
 ////////////////////////////////////////////////////////////////////////////////
 
 
@@ -95,10 +98,9 @@ TemplateClass& TemplateClass::operator= (const TemplateClass& assignment)
 ////////////////////////////////////////////////////////////////////////////////
 
 //Stream insertion operator overload
-std::ostream& operator<< (std::ostream& o, const TemplateClass& i)
+std::ostream& operator<< (std::ostream& o, const Intern& i)
 {
-	//TODO: REQUIRES PER CLASS IMPLEMENTATION
-	o << i;
+	o << "An intern has no name, no grade, no unique characteristics!";
 	return (o);
 }
 

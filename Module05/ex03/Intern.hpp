@@ -1,43 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   TemplateClass.hpp                                  :+:    :+:            */
+/*   Intern.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 22:10:45 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/05 16:39:30 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-//TODO: Make sure this is all-caps!
-#ifndef TEMPLATECLASS_HPP
-# define TEMPLATECLASS_HPP
+#ifndef INTERN_HPP
+# define INTERN_HPP
 
 #include <iostream> // Stream operators
+#include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
-# define TemplateClass_DEBUG_MESSAGES 1
-# define TemplateClass_ADD_VERBOSE 1
+# define Intern_DEBUG_MESSAGES 1
+# define Intern_ADD_VERBOSE 1
 
-class TemplateClass
+class Intern
 {
 	// Constructors & Destructors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	TemplateClass();								// Default constructor
-	TemplateClass(const TemplateClass& copy);		// Copy constructor
-	~TemplateClass();								// Destructor
+	Intern();								// Default constructor
+	Intern(const Intern& copy);		// Copy constructor
+	~Intern();								// Destructor
 	////////////////////////////////////////////////////////////////////////////
 
 	// Operator overloads
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	TemplateClass& operator= (const TemplateClass& assignment);	// Assignment operator
+	Intern& operator= (const Intern& assignment);	// Assignment operator
 	////////////////////////////////////////////////////////////////////////////
 
 	// Pubic member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	public:
+	Form	*makeForm(std::string formName, std::string formTarget);
 	////////////////////////////////////////////////////////////////////////////
 
 	// Protected member variables & methods
@@ -62,6 +66,6 @@ class TemplateClass
 };
 
 // Stream insertion operator overload
-std::ostream& operator<< (std::ostream& o, TemplateClass const & i);
+std::ostream& operator<< (std::ostream& o, Intern const & i);
 
 #endif
