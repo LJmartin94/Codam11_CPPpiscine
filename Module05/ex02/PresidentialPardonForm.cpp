@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 17:33:38 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/05 14:22:42 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,10 @@ PresidentialPardonForm::~PresidentialPardonForm()
 void	PresidentialPardonForm::execute(const Bureaucrat& executor) const
 {
 	if (this->check_executable(executor))
-		std::cout << this->Get_name() << " does the thing." << std::endl;
+	{
+		std::cout << this->Get_target() 
+		<< " has been pardoned by Zaphod Beeblebrox." << std::endl;
+	}
 }
 ////////////////////////////////////////////////////////////////////////////////
 

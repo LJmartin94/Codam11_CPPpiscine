@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 17:46:48 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/05 14:26:41 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,19 @@ int main(void)
 
 	bob.signForm(shrub);
 	bob.executeForm(shrub);
+
+	std::cout << nicola;
+	bob.signForm(nicola);
+	bob.executeForm(nicola);
+
+	std::cout << marvin;
+	bob.signForm(marvin);
+	bob.executeForm(marvin);
+	bob.executeForm(marvin);
+	bob.executeForm(marvin);
+	bob.executeForm(marvin);
+	bob.executeForm(marvin);
+	bob.executeForm(marvin);
 
 	// std::cout << "=INITIAL CHECK=================================" << std::endl;
 	// Form blank;
