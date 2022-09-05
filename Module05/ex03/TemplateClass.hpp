@@ -1,48 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   RobotomyRequestForm.hpp                            :+:    :+:            */
+/*   TemplateClass.hpp                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/05 14:54:28 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/01 22:10:45 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-# define ROBOTOMYREQUESTFORM_HPP
+//TODO: Make sure this is all-caps!
+#ifndef TEMPLATECLASS_HPP
+# define TEMPLATECLASS_HPP
 
 #include <iostream> // Stream operators
-#include "Form.hpp" // Parent class
-# include <stdlib.h> // Rand function
 
-# define RobotomyRequestForm_DEBUG_MESSAGES 1
-# define RobotomyRequestForm_ADD_VERBOSE 1
+# define TemplateClass_DEBUG_MESSAGES 1
+# define TemplateClass_ADD_VERBOSE 1
 
-class RobotomyRequestForm : public Form
+class TemplateClass
 {
 	// Constructors & Destructors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	// Default constructor
-	RobotomyRequestForm(std::string target = "None");
-	// Copy constructor
-	RobotomyRequestForm(const RobotomyRequestForm& copy);
-	// Destructor
-	~RobotomyRequestForm();
+	TemplateClass();								// Default constructor
+	TemplateClass(const TemplateClass& copy);		// Copy constructor
+	~TemplateClass();								// Destructor
 	////////////////////////////////////////////////////////////////////////////
 
 	// Operator overloads
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	// RobotomyRequestForm& operator= (const RobotomyRequestForm& assignment);	// Assignment operator
+	TemplateClass& operator= (const TemplateClass& assignment);	// Assignment operator
 	////////////////////////////////////////////////////////////////////////////
 
 	// Pubic member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	void	execute(const Bureaucrat& executor) const;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Protected member variables & methods
@@ -67,6 +62,6 @@ class RobotomyRequestForm : public Form
 };
 
 // Stream insertion operator overload
-// Inherited from parent.
+std::ostream& operator<< (std::ostream& o, TemplateClass const & i);
 
 #endif

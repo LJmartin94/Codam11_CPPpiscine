@@ -6,11 +6,10 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 20:01:16 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/05 14:54:49 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-//TODO: Make sure this is all-caps!
 #ifndef PRESIDENTIALPARDONFORM_HPP
 # define PRESIDENTIALPARDONFORM_HPP
 
