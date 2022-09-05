@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/02 16:30:17 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/05 17:57:58 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Form
 	Form(std::string name = "Blank", std::string target = "None",\
 	unsigned int to_sign = 150, unsigned int to_execute = 150);
 	Form(const Form& copy);						// Copy constructor
-	~Form();									// Destructor
+	virtual ~Form();									// Destructor
 	////////////////////////////////////////////////////////////////////////////
 
 	// Operator overloads
@@ -99,6 +99,16 @@ class Form
 			const char *what() const throw()
 			{
 				return ("Exception: Form has not yet been signed. (Form::FormUnsignedException)");
+			}
+	};
+
+	public:
+	class NoSuchFormException : public std::exception
+	{
+		public:
+			const char *what() const throw()
+			{
+				return ("Exception: The requested Form does not exist. (Form::NoSuchFormException)");
 			}
 	};
 	////////////////////////////////////////////////////////////////////////////
