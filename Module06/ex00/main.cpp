@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/14 17:44:51 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/14 18:05:16 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ int parse_loop(int &ret, std::string::iterator &i, std::string &input)
 	// std::cout << "Parsing character: " << (*i) << std::endl;
 	// std::cout << "Ret value: " << ret << std::endl;
 	return(i == input.end());
-	// if ()
-	// 	return (ret);
-	// return(0);
 }
 
 int	detect_input_type(std::string input)
@@ -41,12 +38,14 @@ int	detect_input_type(std::string input)
 		i++;
 	if (parse_loop(ret, i, input)) //check int
 		return (ret);
-	if (*i == '.' && i != input.begin() && *(i-1) != '-' \
+	
+	if (*i == '.' && i != input.begin() && std::isdigit(*(i-1)) \
 		&& i + 1 != input.end())
 		i++;
 	if (parse_loop(ret, i, input)) //check double
 		return (ret);
-	if (*i == 'f' && *(i-1) != '.' && *(i-1) != '-' \
+	
+	if (*i == 'f' && i != input.begin() && std::isdigit(*(i-1)) \
 		&& i + 1 == input.end())
 		i++;
 	if (parse_loop(ret, i, input)) //check float

@@ -6,6 +6,7 @@ make re
 echo "Messing with parsing, should all be invalid:"
 ./convert
 ./convert string
+./convert ff
 ./convert -.
 ./convert .0
 ./convert 0.
@@ -16,7 +17,6 @@ echo "Messing with parsing, should all be invalid:"
 ./convert -0.0ff
 ./convert -0.0f0
 ./convert .f
-./convert ff
 ./convert f-
 ./convert -f
 ./convert -a
