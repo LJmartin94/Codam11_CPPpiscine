@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 22:10:45 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/14 15:39:53 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,14 @@
 
 #include <iostream> // Stream operators
 
-# define TemplateClass_DEBUG_MESSAGES 1
-# define TemplateClass_ADD_VERBOSE 1
+# ifndef TemplateClass_DEBUG_MESSAGES 
+#  define TemplateClass_DEBUG_MESSAGES 1
+# endif
+
+# ifndef TemplateClass_ADD_VERBOSE 
+#  define TemplateClass_ADD_VERBOSE 1
+# endif
+
 
 class TemplateClass
 {

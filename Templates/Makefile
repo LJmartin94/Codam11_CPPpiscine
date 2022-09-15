@@ -6,7 +6,7 @@
 #    By: lindsay <lindsay@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/18 14:21:41 by lindsay       #+#    #+#                  #
-#    Updated: 2022/08/29 16:25:32 by limartin      ########   odam.nl          #
+#    Updated: 2022/09/15 14:05:47 by lindsay       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,6 @@ HEADER_FILES = $(INCL_PATH)
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
-
 # TODO: CHANGE!
 SRC = $(SRC_PATH)main.cpp \
 	$(SRC_PATH)TC1.cpp \
@@ -32,23 +30,36 @@ SRC = $(SRC_PATH)main.cpp \
 
 OBJ := $(SRC:%.cpp=%.o)
 
+PreCFLAGS = -Wall -Wextra -Werror -std=c++98
+
+SHUSH := $(SRC:$(SRC_PATH)%.cpp=-D %_DEBUG_MESSAGES=0)
+
+ifdef MAKE_SILENT
+CFLAGS = $(PreCFLAGS) $(SHUSH)
+else
+CFLAGS = $(PreCFLAGS)
+endif 
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) -o $(NAME) $(OBJ) $(CFLAGS)
+	@$(CC) -o $(NAME) $(OBJ) $(CFLAGS)
 	@echo "$(NAME) compiled"
 
 %.o: %.cpp
-	$(CC) -o $@ -c $< $(CFLAGS) -I $(HEADER_FILES)
+	@$(CC) -o $@ -c $< $(CFLAGS) -I $(HEADER_FILES)
+
+silent:
+	@ $(MAKE) MAKE_SILENT=1 all
 
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 	@echo "$(NAME) object files cleaned"
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 	@echo "$(NAME) fully cleaned"
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all silent bonus clean fclean re
