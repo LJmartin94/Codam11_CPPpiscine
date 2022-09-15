@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/15 16:18:18 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/15 16:58:43 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,13 +91,49 @@ ConverterClass& ConverterClass::operator= (const ConverterClass& assignment)
 
 // Pubic methods
 ////////////////////////////////////////////////////////////////////////////////
+void	ConverterClass::stringTranslator(std::string input, int datatype)
+{
+	(void)input;
+	switch (datatype)
+	{
+	case CHAR:
+		// std::cout << "It's a CHAR" << std::endl;
+		convertFromChar(*(input.begin()));
+		break;
+	
+	case INT:
+		// std::cout << "It's a INT" << std::endl;
+		convertFromChar(std::stoi(input)); //C++11?
+		break;
+	
+	case DOUBLE:
+		// std::cout << "It's a DOUBLE" << std::endl;
+		convertFromDouble(std::stod(input)); //C++11?
+		break;
+	
+	case FLOAT:
+		// std::cout << "It's a FLOAT" << std::endl;
+		convertFromFloat(std::stof(input)); //C++11?
+		break;
+	
+	case INVALID:
+		// std::cout << "It's a INVALID" << std::endl;
+		convertFromInt(-1);
+		break;
+
+	default:
+		convertFromInt(-1);
+		break;
+	}
+}
+
 void	ConverterClass::convertFromChar(char c)
 {
 	this->c = c;
 	
-	this->i = static_cast<int>(i);
-	this->d = static_cast<double>(i);
-	this->f = static_cast<float>(i);
+	this->i = static_cast<int>(c);
+	this->d = static_cast<double>(c);
+	this->f = static_cast<float>(c);
 	return;
 }
 

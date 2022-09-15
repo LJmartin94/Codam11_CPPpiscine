@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/15 16:00:03 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/15 16:28:18 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@
 #  define ConverterClass_ADD_VERBOSE 1
 # endif
 
+enum input_type 
+{
+	INVALID,
+	FLOAT,
+	DOUBLE,
+	INT,
+	CHAR,
+	SIZE
+};
 
 class ConverterClass
 {
@@ -52,6 +61,7 @@ class ConverterClass
 	float	f;
 	double	d;
 
+	void	stringTranslator(std::string input, int datatype);
 	void	convertFromChar(char c);
 	void	convertFromInt(int i);
 	void	convertFromFloat(float f);

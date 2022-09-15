@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/15 15:56:35 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/15 16:51:01 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,33 +64,35 @@ int main(int argc, char **argv)
 		return (1);
 	}
 	
-	ConverterClass out(43);
+	ConverterClass out;
+	out.stringTranslator(argv[1], type);
 	std::cout << out << std::endl;
-	switch (type)
-	{
-		case CHAR:
-			std::cout << "It's a CHAR" << std::endl;
-			break;
+	// switch (type)
+	// {
+	// 	case CHAR:
+	// 		std::cout << "It's a CHAR" << std::endl;
+	// 		out.convertFromChar()
+	// 		break;
 		
-		case INT:
-			std::cout << "It's a INT" << std::endl;
-			break;
+	// 	case INT:
+	// 		std::cout << "It's a INT" << std::endl;
+	// 		break;
 		
-		case DOUBLE:
-			std::cout << "It's a DOUBLE" << std::endl;
-			break;
+	// 	case DOUBLE:
+	// 		std::cout << "It's a DOUBLE" << std::endl;
+	// 		break;
 		
-		case FLOAT:
-			std::cout << "It's a FLOAT" << std::endl;
-			break;
+	// 	case FLOAT:
+	// 		std::cout << "It's a FLOAT" << std::endl;
+	// 		break;
 		
-		case INVALID:
-			std::cout << "It's a INVALID" << std::endl;
-			break;
+	// 	case INVALID:
+	// 		std::cout << "It's a INVALID" << std::endl;
+	// 		break;
 		
-		default:
-			std::cout << "Something went wrong" << std::endl;
-			break;
-	}
+	// 	default:
+	// 		std::cout << "Something went wrong" << std::endl;
+	// 		break;
+	// }
 	return(0);
 }
