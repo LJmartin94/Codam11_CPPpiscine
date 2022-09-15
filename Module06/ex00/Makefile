@@ -6,7 +6,7 @@
 #    By: lindsay <lindsay@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/18 14:21:41 by lindsay       #+#    #+#                  #
-#    Updated: 2022/09/15 14:03:22 by lindsay       ########   odam.nl          #
+#    Updated: 2022/09/15 15:33:48 by limartin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ HEADER_FILES = $(INCL_PATH)
 CC = c++
 
 SRC = $(SRC_PATH)main.cpp \
-	$(SRC_PATH)ConversionOutput.cpp \
+	$(SRC_PATH)ConverterClass.cpp \
 
 OBJ := $(SRC:%.cpp=%.o)
 

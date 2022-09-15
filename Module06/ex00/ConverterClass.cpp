@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ConversionOutput.cpp                               :+:    :+:            */
+/*   ConverterClass.cpp                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/15 13:05:39 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/15 15:32:54 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ConversionOutput.hpp"
+#include "ConverterClass.hpp"
 
 // Constructors & Destructors
 ////////////////////////////////////////////////////////////////////////////////
 
 // Default constructor
-ConversionOutput::ConversionOutput()
+ConverterClass::ConverterClass()
 {
-	if (ConversionOutput_DEBUG_MESSAGES)
-		std::cout << "ConversionOutput Default constructor called." << std::endl;
+	if (ConverterClass_DEBUG_MESSAGES)
+		std::cout << "ConverterClass Default constructor called." << std::endl;
 	return;
 }
 
 // Copy constructor
-ConversionOutput::ConversionOutput(const ConversionOutput& copy)
+ConverterClass::ConverterClass(const ConverterClass& copy)
 {
-	if (ConversionOutput_DEBUG_MESSAGES)
-		std::cout << "ConversionOutput Copy constructor called." << std::endl;
+	if (ConverterClass_DEBUG_MESSAGES)
+		std::cout << "ConverterClass Copy constructor called." << std::endl;
 	*this = copy;
 	return;
 }
 
 // Destructor
-ConversionOutput::~ConversionOutput()
+ConverterClass::~ConverterClass()
 {
-	if (ConversionOutput_DEBUG_MESSAGES)
-		std::cout << "ConversionOutput Destructor called" << std::endl;
+	if (ConverterClass_DEBUG_MESSAGES)
+		std::cout << "ConverterClass Destructor called" << std::endl;
 	return;
 }
 
@@ -47,10 +47,10 @@ ConversionOutput::~ConversionOutput()
 ////////////////////////////////////////////////////////////////////////////////
 
 // Assignment operator overload (deep copy)
-ConversionOutput& ConversionOutput::operator= (const ConversionOutput& assignment)
+ConverterClass& ConverterClass::operator= (const ConverterClass& assignment)
 {
-	if (ConversionOutput_DEBUG_MESSAGES && ConversionOutput_ADD_VERBOSE)
-		std::cout << "ConversionOutput Copy assignment operator called" << std::endl;
+	if (ConverterClass_DEBUG_MESSAGES && ConverterClass_ADD_VERBOSE)
+		std::cout << "ConverterClass Copy assignment operator called" << std::endl;
 	if (this != &assignment)
 	{
 		//TODO: REQUIRES PER CLASS IMPLEMENTATION
@@ -63,7 +63,7 @@ ConversionOutput& ConversionOutput::operator= (const ConversionOutput& assignmen
 
 // Pubic methods
 ////////////////////////////////////////////////////////////////////////////////
-std::string	ConversionOutput::cShow(void) const
+std::string	ConverterClass::cShow(void) const
 {
 	std::stringstream ss;
 	std::string ret;
@@ -73,7 +73,7 @@ std::string	ConversionOutput::cShow(void) const
 	return(ret);
 }
 
-std::string	ConversionOutput::iShow(void) const
+std::string	ConverterClass::iShow(void) const
 {
 	std::stringstream ss;
 	std::string ret;
@@ -83,7 +83,7 @@ std::string	ConversionOutput::iShow(void) const
 	return(ret);
 }
 
-std::string	ConversionOutput::fShow(void) const
+std::string	ConverterClass::fShow(void) const
 {
 	std::stringstream ss;
 	std::string ret;
@@ -93,7 +93,7 @@ std::string	ConversionOutput::fShow(void) const
 	return(ret);
 }
 
-std::string	ConversionOutput::dShow(void) const
+std::string	ConverterClass::dShow(void) const
 {
 	std::stringstream ss;
 	std::string ret;
@@ -134,7 +134,7 @@ std::string	ConversionOutput::dShow(void) const
 ////////////////////////////////////////////////////////////////////////////////
 
 //Stream insertion operator overload
-std::ostream& operator<< (std::ostream& o, const ConversionOutput& i)
+std::ostream& operator<< (std::ostream& o, const ConverterClass& i)
 {
 	o << "char:   " << i.cShow() << std::endl;
 	o << "int:    " << i.iShow() << std::endl;
