@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/14 18:05:16 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/15 13:08:35 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,18 @@ int	detect_input_type(std::string input)
 
 int main(int argc, char **argv)
 {
-	if (argc != 2 || detect_input_type(argv[1]) == INVALID)
+	int type = INVALID;
+	if (argc == 2)
+		type = detect_input_type(argv[1]);
+	if (type == INVALID)
 	{
 		std::cerr << "Error: Bad input passed." << std::endl;
 		return (1);
 	}
-	switch (detect_input_type(argv[1]))
+	
+	ConversionOutput out;
+	std::cout << out << std::endl;
+	switch (type)
 	{
 		case CHAR:
 			std::cout << "It's a CHAR" << std::endl;
