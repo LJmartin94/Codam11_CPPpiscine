@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/15 15:51:38 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/15 15:56:35 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int main(int argc, char **argv)
 		return (1);
 	}
 	
-	ConverterClass out;
+	ConverterClass out(43);
 	std::cout << out << std::endl;
 	switch (type)
 	{

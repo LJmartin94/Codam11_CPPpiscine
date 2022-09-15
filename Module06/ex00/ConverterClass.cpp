@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/15 15:42:22 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/15 16:18:18 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@
 // Default constructor
 ConverterClass::ConverterClass(int i)
 {
-	this->i = i;
-	this->c = i;
-	this->d = i;
-	this->f = i;
+	convertFromInt(i);
 	if (ConverterClass_DEBUG_MESSAGES)
 		std::cout << "ConverterClass INT (or Default) constructor called." << std::endl;
 	return;
@@ -29,10 +26,7 @@ ConverterClass::ConverterClass(int i)
 
 ConverterClass::ConverterClass(char c)
 {
-	this->i = c;
-	this->c = c;
-	this->d = c;
-	this->f = c;
+	convertFromChar(c);
 	if (ConverterClass_DEBUG_MESSAGES)
 		std::cout << "ConverterClass CHAR constructor called." << std::endl;
 	return;
@@ -40,10 +34,7 @@ ConverterClass::ConverterClass(char c)
 
 ConverterClass::ConverterClass(double d)
 {
-	this->i = d;
-	this->c = d;
-	this->d = d;
-	this->f = d;
+	convertFromDouble(d);
 	if (ConverterClass_DEBUG_MESSAGES)
 		std::cout << "ConverterClass DOUBLE constructor called." << std::endl;
 	return;
@@ -51,10 +42,7 @@ ConverterClass::ConverterClass(double d)
 
 ConverterClass::ConverterClass(float f)
 {
-	this->i = f;
-	this->c = f;
-	this->d = f;
-	this->f = f;
+	convertFromFloat(f);
 	if (ConverterClass_DEBUG_MESSAGES)
 		std::cout << "ConverterClass FLOAT constructor called." << std::endl;
 	return;
@@ -90,7 +78,10 @@ ConverterClass& ConverterClass::operator= (const ConverterClass& assignment)
 		std::cout << "ConverterClass Copy assignment operator called" << std::endl;
 	if (this != &assignment)
 	{
-		//TODO: REQUIRES PER CLASS IMPLEMENTATION
+		this->c = assignment.c;
+		this->i = assignment.i;
+		this->d = assignment.d;
+		this->f = assignment.f;
 	}
 	return(*this);
 }
@@ -100,6 +91,65 @@ ConverterClass& ConverterClass::operator= (const ConverterClass& assignment)
 
 // Pubic methods
 ////////////////////////////////////////////////////////////////////////////////
+void	ConverterClass::convertFromChar(char c)
+{
+	this->c = c;
+	
+	this->i = static_cast<int>(i);
+	this->d = static_cast<double>(i);
+	this->f = static_cast<float>(i);
+	return;
+}
+
+void	ConverterClass::convertFromInt(int i)
+{
+	this->i = i;
+	
+	this->c = static_cast<char>(i);
+	this->d = static_cast<double>(i);
+	this->f = static_cast<float>(i);
+	return;
+}
+
+void	ConverterClass::convertFromFloat(float f)
+{
+	this->f = f;
+	
+	this->i = static_cast<int>(f);
+	this->c = static_cast<char>(f);
+	this->d = static_cast<double>(f);
+	return;
+}
+
+void	ConverterClass::convertFromDouble(double d)
+{
+	this->d = d;
+	
+	this->i = static_cast<int>(d);
+	this->c = static_cast<char>(d);
+	this->f = static_cast<float>(d);
+	return;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// Protected methods
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// Private methods
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// Accessors
+////////////////////////////////////////////////////////////////////////////////
+
 std::string	ConverterClass::cShow(void) const
 {
 	std::stringstream ss;
@@ -143,24 +193,6 @@ std::string	ConverterClass::dShow(void) const
 ////////////////////////////////////////////////////////////////////////////////
 
 
-// Protected methods
-////////////////////////////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////////////////////
-
-
-// Private methods
-////////////////////////////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////////////////////
-
-
-// Accessors
-////////////////////////////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////////////////////////////
-
-
 // Nested classes
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -177,6 +209,11 @@ std::ostream& operator<< (std::ostream& o, const ConverterClass& i)
 	o << "int:    " << i.iShow() << std::endl;
 	o << "float:  " << i.fShow() << std::endl;
 	o << "double: " << i.dShow() << std::endl;
+
+	// o << "char:   " << i.c << std::endl;
+	// o << "int:    " << i.i << std::endl;
+	// o << "float:  " << i.f << std::endl;
+	// o << "double: " << i.d << std::endl;
 	
 	return (o);
 }

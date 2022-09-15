@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/15 15:53:13 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/15 16:00:03 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,11 @@ class ConverterClass
 	int		i;
 	float	f;
 	double	d;
+
+	void	convertFromChar(char c);
+	void	convertFromInt(int i);
+	void	convertFromFloat(float f);
+	void	convertFromDouble(double d);
 	////////////////////////////////////////////////////////////////////////////
 
 	// Protected member variables & methods
