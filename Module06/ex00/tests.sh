@@ -1,4 +1,4 @@
-make re
+make fclean && make silent
 ./convert -
 ./convert .
 ./convert f

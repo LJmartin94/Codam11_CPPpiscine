@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/15 15:33:35 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/15 15:53:13 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ class ConverterClass
 	// Constructors & Destructors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	ConverterClass();								// Default constructor
+	ConverterClass(int i = 0);						// Default & INT constructor
+	ConverterClass(char c);							// Char constructor
+	ConverterClass(double d);						// Double constructor
+	ConverterClass(float f);						// Float constructor
 	ConverterClass(const ConverterClass& copy);		// Copy constructor
 	~ConverterClass();								// Destructor
 	////////////////////////////////////////////////////////////////////////////

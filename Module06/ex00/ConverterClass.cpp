@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/15 15:32:54 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/15 15:42:22 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,47 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 // Default constructor
-ConverterClass::ConverterClass()
+ConverterClass::ConverterClass(int i)
 {
+	this->i = i;
+	this->c = i;
+	this->d = i;
+	this->f = i;
 	if (ConverterClass_DEBUG_MESSAGES)
-		std::cout << "ConverterClass Default constructor called." << std::endl;
+		std::cout << "ConverterClass INT (or Default) constructor called." << std::endl;
+	return;
+}
+
+ConverterClass::ConverterClass(char c)
+{
+	this->i = c;
+	this->c = c;
+	this->d = c;
+	this->f = c;
+	if (ConverterClass_DEBUG_MESSAGES)
+		std::cout << "ConverterClass CHAR constructor called." << std::endl;
+	return;
+}
+
+ConverterClass::ConverterClass(double d)
+{
+	this->i = d;
+	this->c = d;
+	this->d = d;
+	this->f = d;
+	if (ConverterClass_DEBUG_MESSAGES)
+		std::cout << "ConverterClass DOUBLE constructor called." << std::endl;
+	return;
+}
+
+ConverterClass::ConverterClass(float f)
+{
+	this->i = f;
+	this->c = f;
+	this->d = f;
+	this->f = f;
+	if (ConverterClass_DEBUG_MESSAGES)
+		std::cout << "ConverterClass FLOAT constructor called." << std::endl;
 	return;
 }
 
