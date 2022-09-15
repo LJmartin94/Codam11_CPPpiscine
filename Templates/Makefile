@@ -6,7 +6,7 @@
 #    By: lindsay <lindsay@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/18 14:21:41 by lindsay       #+#    #+#                  #
-#    Updated: 2022/09/15 14:05:47 by lindsay       ########   odam.nl          #
+#    Updated: 2022/09/15 17:16:06 by limartin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ $(NAME): $(OBJ)
 	@$(CC) -o $@ -c $< $(CFLAGS) -I $(HEADER_FILES)
 
 silent:
+	@echo "Compiling without debug messages"
 	@ $(MAKE) MAKE_SILENT=1 all
 
 clean:
