@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/15 16:58:43 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/18 22:47:25 by lindsay       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ ConverterClass& ConverterClass::operator= (const ConverterClass& assignment)
 ////////////////////////////////////////////////////////////////////////////////
 void	ConverterClass::stringTranslator(std::string input, int datatype)
 {
-	(void)input;
 	switch (datatype)
 	{
 	case CHAR:
@@ -103,17 +102,26 @@ void	ConverterClass::stringTranslator(std::string input, int datatype)
 	
 	case INT:
 		// std::cout << "It's a INT" << std::endl;
-		convertFromChar(std::stoi(input)); //C++11?
+		// convertFromInt(std::stoi(input)); //C++11
+		int i;
+		std::istringstream(input) >> i;
+		convertFromInt(i);
 		break;
 	
 	case DOUBLE:
 		// std::cout << "It's a DOUBLE" << std::endl;
-		convertFromDouble(std::stod(input)); //C++11?
+		// convertFromDouble(std::stod(input)); //C++11
+		double d;
+		std::istringstream(input) >> d;
+		convertFromDouble(d);
 		break;
 	
 	case FLOAT:
 		// std::cout << "It's a FLOAT" << std::endl;
-		convertFromFloat(std::stof(input)); //C++11?
+		// convertFromFloat(std::stof(input)); //C++11
+		float f;
+		std::istringstream(input) >> f;
+		convertFromFloat(f);
 		break;
 	
 	case INVALID:
