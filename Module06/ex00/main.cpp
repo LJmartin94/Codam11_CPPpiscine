@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/18 22:24:04 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/19 14:43:21 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,16 @@ int	detect_input_type(std::string input)
 	
 	if (input.length() == 1 && !std::isdigit(*i)) //check char
 		return (ret);
-	if (*i == '-')
+
+	if (!input.compare("-inf") || !input.compare("inf") || \
+		!input.compare("+inf") || !input.compare("nan")) 
+		return(DOUBLE); //check double pseudo literals
+
+	if (!input.compare("-inff") || !input.compare("inff") || \
+		!input.compare("+inff") || !input.compare("nanf")) 
+		return(FLOAT); //check float pseudo literals
+
+	if (*i == '-' || *i == '+')
 		i++;
 	if (parse_loop(ret, i, input)) //check int
 		return (ret);
