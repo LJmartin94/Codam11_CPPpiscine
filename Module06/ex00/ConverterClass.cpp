@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/19 14:46:07 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/19 15:36:11 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,25 +102,26 @@ void	ConverterClass::stringTranslator(std::string input, int datatype)
 	
 	case INT:
 		// std::cout << "It's a INT" << std::endl;
-		// convertFromInt(std::stoi(input)); //C++11
 		int i;
+		// i = std::stoi(input); //C++11
 		std::istringstream(input) >> i;
 		convertFromInt(i);
 		break;
 	
 	case DOUBLE:
 		// std::cout << "It's a DOUBLE" << std::endl;
-		// convertFromDouble(std::stod(input)); //C++11
 		double d;
+		// d = std::stod(input); //C++11
 		std::istringstream(input) >> d;
 		convertFromDouble(d);
 		break;
 	
 	case FLOAT:
 		// std::cout << "It's a FLOAT" << std::endl;
-		// convertFromFloat(std::stof(input)); //C++11
 		float f;
-		std::istringstream(input) >> f;
+		// f = std::stof(input); //C++11
+		// std::stringstream(input) >> f; // Doesn't work for floats on imacs
+		f = atof(input.c_str()); //Slightly C-like, but that's what works. Nicer than casting to double.
 		convertFromFloat(f);
 		break;
 	

@@ -2,6 +2,7 @@ make fclean && make silent
 ./convert -
 ./convert .
 ./convert f
+./convert +
 
 echo "Messing with parsing, should all be invalid:"
 ./convert
@@ -23,6 +24,9 @@ echo "Messing with parsing, should all be invalid:"
 ./convert -0.
 ./convert --
 ./convert --0
+./convert ++0
+./convert -+0
+./convert +-0
 ./convert 0.f
 ./convert -a.3
 ./convert a.3
