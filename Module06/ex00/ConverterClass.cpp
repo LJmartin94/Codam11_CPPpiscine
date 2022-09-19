@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/19 16:48:37 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/19 18:21:21 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,12 @@ void	ConverterClass::stringTranslator(std::string input, int datatype)
 	switch (datatype)
 	{
 	case CHAR:
-		// std::cout << "It's a CHAR" << std::endl;
+		std::cout << "It's a CHAR" << std::endl;
 		convertFromChar(*(input.begin()));
 		break;
 	
 	case INT:
-		// std::cout << "It's a INT" << std::endl;
+		std::cout << "It's a INT" << std::endl;
 		int i;
 		// i = std::stoi(input); //C++11
 		std::istringstream(input) >> i;
@@ -109,7 +109,7 @@ void	ConverterClass::stringTranslator(std::string input, int datatype)
 		break;
 	
 	case DOUBLE:
-		// std::cout << "It's a DOUBLE" << std::endl;
+		std::cout << "It's a DOUBLE" << std::endl;
 		double d;
 		// d = std::stod(input); //C++11
 		std::istringstream(input) >> d;
@@ -117,7 +117,7 @@ void	ConverterClass::stringTranslator(std::string input, int datatype)
 		break;
 	
 	case FLOAT:
-		// std::cout << "It's a FLOAT" << std::endl;
+		std::cout << "It's a FLOAT" << std::endl;
 		float f;
 		// f = std::stof(input); //C++11
 		// std::stringstream(input) >> f; // Doesn't work for floats on imacs
@@ -126,7 +126,7 @@ void	ConverterClass::stringTranslator(std::string input, int datatype)
 		break;
 	
 	case INVALID:
-		// std::cout << "It's a INVALID" << std::endl;
+		std::cout << "It's a INVALID" << std::endl;
 		convertFromInt(-1);
 		break;
 

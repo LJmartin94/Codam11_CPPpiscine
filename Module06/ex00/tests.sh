@@ -85,6 +85,8 @@ echo "./convert -42"
 ./convert -42
 echo "./convert -0"
 ./convert -0
+echo "./convert -214748364 -> can overflow a char to be 4, even though it should be impossible"
+./convert -214748364 
 
 echo "DOUBLES:\n"
 echo "./convert 0.0"
