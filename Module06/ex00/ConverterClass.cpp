@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/21 18:51:00 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/22 00:26:33 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,14 +106,14 @@ void	ConverterClass::stringTranslator(std::string input, int datatype)
 	switch (datatype)
 	{
 	case CHAR:
-		std::cout << "It's a CHAR" << std::endl;
+		// std::cout << "It's a CHAR" << std::endl;
 		convertFromChar(*(input.begin()));
 		this->referenceString = input;
 		this->referenceType = CHAR;
 		break;
 	
 	case INT:
-		std::cout << "It's an INT" << std::endl;
+		// std::cout << "It's an INT" << std::endl;
 		int i;
 		// i = std::stoi(input); //C++11
 		std::istringstream(input) >> i;
@@ -123,7 +123,7 @@ void	ConverterClass::stringTranslator(std::string input, int datatype)
 		break;
 	
 	case DOUBLE:
-		std::cout << "It's a DOUBLE" << std::endl;
+		// std::cout << "It's a DOUBLE" << std::endl;
 		double d;
 		// d = std::stod(input); //C++11
 		std::istringstream(input) >> d;
@@ -133,7 +133,7 @@ void	ConverterClass::stringTranslator(std::string input, int datatype)
 		break;
 	
 	case FLOAT:
-		std::cout << "It's a FLOAT" << std::endl;
+		// std::cout << "It's a FLOAT" << std::endl;
 		float f;
 		// f = std::stof(input); //C++11
 		// std::stringstream(input) >> f; // Doesn't work for floats on imacs
@@ -144,7 +144,7 @@ void	ConverterClass::stringTranslator(std::string input, int datatype)
 		break;
 	
 	case INVALID:
-		std::cout << "It's an INVALID" << std::endl;
+		// std::cout << "It's an INVALID" << std::endl;
 		convertFromInt(-1);
 		this->referenceString = input;
 		this->referenceType = INVALID;
@@ -239,8 +239,8 @@ std::string	ConverterClass::iShow(void) const
 
 	double comparison = atof(referenceString.c_str());
 
-	if ((this->i == INT_MAX && (static_cast<int>(comparison - 1.0) == INT_MAX || this->f - 1 >= this->i )) ||
-		(this->i == INT_MIN && (static_cast<int>(comparison + 1.0) == INT_MIN || this->f + 1 >= this->i )))
+	if ((this->i == INT_MAX && (static_cast<int>(comparison - 1.0) == INT_MAX || static_cast<int>(this->d - 1) >= this->i )) ||
+		(this->i == INT_MIN && (static_cast<int>(comparison + 1.0) == INT_MIN || static_cast<int>(this->d + 1) <= this->i )))
 		ss << "Impossible";
 	else
 		ss << this->i;
@@ -282,7 +282,8 @@ std::string	ConverterClass::dShow(void) const
 
 	double comparison = atof(referenceString.c_str());
 	if ( (this->referenceType == INT && (this->d >= INT_MAX || this->d <= INT_MIN) && (comparison > INT_MAX || comparison < INT_MIN)) || \
-		(this->referenceType == FLOAT && (comparison > std::numeric_limits<float>::max() || comparison * -1 > std::numeric_limits<float>::max())) )
+		(this->referenceType == FLOAT && (comparison > std::numeric_limits<float>::max() || comparison * -1 > std::numeric_limits<float>::max()) \
+		&& comparison != std::numeric_limits<double>::infinity() && -1 * comparison != std::numeric_limits<double>::infinity()) )
 		ss << "Inaccurate";
 	else
 	{

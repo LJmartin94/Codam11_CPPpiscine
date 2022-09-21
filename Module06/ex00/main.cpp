@@ -6,12 +6,12 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/21 18:55:24 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/22 00:13:18 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "TemplateClass.hpp"
-#include "Convert.hpp"
+#include <iostream> // Stream operators
+#include "ConverterClass.hpp" // Conversion Output class
 
 int parse_loop(int &ret, std::string::iterator &i, std::string &input)
 {
