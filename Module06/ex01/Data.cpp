@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/21 19:57:40 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/21 22:31:01 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 // Default constructor
-Data::Data()
+Data::Data(std::string param)
+:var(param)
 {
 	if (Data_DEBUG_MESSAGES)
 		std::cout << "Data Default constructor called." << std::endl;
@@ -53,7 +54,7 @@ Data& Data::operator= (const Data& assignment)
 		std::cout << "Data Copy assignment operator called" << std::endl;
 	if (this != &assignment)
 	{
-		//TODO: REQUIRES PER CLASS IMPLEMENTATION
+		this->var = assignment.var;
 	}
 	return(*this);
 }
@@ -63,7 +64,12 @@ Data& Data::operator= (const Data& assignment)
 
 // Pubic methods
 ////////////////////////////////////////////////////////////////////////////////
-
+int		Data::function()
+{
+	std::cout << "This function works. Wow." << std::endl;
+	// std::cout << "Var stored in Data: " << this->var << std::endl;
+	return (0);
+}
 ////////////////////////////////////////////////////////////////////////////////
 
 
@@ -97,8 +103,7 @@ Data& Data::operator= (const Data& assignment)
 //Stream insertion operator overload
 std::ostream& operator<< (std::ostream& o, const Data& i)
 {
-	//TODO: REQUIRES PER CLASS IMPLEMENTATION
-	o << i;
+	o << "Var stored in Data: " << i.var << std::endl;
 	return (o);
 }
 
