@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/21 17:12:12 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/21 18:19:03 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <iomanip> // setting precision on io
 #include <sstream> // String stream operators
 #include <limits> // overflow checking
+#include <cmath> // formatting floats
 
 # ifndef ConverterClass_DEBUG_MESSAGES 
 #  define ConverterClass_DEBUG_MESSAGES 1

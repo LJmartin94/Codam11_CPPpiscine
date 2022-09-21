@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/21 17:22:35 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/21 18:51:00 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void	ConverterClass::stringTranslator(std::string input, int datatype)
 		break;
 	
 	case INT:
-		std::cout << "It's a INT" << std::endl;
+		std::cout << "It's an INT" << std::endl;
 		int i;
 		// i = std::stoi(input); //C++11
 		std::istringstream(input) >> i;
@@ -144,7 +144,7 @@ void	ConverterClass::stringTranslator(std::string input, int datatype)
 		break;
 	
 	case INVALID:
-		std::cout << "It's a INVALID" << std::endl;
+		std::cout << "It's an INVALID" << std::endl;
 		convertFromInt(-1);
 		this->referenceString = input;
 		this->referenceType = INVALID;
@@ -256,19 +256,22 @@ std::string	ConverterClass::fShow(void) const
 	double comparison = atof(referenceString.c_str());
 	if (this->referenceType == INT && (this->f >= INT_MAX || this->f <= INT_MIN) && (comparison > INT_MAX || comparison < INT_MIN))
 		ss << "Inaccurate";
-	else if (this->f != std::numeric_limits<float>::infinity() && \
-		(this->d > std::numeric_limits<float>::max() || this->d * -1 > std::numeric_limits<float>::max()))
+	else if (this->f == std::numeric_limits<float>::infinity() && \
+		(this->d < std::numeric_limits<double>::infinity() || comparison < std::numeric_limits<double>::infinity()))
 		ss << "Impossible";
 	else
 	{
-		ss << this->f;
+		ss << std::fixed;
+
+		double integral_part = 0;
+		double fractional_part = modf(this->f, &integral_part);
+		if (fractional_part <= 0.001 && fractional_part >= -0.001)
+			ss << std::setprecision(1);
 		
-		// ss << std::fixed;
-		// ss.unsetf(std::ios::floatfield);
-		// ss << std::setprecision(10) << this->f;
-		// ss >> ret;
+		ss << this->f;
+		ss << "f";
 	}
-	ss >> ret;
+	ret = ss.str();
 	return(ret);
 }
 
@@ -277,12 +280,22 @@ std::string	ConverterClass::dShow(void) const
 	std::stringstream ss;
 	std::string ret;
 
-	// ss << std::fixed;
-	// ss.unsetf(std::ios::floatfield);
-	// ss << std::setprecision(10) << this->d;
+	double comparison = atof(referenceString.c_str());
+	if ( (this->referenceType == INT && (this->d >= INT_MAX || this->d <= INT_MIN) && (comparison > INT_MAX || comparison < INT_MIN)) || \
+		(this->referenceType == FLOAT && (comparison > std::numeric_limits<float>::max() || comparison * -1 > std::numeric_limits<float>::max())) )
+		ss << "Inaccurate";
+	else
+	{
+		ss << std::fixed;
 
-	ss << this->d;
-	ss >> ret;
+		double integral_part = 0;
+		double fractional_part = modf(this->f, &integral_part);
+		if (fractional_part <= 0.000001 && fractional_part >= -0.000001)
+			ss << std::setprecision(1);
+		
+		ss << this->d;
+	}
+	ret = ss.str();
 	return(ret);
 }
 
@@ -305,12 +318,6 @@ std::ostream& operator<< (std::ostream& o, const ConverterClass& i)
 	o << "int:    " << i.iShow() << std::endl;
 	o << "float:  " << i.fShow() << std::endl;
 	o << "double: " << i.dShow() << std::endl;
-
-	// o << "char:   " << i.c << std::endl;
-	// o << "int:    " << i.i << std::endl;
-	// o << "float:  " << i.f << std::endl;
-	// o << "double: " << i.d << std::endl;
-	
 	return (o);
 }
 
