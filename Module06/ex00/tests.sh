@@ -77,6 +77,14 @@ echo "./convert \*"
 echo "INTS:\n"
 echo "./convert 0"
 ./convert 0
+echo "./convert 127"
+./convert 127
+echo "./convert 128"
+./convert 128
+echo "./convert -128"
+./convert -128
+echo "./convert -129"
+./convert -129
 echo "./convert 42"
 ./convert 42
 echo "./convert +42"
@@ -87,6 +95,14 @@ echo "./convert -0"
 ./convert -0
 echo "./convert -214748364 -> can overflow a char to be 4, even though it should be impossible"
 ./convert -214748364 
+echo "./convert -2147483648 (INT_MIN)"
+./convert -2147483648
+echo "./convert -2147483649 (INT_MIN -1)"
+./convert -2147483649
+echo "./convert 2147483647 (INT_MAX)"
+./convert 2147483647
+echo "./convert 2147483648 (INT_MAX +1)"
+./convert 2147483648
 
 echo "DOUBLES:\n"
 echo "./convert 0.0"

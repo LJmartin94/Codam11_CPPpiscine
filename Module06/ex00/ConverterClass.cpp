@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/19 18:21:21 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/21 13:16:34 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,7 +200,9 @@ std::string	ConverterClass::cShow(void) const
 	std::stringstream ss;
 	std::string ret;
 
-	if (isprint(this->c))
+	if (this->c != this->i)
+		ss << "Impossible";
+	else if (isprint(this->c))
 		ss << this->c;
 	else
 		ss << "Non displayable";
