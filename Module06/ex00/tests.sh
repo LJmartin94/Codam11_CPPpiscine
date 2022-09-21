@@ -147,6 +147,8 @@ echo "./convert -0.0f"
 ./convert -0.0f
 echo "./convert 0.42f"
 ./convert 0.42f
+echo "./convert 0.0000000000000000000000001f"
+./convert 0.0000000000000000000000001f
 echo "./convert +42.42f"
 ./convert +42.42f
 echo "./convert 42.42f"

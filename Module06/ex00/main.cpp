@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/19 18:17:08 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/21 17:24:00 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,7 @@ int main(int argc, char **argv)
 	out.stringTranslator(argv[1], type);
 	// ConverterClass out();
 	std::cout << out << std::endl;
+	ConverterClass pain(-2147483650.0f);
+	std::cout << pain << std::endl;
 	return(0);
 }

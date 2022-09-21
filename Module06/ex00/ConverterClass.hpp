@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/19 16:47:53 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/21 17:12:12 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 # define CONVERTERCLASS_HPP
 
 #include <iostream> // I/O Stream operators
+#include <iomanip> // setting precision on io
 #include <sstream> // String stream operators
+#include <limits> // overflow checking
 
 # ifndef ConverterClass_DEBUG_MESSAGES 
 #  define ConverterClass_DEBUG_MESSAGES 1
@@ -76,6 +78,8 @@ class ConverterClass
 	// Private member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	private:
+	std::string	referenceString;
+	int			referenceType;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Accessors

@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/21 13:16:34 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/21 17:22:35 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 ConverterClass::ConverterClass(int i)
 {
 	convertFromInt(i);
+	this->referenceString = "";
+	this->referenceType = INT;
 	if (ConverterClass_DEBUG_MESSAGES)
 		std::cout << "ConverterClass INT (or Default) constructor called." << std::endl;
 	return;
@@ -27,6 +29,8 @@ ConverterClass::ConverterClass(int i)
 ConverterClass::ConverterClass(char c)
 {
 	convertFromChar(c);
+	this->referenceString = "";
+	this->referenceType = CHAR;
 	if (ConverterClass_DEBUG_MESSAGES)
 		std::cout << "ConverterClass CHAR constructor called." << std::endl;
 	return;
@@ -35,6 +39,8 @@ ConverterClass::ConverterClass(char c)
 ConverterClass::ConverterClass(double d)
 {
 	convertFromDouble(d);
+	this->referenceString = "";
+	this->referenceType = DOUBLE;
 	if (ConverterClass_DEBUG_MESSAGES)
 		std::cout << "ConverterClass DOUBLE constructor called." << std::endl;
 	return;
@@ -43,6 +49,8 @@ ConverterClass::ConverterClass(double d)
 ConverterClass::ConverterClass(float f)
 {
 	convertFromFloat(f);
+	this->referenceString = "";
+	this->referenceType = FLOAT;
 	if (ConverterClass_DEBUG_MESSAGES)
 		std::cout << "ConverterClass FLOAT constructor called." << std::endl;
 	return;
@@ -82,6 +90,8 @@ ConverterClass& ConverterClass::operator= (const ConverterClass& assignment)
 		this->i = assignment.i;
 		this->d = assignment.d;
 		this->f = assignment.f;
+		this->referenceString = assignment.referenceString;
+		this->referenceType = assignment.referenceType;
 	}
 	return(*this);
 }
@@ -98,6 +108,8 @@ void	ConverterClass::stringTranslator(std::string input, int datatype)
 	case CHAR:
 		std::cout << "It's a CHAR" << std::endl;
 		convertFromChar(*(input.begin()));
+		this->referenceString = input;
+		this->referenceType = CHAR;
 		break;
 	
 	case INT:
@@ -106,6 +118,8 @@ void	ConverterClass::stringTranslator(std::string input, int datatype)
 		// i = std::stoi(input); //C++11
 		std::istringstream(input) >> i;
 		convertFromInt(i);
+		this->referenceString = input;
+		this->referenceType = INT;
 		break;
 	
 	case DOUBLE:
@@ -114,6 +128,8 @@ void	ConverterClass::stringTranslator(std::string input, int datatype)
 		// d = std::stod(input); //C++11
 		std::istringstream(input) >> d;
 		convertFromDouble(d);
+		this->referenceString = input;
+		this->referenceType = DOUBLE;
 		break;
 	
 	case FLOAT:
@@ -123,15 +139,21 @@ void	ConverterClass::stringTranslator(std::string input, int datatype)
 		// std::stringstream(input) >> f; // Doesn't work for floats on imacs
 		f = atof(input.c_str()); //Slightly C-like, but that's what works. Nicer than casting to double.
 		convertFromFloat(f);
+		this->referenceString = input;
+		this->referenceType = FLOAT;
 		break;
 	
 	case INVALID:
 		std::cout << "It's a INVALID" << std::endl;
 		convertFromInt(-1);
+		this->referenceString = input;
+		this->referenceType = INVALID;
 		break;
 
 	default:
 		convertFromInt(-1);
+		this->referenceString = input;
+		this->referenceType = INVALID;
 		break;
 	}
 }
@@ -215,8 +237,14 @@ std::string	ConverterClass::iShow(void) const
 	std::stringstream ss;
 	std::string ret;
 
-	ss << this->i;
-	ss >> ret;
+	double comparison = atof(referenceString.c_str());
+
+	if ((this->i == INT_MAX && (static_cast<int>(comparison - 1.0) == INT_MAX || this->f - 1 >= this->i )) ||
+		(this->i == INT_MIN && (static_cast<int>(comparison + 1.0) == INT_MIN || this->f + 1 >= this->i )))
+		ss << "Impossible";
+	else
+		ss << this->i;
+	ret = ss.str();
 	return(ret);
 }
 
@@ -225,7 +253,21 @@ std::string	ConverterClass::fShow(void) const
 	std::stringstream ss;
 	std::string ret;
 
-	ss << this->f;
+	double comparison = atof(referenceString.c_str());
+	if (this->referenceType == INT && (this->f >= INT_MAX || this->f <= INT_MIN) && (comparison > INT_MAX || comparison < INT_MIN))
+		ss << "Inaccurate";
+	else if (this->f != std::numeric_limits<float>::infinity() && \
+		(this->d > std::numeric_limits<float>::max() || this->d * -1 > std::numeric_limits<float>::max()))
+		ss << "Impossible";
+	else
+	{
+		ss << this->f;
+		
+		// ss << std::fixed;
+		// ss.unsetf(std::ios::floatfield);
+		// ss << std::setprecision(10) << this->f;
+		// ss >> ret;
+	}
 	ss >> ret;
 	return(ret);
 }
@@ -234,6 +276,10 @@ std::string	ConverterClass::dShow(void) const
 {
 	std::stringstream ss;
 	std::string ret;
+
+	// ss << std::fixed;
+	// ss.unsetf(std::ios::floatfield);
+	// ss << std::setprecision(10) << this->d;
 
 	ss << this->d;
 	ss >> ret;
