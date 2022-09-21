@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/21 23:53:35 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/22 00:02:49 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,37 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
-	(void)p;
+	try
+	{
+		(void)dynamic_cast<ClassA&>(p);
+		std::cout << "A";
+		return;
+	}
+	catch(const std::exception& e)
+	{
+		e.what(); //we can just ignore the exception
+	}
+	try
+	{
+		(void)dynamic_cast<ClassB&>(p);
+		std::cout << "B";
+		return;
+	}
+	catch(const std::exception& e)
+	{
+		e.what(); //we can just ignore the exception
+	}
+	try
+	{
+		(void)dynamic_cast<ClassC&>(p);
+		std::cout << "C";
+		return;
+	}
+	catch(const std::exception& e)
+	{
+		e.what(); //we can just ignore the exception
+	}
+	return;
 }
 
 
@@ -65,7 +95,9 @@ int main(void)
 	std::cout << "Identify by pointer: ";
 	identify(mystery);
 	std::cout << std::endl;
-	std::cout << "Identify by reference: " << std::endl;
+	std::cout << "Identify by reference: ";
+	identify(*mystery); 
+	std::cout << std::endl;
 	delete mystery;
 
 	std::cout << std::endl;
@@ -73,7 +105,9 @@ int main(void)
 	std::cout << "Identify by pointer: ";
 	identify(mystery);
 	std::cout << std::endl;
-	std::cout << "Identify by reference: " << std::endl;
+	std::cout << "Identify by reference: ";
+	identify(*mystery); 
+	std::cout << std::endl;
 	delete mystery;
 
 	std::cout << std::endl;
@@ -81,7 +115,9 @@ int main(void)
 	std::cout << "Identify by pointer: ";
 	identify(mystery);
 	std::cout << std::endl;
-	std::cout << "Identify by reference: " << std::endl;
+	std::cout << "Identify by reference: ";
+	identify(*mystery); 
+	std::cout << std::endl;
 	delete mystery;
 
 	std::cout << std::endl;
@@ -89,7 +125,9 @@ int main(void)
 	std::cout << "Identify by pointer: ";
 	identify(mystery);
 	std::cout << std::endl;
-	std::cout << "Identify by reference: " << std::endl;
+	std::cout << "Identify by reference: ";
+	identify(*mystery); 
+	std::cout << std::endl;
 	delete mystery;
 
 	std::cout << std::endl;
@@ -97,7 +135,9 @@ int main(void)
 	std::cout << "Identify by pointer: ";
 	identify(mystery);
 	std::cout << std::endl;
-	std::cout << "Identify by reference: " << std::endl;
+	std::cout << "Identify by reference: ";
+	identify(*mystery); 
+	std::cout << std::endl;
 	delete mystery;
 
 	std::cout << std::endl;
@@ -105,7 +145,9 @@ int main(void)
 	std::cout << "Identify by pointer: ";
 	identify(mystery);
 	std::cout << std::endl;
-	std::cout << "Identify by reference: " << std::endl;
+	std::cout << "Identify by reference: ";
+	identify(*mystery); 
+	std::cout << std::endl;
 	delete mystery;
 
 	std::cout << std::endl;
@@ -113,7 +155,9 @@ int main(void)
 	std::cout << "Identify by pointer: ";
 	identify(mystery);
 	std::cout << std::endl;
-	std::cout << "Identify by reference: " << std::endl;
+	std::cout << "Identify by reference: ";
+	identify(*mystery); 
+	std::cout << std::endl;
 	delete mystery;
 	
 	return(0);
