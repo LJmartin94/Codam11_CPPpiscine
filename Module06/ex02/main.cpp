@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/21 23:38:19 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/21 23:46:15 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,48 @@ Base *generate(void)
 int main(void)
 {
 	srand(time(NULL));
-	// Base *nope = new Base();
-	Base *mystery = generate(); 
+	
+	std::cout << std::endl;
+	Base *mystery = generate();
+	std::cout << "Identify by pointer: " << std::endl;
+	std::cout << "Identify by reference: " << std::endl;
 	delete mystery;
+
+	std::cout << std::endl;
+	mystery = generate();
+	std::cout << "Identify by pointer: " << std::endl;
+	std::cout << "Identify by reference: " << std::endl;
+	delete mystery;
+
+	std::cout << std::endl;
+	mystery = generate();
+	std::cout << "Identify by pointer: " << std::endl;
+	std::cout << "Identify by reference: " << std::endl;
+	delete mystery;
+
+	std::cout << std::endl;
+	mystery = generate();
+	std::cout << "Identify by pointer: " << std::endl;
+	std::cout << "Identify by reference: " << std::endl;
+	delete mystery;
+
+	std::cout << std::endl;
+	mystery = generate();
+	std::cout << "Identify by pointer: " << std::endl;
+	std::cout << "Identify by reference: " << std::endl;
+	delete mystery;
+
+	std::cout << std::endl;
+	mystery = generate();
+	std::cout << "Identify by pointer: " << std::endl;
+	std::cout << "Identify by reference: " << std::endl;
+	delete mystery;
+
+	std::cout << std::endl;
+	mystery = generate();
+	std::cout << "Identify by pointer: " << std::endl;
+	std::cout << "Identify by reference: " << std::endl;
+	delete mystery;
+	
 	return(0);
 }
