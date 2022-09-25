@@ -6,29 +6,52 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/25 14:58:48 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/25 16:30:32 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
+#include "testing.hpp"
+
+void    regularShow(int& arrayContents)
+{
+    std::cout << arrayContents << std::endl;
+    return;
+}
+
+std::string regularIncrement(int& arrayContents)
+{
+  	(arrayContents)++;
+    return("Yes.");
+}
 
 int main(void)
 {
-	// int a = 2;
-	// int b = 3;
+	int intArray[3] = {0, 1, 2};
+	char charArray[3] = {'a', 'b', 'c'};
 
-	// ::swap( a, b );
-	// std::cout << "a = " << a << ", b = " << b << std::endl;
-	// std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
-	// std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+	std::cout << std::endl << "Show with normal function:" << std::endl;
+	iter(intArray, 3, &regularShow);
+	std::cout << std::endl << "Incrementing with normal function." << std::endl;
+	iter(intArray, 3, &regularIncrement);
+	std::cout << std::endl << "Show with normal function:" << std::endl;
+	iter(intArray, 3, &regularShow);
 
-	// std::string c = "chaine1";
-	// std::string d = "chaine2";
+	std::cout << std::endl << "Show with template function:" << std::endl;
+	iter(intArray, 3, &templateShow<int>);
+	std::cout << std::endl << "Incrementing with template function." << std::endl;
+	iter(intArray, 3, &templateIncrement<int>);
+	std::cout << std::endl << "Show with template function:" << std::endl;
+	iter(intArray, 3, &templateShow<int>);
 
-	// ::swap( c, d );
-	// std::cout << "c = " << c << ", d = " << d << std::endl;
-	// std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
-	// std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
-	
+	std::cout << std::endl << "Showing template function works for other datatypes:" << std::endl;
+	std::cout << std::endl << "Show with template function:" << std::endl;
+	iter(charArray, 3, &templateShow<char>);
+	std::cout << std::endl << "Incrementing with template function." << std::endl;
+	iter(charArray, 3, &templateIncrement<char>);
+	std::cout << std::endl << "Show with template function:" << std::endl;
+	iter(charArray, 3, &templateShow<char>);
+
+
 	return(0);
 }

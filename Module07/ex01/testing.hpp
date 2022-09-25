@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   iter.hpp                                           :+:    :+:            */
+/*   testing.hpp                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
+/*   By: limartin <limartin@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/25 16:14:31 by limartin      ########   odam.nl         */
+/*   Created: 2022/09/25 15:42:55 by limartin      #+#    #+#                 */
+/*   Updated: 2022/09/25 16:24:19 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-# define ITER_HPP
+#ifndef TESTING_HPP
+# define TESTING_HPP
 
 #include <iostream> // Stream operators
 
-template<typename ArrayType, typename fRet, typename fArgs>
-void    iter(ArrayType* array, unsigned int len, fRet (*f)(fArgs))
+template<typename T>
+void    templateShow(T& arrayContents)
 {
-    for (unsigned int i = 0; i < len; i++)
-        (*f)(array[i]);
+    std::cout << arrayContents << std::endl;
     return;
+}
+
+template<typename T>
+std::string templateIncrement(T& arrayContents)
+{
+    (arrayContents)++;
+    return("Yes.");
 }
 
 #endif
