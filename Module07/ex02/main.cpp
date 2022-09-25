@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/25 22:26:32 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/25 22:33:41 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int main(void)
 	anotherIntTest = intTest;
 	std::cout << anotherIntTest;
 
+	// intTest = charTest; // Not allowed
 
 	std::cout << "Changing first array, then showing both:" << std::endl;
 	for (unsigned int i = 0; i < intTest.size(); i++)
@@ -65,6 +66,5 @@ int main(void)
 	smart[2] = '*';
 	std::cout << smart;
 
-	// intTest = charTest; // Not allowed
 	return(0);
 }
