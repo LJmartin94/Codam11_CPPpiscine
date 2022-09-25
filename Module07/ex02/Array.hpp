@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/25 16:59:24 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/25 17:11:01 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 #  define Array_ADD_VERBOSE 1
 # endif
 
-
+template<typename T>
 class Array
 {
 	// Constructors & Destructors
