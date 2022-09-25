@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/25 16:58:51 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/25 21:21:52 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,19 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 // Default constructor
-Array::Array()
+template<typename T>
+Array<T>::Array(unsigned int n)
+: _len(n)
 {
+	this->array = new T[n];
 	if (Array_DEBUG_MESSAGES)
-		std::cout << "Array Default constructor called." << std::endl;
+		std::cout << "Array (Un)Parameterised Constructor called." << std::endl;
 	return;
 }
 
 // Copy constructor
-Array::Array(const Array& copy)
+template<typename T>
+Array<T>::Array(const Array& copy)
 {
 	if (Array_DEBUG_MESSAGES)
 		std::cout << "Array Copy constructor called." << std::endl;
@@ -33,8 +37,10 @@ Array::Array(const Array& copy)
 }
 
 // Destructor
-Array::~Array()
+template<typename T>
+Array<T>::~Array()
 {
+	delete[] this->array;
 	if (Array_DEBUG_MESSAGES)
 		std::cout << "Array Destructor called" << std::endl;
 	return;
@@ -47,7 +53,8 @@ Array::~Array()
 ////////////////////////////////////////////////////////////////////////////////
 
 // Assignment operator overload (deep copy)
-Array& Array::operator= (const Array& assignment)
+template<typename T>
+Array<T>& Array<T>::operator= (const Array& assignment)
 {
 	if (Array_DEBUG_MESSAGES && Array_ADD_VERBOSE)
 		std::cout << "Array Copy assignment operator called" << std::endl;
@@ -71,7 +78,7 @@ Array& Array::operator= (const Array& assignment)
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
-
+ 
 
 // Private methods
 ////////////////////////////////////////////////////////////////////////////////
@@ -95,10 +102,12 @@ Array& Array::operator= (const Array& assignment)
 ////////////////////////////////////////////////////////////////////////////////
 
 //Stream insertion operator overload
-std::ostream& operator<< (std::ostream& o, const Array& i)
+template<typename T>
+std::ostream& operator<< (std::ostream& o, const Array<T>& a)
 {
-	//TODO: REQUIRES PER CLASS IMPLEMENTATION
-	o << i;
+	unsigned int len = a.size();
+	for (unsigned int i = 0; i < len; i++)
+		o << a.array[i] << std::endl;
 	return (o);
 }
 

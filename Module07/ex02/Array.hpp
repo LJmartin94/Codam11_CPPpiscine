@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/25 17:11:01 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/25 20:25:34 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ class Array
 	// Constructors & Destructors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	Array();								// Default constructor
-	Array(const Array& copy);		// Copy constructor
+	Array(unsigned int n = 3);				// Default constructor
+	Array(const Array& copy);				// Copy constructor
 	~Array();								// Destructor
 	////////////////////////////////////////////////////////////////////////////
 
@@ -43,6 +43,8 @@ class Array
 	// Pubic member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	public:
+	unsigned int	size(void) const;
+	T*				array;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Protected member variables & methods
@@ -53,6 +55,7 @@ class Array
 	// Private member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	private:
+	unsigned int _len;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Accessors
@@ -66,7 +69,10 @@ class Array
 	////////////////////////////////////////////////////////////////////////////
 };
 
-// Stream insertion operator overload
-std::ostream& operator<< (std::ostream& o, Array const & i);
+// // Stream insertion operator overload
+// template<typename A>
+// std::ostream& operator<< (std::ostream& o, const A & i);
+
+#include "Array.tpp"
 
 #endif

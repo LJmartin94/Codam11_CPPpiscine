@@ -6,7 +6,7 @@
 #    By: lindsay <lindsay@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/18 14:21:41 by lindsay       #+#    #+#                  #
-#    Updated: 2022/09/25 17:01:22 by limartin      ########   odam.nl          #
+#    Updated: 2022/09/25 21:20:51 by limartin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ HEADER_FILES = $(INCL_PATH)
 CC = c++
 
 SRC = $(SRC_PATH)main.cpp \
+	$(SRC_PATH)Array.tpp \
 
 OBJ := $(SRC:%.cpp=%.o)
 
