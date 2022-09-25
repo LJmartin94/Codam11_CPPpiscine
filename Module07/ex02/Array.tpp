@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/25 22:17:07 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/25 22:52:36 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ Array<T>& Array<T>::operator= (const Array<T>& assignment)
 template<typename T>
 T&		Array<T>::operator[] (unsigned int i) const
 {
+	if (i >= this->_len)
+		throw(IndexOutOfBoundsException());
 	return(this->_array[i]);
 }
 

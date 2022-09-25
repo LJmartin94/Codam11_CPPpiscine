@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/25 22:19:51 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/25 22:59:42 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,20 @@ class Array
 	// Nested classes
 	////////////////////////////////////////////////////////////////////////////
 	private:
+	class	IndexOutOfBoundsException : public std::exception
+	{
+		public:
+			const char *what() const throw()
+			{
+				return ("Exception: Accessed index out of Array bounds. (Array::IndexOutOfBoundsException)");
+			}
+	};
 	////////////////////////////////////////////////////////////////////////////
 };
 
-// // Stream insertion operator overload
-// template<typename A>
-// std::ostream& operator<< (std::ostream& o, const A & i);
+// Stream insertion operator overload
+template<typename T>
+std::ostream& operator<< (std::ostream& o, const Array<T>& a);
 
 #include "Array.tpp"
 

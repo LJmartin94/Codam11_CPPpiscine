@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/25 22:33:41 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/25 22:56:56 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,27 @@ int main(void)
 	smart[1] = '*';
 	smart[2] = '*';
 	std::cout << smart;
+
+	std::cout << std::endl;
+	std::cout << "TESTING EXCEPTIONS ============================" << std::endl;
+	try
+	{
+		smart[-1] = '*';
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	try
+	{
+		smart[smart.size()] = '*';
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << std::endl;
 
 	return(0);
 }
