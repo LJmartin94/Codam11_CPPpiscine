@@ -6,68 +6,39 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/25 14:34:25 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/25 14:52:06 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-//TODO: Make sure this is all-caps!
-#ifndef TEMPLATECLASS_HPP
-# define TEMPLATECLASS_HPP
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
 #include <iostream> // Stream operators
 
-# ifndef TemplateClass_DEBUG_MESSAGES 
-#  define TemplateClass_DEBUG_MESSAGES 1
-# endif
-
-# ifndef TemplateClass_ADD_VERBOSE 
-#  define TemplateClass_ADD_VERBOSE 1
-# endif
-
-
-class TemplateClass
+template<typename T>
+void    swap(T& x, T& y)
 {
-	// Constructors & Destructors
-	////////////////////////////////////////////////////////////////////////////
-	public:
-	TemplateClass();								// Default constructor
-	TemplateClass(const TemplateClass& copy);		// Copy constructor
-	~TemplateClass();								// Destructor
-	////////////////////////////////////////////////////////////////////////////
+    T temp;
+    temp = x;
+    x = y;
+    y = temp;
+    return;
+}
 
-	// Operator overloads
-	////////////////////////////////////////////////////////////////////////////
-	public:
-	TemplateClass& operator= (const TemplateClass& assignment);	// Assignment operator
-	////////////////////////////////////////////////////////////////////////////
+template<typename T>
+T   min(const T& x, const T& y)
+{
+    if(x < y)
+        return x;
+    return y;
+}
 
-	// Pubic member variables & methods
-	////////////////////////////////////////////////////////////////////////////
-	public:
-	////////////////////////////////////////////////////////////////////////////
-
-	// Protected member variables & methods
-	////////////////////////////////////////////////////////////////////////////
-	protected:
-	////////////////////////////////////////////////////////////////////////////
-
-	// Private member variables & methods
-	////////////////////////////////////////////////////////////////////////////
-	private:
-	////////////////////////////////////////////////////////////////////////////
-
-	// Accessors
-	////////////////////////////////////////////////////////////////////////////
-	public:
-	////////////////////////////////////////////////////////////////////////////
-
-	// Nested classes
-	////////////////////////////////////////////////////////////////////////////
-	private:
-	////////////////////////////////////////////////////////////////////////////
-};
-
-// Stream insertion operator overload
-std::ostream& operator<< (std::ostream& o, TemplateClass const & i);
+template<typename T>
+T   max(const T& x, const T& y)
+{
+    if(x > y)
+        return x;
+    return y;
+}
 
 #endif
