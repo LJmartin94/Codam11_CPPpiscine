@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/25 21:21:52 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/25 21:25:43 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,11 @@ Array<T>& Array<T>::operator= (const Array& assignment)
 
 // Pubic methods
 ////////////////////////////////////////////////////////////////////////////////
-
+template<typename T>
+unsigned int	Array<T>::size(void) const
+{
+	return(this->_len);
+}
 ////////////////////////////////////////////////////////////////////////////////
 
 
