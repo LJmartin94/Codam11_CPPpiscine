@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/25 20:25:34 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/25 22:19:51 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,14 @@
 #  define Array_ADD_VERBOSE 1
 # endif
 
-template<typename T>
+template<typename T = int>
 class Array
 {
 	// Constructors & Destructors
 	////////////////////////////////////////////////////////////////////////////
 	public:
 	Array(unsigned int n = 3);				// Default constructor
+	Array(unsigned int n, T defaultVal);	// Additional constructor
 	Array(const Array& copy);				// Copy constructor
 	~Array();								// Destructor
 	////////////////////////////////////////////////////////////////////////////
@@ -37,14 +38,14 @@ class Array
 	// Operator overloads
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	Array& operator= (const Array& assignment);	// Assignment operator
+	Array&	operator= (const Array& assignment);	// Assignment operator
+	T&		operator[] (unsigned int i) const;		// Subscript operator
 	////////////////////////////////////////////////////////////////////////////
 
 	// Pubic member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	public:
 	unsigned int	size(void) const;
-	T*				array;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Protected member variables & methods
@@ -55,7 +56,8 @@ class Array
 	// Private member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	private:
-	unsigned int _len;
+	T*				_array;
+	unsigned int	_len;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Accessors
