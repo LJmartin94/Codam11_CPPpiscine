@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/26 00:32:40 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/26 19:16:17 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define EASYFIND_HPP
 
 # include <algorithm>
+# include <iterator>
+# include <vector>
 
 class ElementNotFound : public std::exception
 {
