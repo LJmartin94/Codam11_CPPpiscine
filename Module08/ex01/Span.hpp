@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   TemplateClass.hpp                                  :+:    :+:            */
+/*   Span.hpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/14 15:39:53 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/27 18:01:42 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 //TODO: Make sure this is all-caps!
-#ifndef TEMPLATECLASS_HPP
-# define TEMPLATECLASS_HPP
+#ifndef SPAN_HPP
+# define SPAN_HPP
 
 #include <iostream> // Stream operators
 
-# ifndef TemplateClass_DEBUG_MESSAGES 
-#  define TemplateClass_DEBUG_MESSAGES 1
+# ifndef Span_DEBUG_MESSAGES 
+#  define Span_DEBUG_MESSAGES 1
 # endif
 
-# ifndef TemplateClass_ADD_VERBOSE 
-#  define TemplateClass_ADD_VERBOSE 1
+# ifndef Span_ADD_VERBOSE 
+#  define Span_ADD_VERBOSE 1
 # endif
 
 
-class TemplateClass
+class Span
 {
 	// Constructors & Destructors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	TemplateClass();								// Default constructor
-	TemplateClass(const TemplateClass& copy);		// Copy constructor
-	~TemplateClass();								// Destructor
+	Span();								// Default constructor
+	Span(const Span& copy);		// Copy constructor
+	~Span();								// Destructor
 	////////////////////////////////////////////////////////////////////////////
 
 	// Operator overloads
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	TemplateClass& operator= (const TemplateClass& assignment);	// Assignment operator
+	Span& operator= (const Span& assignment);	// Assignment operator
 	////////////////////////////////////////////////////////////////////////////
 
 	// Pubic member variables & methods
@@ -68,6 +68,6 @@ class TemplateClass
 };
 
 // Stream insertion operator overload
-std::ostream& operator<< (std::ostream& o, TemplateClass const & i);
+std::ostream& operator<< (std::ostream& o, Span const & i);
 
 #endif
