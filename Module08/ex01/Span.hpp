@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/27 18:01:42 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/27 21:36:46 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define SPAN_HPP
 
 #include <iostream> // Stream operators
+#include <vector> // Storage vector for this class
 
 # ifndef Span_DEBUG_MESSAGES 
 #  define Span_DEBUG_MESSAGES 1
@@ -30,9 +31,9 @@ class Span
 	// Constructors & Destructors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	Span();								// Default constructor
-	Span(const Span& copy);		// Copy constructor
-	~Span();								// Destructor
+	Span(unsigned int elements = 2);	// Default constructor
+	Span(const Span& copy);				// Copy constructor
+	~Span();							// Destructor
 	////////////////////////////////////////////////////////////////////////////
 
 	// Operator overloads
@@ -44,6 +45,13 @@ class Span
 	// Pubic member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	public:
+	void			addNumber(int toAdd);
+	void			addNumber(std::vector<int>::iterator start, \
+								std::vector<int>::iterator end);
+	unsigned int	shortestSpan(void);
+	unsigned int	longestSpan(void);
+	void			showSpan(std::ostream& o = std::cout);
+
 	////////////////////////////////////////////////////////////////////////////
 
 	// Protected member variables & methods
@@ -54,6 +62,9 @@ class Span
 	// Private member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	private:
+	std::vector<int>	_vector;
+	unsigned int		_maxSize;
+	void				_showNum(const int &n);
 	////////////////////////////////////////////////////////////////////////////
 
 	// Accessors
