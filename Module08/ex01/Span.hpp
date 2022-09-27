@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/27 21:36:46 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/27 22:38:56 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ class Span
 	void			addNumber(int toAdd);
 	void			addNumber(std::vector<int>::iterator start, \
 								std::vector<int>::iterator end);
-	unsigned int	shortestSpan(void);
-	unsigned int	longestSpan(void);
-	void			showSpan(std::ostream& o = std::cout);
+	unsigned int	shortestSpan(void) const;
+	unsigned int	longestSpan(void) const;
+	void			showSpan(std::ostream& o = std::cout) const;
 
 	////////////////////////////////////////////////////////////////////////////
 
@@ -64,7 +64,8 @@ class Span
 	private:
 	std::vector<int>	_vector;
 	unsigned int		_maxSize;
-	void				_showNum(const int &n);
+	unsigned int		_padding;
+	void				_showNum(const int &n, std::ostream& o) const;
 	////////////////////////////////////////////////////////////////////////////
 
 	// Accessors
