@@ -6,11 +6,10 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/28 01:07:07 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/28 04:15:52 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-//TODO: Make sure this is all-caps!
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
