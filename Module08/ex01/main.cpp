@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/28 02:46:50 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/28 03:41:58 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,12 @@ int main(void)
 	std::cout << testymctest;
 	std::cout << "Smallest: " << testymctest.shortestSpan() << std::endl;
 	std::cout << "Largest:  " << testymctest.longestSpan() << std::endl;
+
+	std::cout << std::endl << "Testing a Span from previous section:" << std::endl;
+	std::cout << six;
+	std::cout << "Smallest: " << six.shortestSpan() << std::endl;
+	std::cout << "Largest:  " << six.longestSpan() << std::endl;
+	std::cout << six;
   
 	std::cout << std::endl;
 	std::cout << "=============================================================" << std::endl;
@@ -282,5 +288,31 @@ int main(void)
 	std::cout << std::endl;
 	std::cout << "=============================================================" << std::endl;
 
+	std::cout << std::endl;
+	std::cout << "TESTING WITH 'LARGE NUMBERS'=================================" << std::endl;
+	
+	std::cout << "First we make a huge fuggin vector (and populate it with random numbers):" << std::endl;
+	unsigned int a_big_val;
+	a_big_val = INT_MAX/32; //67,108,864 -> works, but takes a while to compile (also the vector gets sorted)
+	a_big_val = 1000000; //1,000,000 works just fine.
+	a_big_val = 10000; //10,000 as required by subject
+	std::vector<int> big(a_big_val);
+	srand(time(NULL));
+	for (std::vector<int>::iterator iter = big.begin(); iter != big.end(); iter++)
+		*iter = (rand() % a_big_val);
+	std::cout << "Done." << std::endl;
+
+	std::cout << "Then we use that vector to populate our Class:" << std::endl;
+	Span uhoh(INT_MAX/32); 
+	uhoh.addNumber(big.begin(), big.end());
+	std::cout << "Done." << std::endl;
+
+	std::cout << "Then we run our comparisson functions:" << std::endl;
+	std::cout << "(Though its random, shortestSpan should basically always give 0, and longestSpan should give something close to a_big_val)" << std::endl;
+	std::cout << "shortestSpan gave: " << uhoh.shortestSpan() << std::endl;
+	std::cout << "longestSpan gave: " << uhoh.longestSpan() << std::endl;
+	
+	// // If you're feeling adventurous, you can print out the internal representation of the vector:
+	// std::cout << uhoh;
 	return(0);
 }
