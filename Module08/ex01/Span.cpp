@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/27 23:36:32 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/28 02:10:21 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void			Span::addNumber(int toAdd)
 		new_padding++;
 	}
 	if (new_padding > this->_padding)
-		this->_padding = new_padding;
+		this->_padding = new_padding + 1;
 	return;
 }
 
@@ -108,18 +108,50 @@ void			Span::addNumber(std::vector<int>::iterator start, \
 		new_padding++;
 	}
 	if (new_padding > this->_padding)
-		this->_padding = new_padding;
+		this->_padding = new_padding + 1;
 	return;
 }
 
 unsigned int	Span::shortestSpan(void) const
 {
-	return (1);
+	// Throw exceptions if 0 or 1
+	
+	std::vector<int> copyToSort = this->_vector;
+	std::sort(copyToSort.begin(), copyToSort.end());
+	std::vector<unsigned int> diffVector(copyToSort.size());
+	
+	std::adjacent_difference(copyToSort.begin(), copyToSort.end(), diffVector.begin());
+	
+	// // DEBUG : Dirty display methods
+	// std::cout << std::endl << "Sort array:" << std::endl;
+	// for (std::vector<int>::iterator i = copyToSort.begin(); i != copyToSort.end(); i++)
+	// 	std::cout << "| " << *i << " |";
+	// std::cout << std::endl << "Diff array:" << std::endl;
+	// for (std::vector<unsigned int>::iterator i = diffVector.begin(); i != diffVector.end(); i++)
+	// 	std::cout << "| " << *i << " |";
+	// std::cout << std::endl;
+
+	return (*std::min_element(diffVector.begin() + 1, diffVector.end()));
 }
 
 unsigned int	Span::longestSpan(void) const
 {
-	return (1);
+	// Throw exceptions if 0 or 1
+
+	// // THE C WAY:
+	// int max_val = INT_MIN;
+	// int min_val = INT_MAX;
+	// for (std::vector<const int>::iterator i = this->_vector.begin(); i != _vector.end(); i++)
+	// {
+	// 	max_val = *i > max_val ? *i : max_val;
+	// 	min_val = *i < min_val ? *i : min_val;
+	// }
+	// return (max_val-min_val);
+
+	unsigned int ret = \
+	*std::max_element(this->_vector.begin(), this->_vector.end()) - \
+	*std::min_element(this->_vector.begin(), this->_vector.end());
+	return(ret);
 }
 
 void			Span::showSpan(std::ostream& o) const

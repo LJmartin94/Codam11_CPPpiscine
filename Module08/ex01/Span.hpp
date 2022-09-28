@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/27 22:38:56 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/28 01:07:07 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 #include <iostream> // Stream operators
 #include <vector> // Storage vector for this class
+#include <numeric> // Adjacent_difference function in shortestSpan()
 
 # ifndef Span_DEBUG_MESSAGES 
 #  define Span_DEBUG_MESSAGES 1
