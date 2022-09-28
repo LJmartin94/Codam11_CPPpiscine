@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/28 02:11:54 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/28 02:20:58 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,20 +116,22 @@ int main(void)
 	std::cout << std::endl;
 	std::cout << "TESTING SPAN FUNCTIONS=======================================" << std::endl;
 
-	std::cout << std::endl << "Largest 'longest' possible span:" << std::endl;
+	std::cout << std::endl << "Largest possible span:" << std::endl;
 	Span minmax;
 	minmax.addNumber(INT_MIN);
 	std::cout << minmax;
 	minmax.addNumber(INT_MAX);
 	std::cout << minmax;
-	std::cout << minmax.longestSpan() << std::endl;
+	std::cout << "Longest  gives: " << minmax.longestSpan() << std::endl;
+	std::cout << "Shortest gives: " << minmax.shortestSpan() << std::endl;
 
-	std::cout << std::endl << "Smallest 'longest' possible span:" << std::endl;
+	std::cout << std::endl << "Smallest possible span:" << std::endl;
 	Span minmin;
 	minmin.addNumber(INT_MIN);
 	minmin.addNumber(INT_MIN);
 	std::cout << minmin;
-	std::cout << minmin.longestSpan() << std::endl;
+	std::cout << "Longest  gives: " << minmin.longestSpan() << std::endl;
+	std::cout << "Shortest gives: " << minmin.shortestSpan() << std::endl;
 
 	std::cout << std::endl << "All together:" << std::endl;
 	Span minmaxmaxmin(4);
@@ -137,7 +139,7 @@ int main(void)
 	minmaxmaxmin.addNumber(INT_MAX);
 	minmaxmaxmin.addNumber(INT_MAX);
 	minmaxmaxmin.addNumber(INT_MIN);
-	std::cout << minmaxmaxmin << std::endl;
+	std::cout << minmaxmaxmin;
 	std::cout << "Smallest: " << minmaxmaxmin.shortestSpan() << std::endl;
 	std::cout << "Largest:  " << minmaxmaxmin.longestSpan() << std::endl;
 
@@ -149,7 +151,7 @@ int main(void)
 	testymctest.addNumber(12);
 	testymctest.addNumber(14);
 	testymctest.addNumber(15);
-	std::cout << testymctest << std::endl;
+	std::cout << testymctest;
 	std::cout << "Smallest: " << testymctest.shortestSpan() << std::endl;
 	std::cout << "Largest:  " << testymctest.longestSpan() << std::endl;
   
