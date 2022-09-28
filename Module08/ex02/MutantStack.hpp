@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/28 05:35:42 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/28 06:43:13 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,13 @@
 # ifndef MutantStack_ADD_VERBOSE 
 #  define MutantStack_ADD_VERBOSE 1
 # endif
+
+// Stacks are a wrapper class around an existing container
+// The candidate containers must satisfy a few requirements: 
+// https://en.cppreference.com/w/cpp/container/stack
+
+// Potential underlying containers are:
+// std::vector, std::list, std::deque. 	
 
 template<class T, class Container = std::deque<T> >
 class MutantStack : public std::stack<T>
@@ -68,6 +75,24 @@ class MutantStack : public std::stack<T>
 	}
 	
 	;	// Assignment operator
+	////////////////////////////////////////////////////////////////////////////
+
+	// Template defines / "Member types":
+	////////////////////////////////////////////////////////////////////////////
+	public:
+	typedef Container::value_type				value_type;
+	typedef Container::allocator_type			allocator_type;
+	typedef Container::size_type				size_type;
+	typedef Container::difference_type			difference_type;
+	typedef Container::reference				reference;
+	typedef Container::const_reference			const_reference;
+	typedef Container::pointer					pointer;
+	typedef Container::const_pointer			const_pointer;
+	typedef Container::iterator					iterator;
+	typedef Container::const_iterator			const_iterator;
+	typedef Container::reverse_iterator			reverse_iterator;
+	typedef Container::const_reverse_iterator	const_reverse_iterator;
+
 	////////////////////////////////////////////////////////////////////////////
 
 	// Pubic member variables & methods
