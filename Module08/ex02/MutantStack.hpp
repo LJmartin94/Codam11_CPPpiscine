@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/28 06:43:13 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/28 07:14:59 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,24 +80,44 @@ class MutantStack : public std::stack<T>
 	// Template defines / "Member types":
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	typedef Container::value_type				value_type;
-	typedef Container::allocator_type			allocator_type;
-	typedef Container::size_type				size_type;
-	typedef Container::difference_type			difference_type;
-	typedef Container::reference				reference;
-	typedef Container::const_reference			const_reference;
-	typedef Container::pointer					pointer;
-	typedef Container::const_pointer			const_pointer;
-	typedef Container::iterator					iterator;
-	typedef Container::const_iterator			const_iterator;
-	typedef Container::reverse_iterator			reverse_iterator;
-	typedef Container::const_reverse_iterator	const_reverse_iterator;
+	typedef typename Container::value_type				value_type;
+	typedef typename Container::allocator_type			allocator_type;
+	typedef typename Container::size_type				size_type;
+	typedef typename Container::difference_type			difference_type;
+	typedef typename Container::reference				reference;
+	typedef typename Container::const_reference			const_reference;
+	typedef typename Container::pointer					pointer;
+	typedef typename Container::const_pointer			const_pointer;
+	typedef typename Container::iterator				iterator;
+	typedef typename Container::const_iterator			const_iterator;
+	typedef typename Container::reverse_iterator		reverse_iterator;
+	typedef typename Container::const_reverse_iterator	const_reverse_iterator;
 
 	////////////////////////////////////////////////////////////////////////////
 
 	// Pubic member variables & methods
 	////////////////////////////////////////////////////////////////////////////
 	public:
+	iterator begin(void)
+	{
+		return (this->c.begin());
+	}
+
+	const_iterator begin(void) const
+	{
+		return (this->c.begin());
+	}
+
+	iterator end(void)
+	{
+		return (this->c.end());
+	}
+
+	const_iterator end(void) const
+	{
+		return (this->c.end());
+	}
+
 	////////////////////////////////////////////////////////////////////////////
 
 	// Protected member variables & methods
@@ -125,8 +145,9 @@ class MutantStack : public std::stack<T>
 template<typename T>
 std::ostream& operator<< (std::ostream& o, const MutantStack<T> & i)
 {
-	//TODO: REQUIRES PER CLASS IMPLEMENTATION
-	o << i;
+	for (typename MutantStack<T>::const_iterator it = i.begin(); it != i.end(); it++)
+		o << "| " << *it;
+	o << "|" << std::endl;
 	return (o);
 }
 

@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/28 06:41:05 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/28 07:25:07 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int main(void)
 	// MEMBER FUNCTIONS INHERITED FROM STD::STACK
 
 	////////////////////////////////////////////////////////////////////////////////////////
+	std::cout << std::endl << "=MY OWN PRELIMINARY TESTING ====================================================" << std::endl;
 	MutantStack<int> donatello;
 	donatello.push(42); // FILO -> First in, last out.
 	donatello.push(41);
@@ -57,8 +58,33 @@ int main(void)
 	std::cout << std::endl << "Don again:" << std::endl;
 	showAndPopTillEnd(donatello);
 
+	MutantStack<int>::value_type i;
+	i = 42;
+	MutantStack<int>::pointer ptr = &i;
+	std::cout << std::endl << "These Member types are usable as stand-ins for the types they represent: " << *ptr << std::endl;
+
 	////////////////////////////////////////////////////////////////////////////////////////
 
+	// Showing that iterators work.
+
+	MutantStack<char> leonardo;
+	leonardo.push('l');
+	leonardo.push('e');
+	leonardo.push('o');
+	
+	std::cout << "Leonardo: " << *leonardo.begin() << *(leonardo.begin()+1) << *(leonardo.end()-1);
+	std::cout << std::endl;
+	
+	leonardo.push('n');
+	leonardo.push('a');
+	leonardo.push('r');
+	leonardo.push('d');
+	leonardo.push('o');
+
+	*leonardo.begin() = 'L';
+	std::cout << leonardo;
+	std::cout << std::endl << "================================================================================" << std::endl;
+	
 
 	return(0);
 }
