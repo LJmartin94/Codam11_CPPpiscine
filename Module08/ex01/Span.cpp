@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/28 02:10:21 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/28 02:33:23 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,8 @@ void			Span::addNumber(std::vector<int>::iterator start, \
 unsigned int	Span::shortestSpan(void) const
 {
 	// Throw exceptions if 0 or 1
+	if ((this->_vector.size()) < 2)
+		throw(std::range_error("EXCEPTION: Span does not contain enough elements to perform this operation"));
 	
 	std::vector<int> copyToSort = this->_vector;
 	std::sort(copyToSort.begin(), copyToSort.end());
@@ -137,6 +139,8 @@ unsigned int	Span::shortestSpan(void) const
 unsigned int	Span::longestSpan(void) const
 {
 	// Throw exceptions if 0 or 1
+	if ((this->_vector.size()) < 2)
+		throw(std::range_error("EXCEPTION: Span does not contain enough elements to perform this operation"));
 
 	// // THE C WAY:
 	// int max_val = INT_MIN;

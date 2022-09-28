@@ -6,7 +6,7 @@
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:46 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/28 02:20:58 by limartin      ########   odam.nl         */
+/*   Updated: 2022/09/28 02:46:50 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,7 +155,129 @@ int main(void)
 	std::cout << "Smallest: " << testymctest.shortestSpan() << std::endl;
 	std::cout << "Largest:  " << testymctest.longestSpan() << std::endl;
   
+	std::cout << std::endl;
+	std::cout << "=============================================================" << std::endl;
 
+	std::cout << std::endl;
+	std::cout << "TESTING EXCEPTIONS=======================================" << std::endl;
+
+	std::cout << std::endl;
+	std::cout << "Span of zero length (this is allowed, even though it is unusable):" << std::endl;
+	Span zeroSpan(0);
+	std::cout << zeroSpan;
+	std::cout << "First we try adding a number (but this fails):" << std::endl;
+	try
+	{
+		zeroSpan.addNumber(1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << "Then we try shortestSpan and longestSpan (these both fail):" << std::endl;
+	try
+	{
+		std::cout << zeroSpan.shortestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << zeroSpan.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
+
+	std::cout << std::endl;
+	std::cout << "Span of one length (this is allowed, even though shortestSpan and longestSpan will be unusable):" << std::endl;
+	Span oneSpan(1);
+	std::cout << oneSpan;
+	std::cout << "Now we add a number (42 ofc):" << std::endl;
+	oneSpan.addNumber(42);
+	std::cout << oneSpan;
+	std::cout << "Then we try shortestSpan and longestSpan (these both fail):" << std::endl;
+	try
+	{
+		std::cout << oneSpan.shortestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << oneSpan.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+
+	std::cout << std::endl;
+	std::cout << "Now we test a Span class that has enough size (>=2), but not enough actual numbers added to it:" << std::endl;
+	Span largeButUninitialisedSpan(42);
+	std::cout << "When it is empty, we cannot use shortestSpan or longestSpan:" << std::endl;
+	std::cout << largeButUninitialisedSpan;
+	try
+	{
+		std::cout << largeButUninitialisedSpan.shortestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << largeButUninitialisedSpan.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << "When it contains only one number, we cannot use shortestSpan or longestSpan:" << std::endl;
+	largeButUninitialisedSpan.addNumber(42);
+	std::cout << largeButUninitialisedSpan;
+	try
+	{
+		std::cout << largeButUninitialisedSpan.shortestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << largeButUninitialisedSpan.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << "Only when we add another number does it work:" << std::endl;
+	largeButUninitialisedSpan.addNumber(45);
+	std::cout << largeButUninitialisedSpan;
+	try
+	{
+		std::cout << "Shortest span is: " << largeButUninitialisedSpan.shortestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	try
+	{
+		std::cout << "Longest span is:  " << largeButUninitialisedSpan.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 
 	std::cout << std::endl;
 	std::cout << "=============================================================" << std::endl;
