@@ -6,12 +6,11 @@
 #    By: lindsay <lindsay@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/18 14:21:41 by lindsay       #+#    #+#                  #
-#    Updated: 2022/09/15 17:16:06 by limartin      ########   odam.nl          #
+#    Updated: 2022/09/28 04:19:31 by limartin      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-# TODO: CHANGE!
-NAME = PROJECT_NAME
+NAME = TeenageMutantNinjaStacks
 
 ROOT_DIR = ./
 
@@ -22,11 +21,7 @@ HEADER_FILES = $(INCL_PATH)
 
 CC = c++
 
-# TODO: CHANGE!
 SRC = $(SRC_PATH)main.cpp \
-	$(SRC_PATH)TC1.cpp \
-	$(SRC_PATH)TC2.cpp \
-	$(SRC_PATH)etc.cpp \
 
 OBJ := $(SRC:%.cpp=%.o)
 

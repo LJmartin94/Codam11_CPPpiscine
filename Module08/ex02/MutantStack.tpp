@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   TemplateClass.cpp                                  :+:    :+:            */
+/*   MutantStack.tpp                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:35 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/01 23:35:03 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/28 04:18:05 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "TemplateClass.hpp"
+#include "MutantStack.hpp"
 
 // Constructors & Destructors
 ////////////////////////////////////////////////////////////////////////////////
 
 // Default constructor
-TemplateClass::TemplateClass()
+MutantStack::MutantStack()
 {
-	if (TemplateClass_DEBUG_MESSAGES)
-		std::cout << "TemplateClass Default constructor called." << std::endl;
+	if (MutantStack_DEBUG_MESSAGES)
+		std::cout << "MutantStack Default constructor called." << std::endl;
 	return;
 }
 
 // Copy constructor
-TemplateClass::TemplateClass(const TemplateClass& copy)
+MutantStack::MutantStack(const MutantStack& copy)
 {
-	if (TemplateClass_DEBUG_MESSAGES)
-		std::cout << "TemplateClass Copy constructor called." << std::endl;
+	if (MutantStack_DEBUG_MESSAGES)
+		std::cout << "MutantStack Copy constructor called." << std::endl;
 	*this = copy;
 	return;
 }
 
 // Destructor
-TemplateClass::~TemplateClass()
+MutantStack::~MutantStack()
 {
-	if (TemplateClass_DEBUG_MESSAGES)
-		std::cout << "TemplateClass Destructor called" << std::endl;
+	if (MutantStack_DEBUG_MESSAGES)
+		std::cout << "MutantStack Destructor called" << std::endl;
 	return;
 }
 
@@ -47,10 +47,10 @@ TemplateClass::~TemplateClass()
 ////////////////////////////////////////////////////////////////////////////////
 
 // Assignment operator overload (deep copy)
-TemplateClass& TemplateClass::operator= (const TemplateClass& assignment)
+MutantStack& MutantStack::operator= (const MutantStack& assignment)
 {
-	if (TemplateClass_DEBUG_MESSAGES && TemplateClass_ADD_VERBOSE)
-		std::cout << "TemplateClass Copy assignment operator called" << std::endl;
+	if (MutantStack_DEBUG_MESSAGES && MutantStack_ADD_VERBOSE)
+		std::cout << "MutantStack Copy assignment operator called" << std::endl;
 	if (this != &assignment)
 	{
 		//TODO: REQUIRES PER CLASS IMPLEMENTATION
@@ -95,7 +95,7 @@ TemplateClass& TemplateClass::operator= (const TemplateClass& assignment)
 ////////////////////////////////////////////////////////////////////////////////
 
 //Stream insertion operator overload
-std::ostream& operator<< (std::ostream& o, const TemplateClass& i)
+std::ostream& operator<< (std::ostream& o, const MutantStack& i)
 {
 	//TODO: REQUIRES PER CLASS IMPLEMENTATION
 	o << i;

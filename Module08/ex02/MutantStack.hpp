@@ -1,44 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   TemplateClass.hpp                                  :+:    :+:            */
+/*   MutantStack.hpp                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lindsay <lindsay@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 13:30:42 by lindsay       #+#    #+#                 */
-/*   Updated: 2022/09/14 15:39:53 by lindsay       ########   odam.nl         */
+/*   Updated: 2022/09/28 04:18:49 by limartin      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-//TODO: Make sure this is all-caps!
-#ifndef TEMPLATECLASS_HPP
-# define TEMPLATECLASS_HPP
+#ifndef MUTANTSTACK_HPP
+# define MUTANTSTACK_HPP
 
 #include <iostream> // Stream operators
 
-# ifndef TemplateClass_DEBUG_MESSAGES 
-#  define TemplateClass_DEBUG_MESSAGES 1
+# ifndef MutantStack_DEBUG_MESSAGES 
+#  define MutantStack_DEBUG_MESSAGES 1
 # endif
 
-# ifndef TemplateClass_ADD_VERBOSE 
-#  define TemplateClass_ADD_VERBOSE 1
+# ifndef MutantStack_ADD_VERBOSE 
+#  define MutantStack_ADD_VERBOSE 1
 # endif
 
 
-class TemplateClass
+class MutantStack
 {
 	// Constructors & Destructors
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	TemplateClass();								// Default constructor
-	TemplateClass(const TemplateClass& copy);		// Copy constructor
-	~TemplateClass();								// Destructor
+	MutantStack();								// Default constructor
+	MutantStack(const MutantStack& copy);		// Copy constructor
+	~MutantStack();								// Destructor
 	////////////////////////////////////////////////////////////////////////////
 
 	// Operator overloads
 	////////////////////////////////////////////////////////////////////////////
 	public:
-	TemplateClass& operator= (const TemplateClass& assignment);	// Assignment operator
+	MutantStack& operator= (const MutantStack& assignment);	// Assignment operator
 	////////////////////////////////////////////////////////////////////////////
 
 	// Pubic member variables & methods
@@ -68,6 +67,6 @@ class TemplateClass
 };
 
 // Stream insertion operator overload
-std::ostream& operator<< (std::ostream& o, TemplateClass const & i);
+std::ostream& operator<< (std::ostream& o, MutantStack const & i);
 
 #endif
